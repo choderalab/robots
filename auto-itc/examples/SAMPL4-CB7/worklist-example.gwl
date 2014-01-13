@@ -1,0 +1,47 @@
+W;
+
+A;WaterTrough;;Trough 100ml;1;;400;Water;;1;;;
+
+D;DestinationPlate;;ITCPLATE;1;;400;Water;;1;;;
+
+A;WaterTrough;;Trough 100ml;1;;400;Water;;2;;;
+
+D;WaterTrough;;ITCPLATE;9;;400;Water;;2;;;
+
+A;WaterTrough;;Trough 100ml;1;;120;Water;;4;;;
+
+D;WaterTrough;;ITCPLATE;17;;120;Water;;4;;;
+
+B;
+
+W;
+
+A;BufferTrough;;Trough 100ml;1;;200;Water;;1;;;
+
+D;DestinationPlate;;ITC Plate;25;;200;Water;;1;;;
+
+A;BufferTrough;;Trough 100ml;1;;200;Water;;2;;;
+
+D;DestinationPlate;;ITC Plate;33;;200;Water;;2;;;
+
+A;BufferTrough;;Trough 100ml;1;;60;Water;;4;;;
+
+D;DestinationPlate;;ITC Plate;41;;60;Water;;4;;;
+
+B;
+
+A;SourcePlate;;12WellVialHolder;1;;200;Water;;1;;;
+
+D;DestinationPlate;;ITC Plate;25;;200;Water;;1;;;
+
+A;SourcePlate;;12WellVialHolder;2;;200;Water;;2;;;
+
+D;DestinationPlate;;ITC Plate;33;;200;Water;;2;;;
+
+A;SourcePlate;;12WellVialHolder;3;;60;Water;;4;;;
+
+D;DestinationPlate;;ITC Plate;41;;60;Water;;4;;;
+
+B;
+
+W;
