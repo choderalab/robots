@@ -78,6 +78,17 @@ class Compound(object):
         self.name = name
         self.molecular_weight = molecular_weight
         self.purity = purity
+
+#==============================================================================
+# PIPETTING LOCATION
+#==============================================================================
+
+class PipettingLocation(object):
+    def __init__(self, RackLabel, RackType, Position):
+        # Information for Tecan LiHa.
+        self.RackLabel = RackLabel
+        self.RackType = RackType
+        self.Position = Position
             
 #==============================================================================
 # SOLUTION
@@ -90,7 +101,7 @@ class SimpleSolution(Solvent):
     The solution is assumed to be ideal, with the same volume as that of the solvent.
 
     """
-    def __init__(self, compound, compound_mass, solvent, solvent_mass):
+    def __init__(self, compound, compound_mass, solvent, solvent_mass, location):
         """
         compound : Compound
            The compound added to the solution.
@@ -100,6 +111,8 @@ class SimpleSolution(Solvent):
            The solvent used for the solution.
         solvent_mass : simtk.unit.Quantity compatible with grams
            The mass of solvent used for the solution.
+        location : PipettingLocation
+           The pipetting location holding the solution.
            
         Examples
         --------
@@ -108,7 +121,8 @@ class SimpleSolution(Solvent):
         
         >>> salt = Compound('sodium chloride', molecular_weight=58.44277*units.grams/units.mole)
         >>> water = Solvent('water', density=0.9970479*units.grams/units.centimeter**3)
-        >>> solution = SimpleSolution(compound=salt, compound_mass=1.0*units.milligrams, solvent=water, solvent_mass=10.0*units.grams)
+        >>> location = PipettingLocation('BufferTrough', 'Trough 100ml', 1)
+        >>> solution = SimpleSolution(compound=salt, compound_mass=1.0*units.milligrams, solvent=water, solvent_mass=10.0*units.grams, location=location)
 
         TODO
         ----
@@ -134,6 +148,9 @@ class SimpleSolution(Solvent):
         # Compute molarity.
         self.concentration = self.compound_moles / self.volume
                    
+        # Store location.
+        self.location = location
+
 #==============================================================================
 # MAIN AND TESTS
 #==============================================================================
