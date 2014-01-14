@@ -135,6 +135,8 @@ class SimpleSolution(Solvent):
         self.solvent = solvent
         self.solvent_mass = solvent_mass
 
+        self.name = compound.name
+
         # Compute total solution mass.
         self.solution_mass = self.compound_mass + self.solvent_mass
 

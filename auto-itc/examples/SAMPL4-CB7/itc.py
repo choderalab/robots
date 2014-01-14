@@ -160,6 +160,22 @@ class ITCExperimentSet(object):
             fieldnames = ['cell_destination', 'cell_platename', 'cell_wellindex', 'syringe_plateindex', 'syringe_platename', 'syringe_wellindex']
             for fieldname in fieldnames:
                 setattr(self, fieldname, None)
+
+    def _resetTrackedQuantities(self):
+        self._tracked_quantities = dict()
+
+    def _trackQuantities(self, thing, volume):
+        try:
+            name = thing.name
+        except:
+            name = thing.RackLabel
+
+        print name, volume
+
+        if name in self._tracked_quantities:
+            self._tracked_quantities[name] += volume
+        else:
+            self._tracked_quantities[name] = volume
     
     def validate(self):
         """
@@ -184,11 +200,13 @@ class ITCExperimentSet(object):
                 # Add plate number and well name for Auto iTC-200.
                 location.PlateNumber = PlateNumber
                 location.WellName = WellName
-                destination_locations.append(location)
-            
+                destination_locations.append(location)        
 
         # Build worklist script.
         worklist_script = ""
+
+        # Reset tracked quantities.
+        self._resetTrackedQuantities()
 
         for (experiment_number, experiment) in enumerate(self.experiments):
             experiment.experiment_number = experiment_number
@@ -213,7 +231,9 @@ class ITCExperimentSet(object):
                 tipmask = 1
                 worklist_script += 'A;%s;;%s;%d;;%f;;;%d\r\n' % (experiment.buffer_source.RackLabel, experiment.buffer_source.RackType, 1, buffer_volume, tipmask)
                 worklist_script += 'D;%s;;%s;%d;;%f;;;%d\r\n' % (tecandata.cell_destination.RackLabel, tecandata.cell_destination.RackType, tecandata.cell_destination.Position, buffer_volume, tipmask)
-                
+                worklist_script += 'W;\r\n' # queue wash tips
+                self._trackQuantities(experiment.buffer_source, buffer_volume * units.milliliters)
+
             # Schedule cell solution transfer.
             tipmask = 2
             try:
@@ -223,6 +243,8 @@ class ITCExperimentSet(object):
                 # Assume source is Labware.
                 worklist_script += 'A;%s;;%s;%d;;%f;;;%d\r\n' % (experiment.cell_source.RackLabel, experiment.cell_source.RackType, 2, transfer_volume, tipmask)
             worklist_script += 'D;%s;;%s;%d;;%f;;;%d\r\n' % (tecandata.cell_destination.RackLabel, tecandata.cell_destination.RackType, tecandata.cell_destination.Position, transfer_volume, tipmask)
+            worklist_script += 'W;\r\n' # queue wash tips
+            self._trackQuantities(experiment.cell_source, transfer_volume * units.milliliters)
 
             # Find a place to put syringe contents.
             if len(destination_locations) == 0:
@@ -241,6 +263,8 @@ class ITCExperimentSet(object):
                 tipmask = 4
                 worklist_script += 'A;%s;;%s;%d;;%f;;;%d\r\n' % (experiment.buffer_source.RackLabel, experiment.buffer_source.RackType, 3, buffer_volume, tipmask)
                 worklist_script += 'D;%s;;%s;%d;;%f;;;%d\r\n' % (tecandata.syringe_destination.RackLabel, tecandata.syringe_destination.RackType, tecandata.syringe_destination.Position, buffer_volume, tipmask)
+                worklist_script += 'W;\r\n' # queue wash tips                
+                self._trackQuantities(experiment.buffer_source, buffer_volume * units.milliliters)
                 
             # Schedule syringe solution transfer.
             tipmask = 8
@@ -251,9 +275,10 @@ class ITCExperimentSet(object):
                 # Assume source is Labware.
                 worklist_script += 'A;%s;;%s;%d;;%f;;;%d\r\n' % (experiment.syringe_source.RackLabel, experiment.syringe_source.RackType, 4, transfer_volume, tipmask)
             worklist_script += 'D;%s;;%s;%d;;%f;;;%d\r\n' % (tecandata.syringe_destination.RackLabel, tecandata.syringe_destination.RackType, tecandata.syringe_destination.Position, transfer_volume, tipmask)
+            worklist_script += 'W;\r\n' # queue wash tips
+            self._trackQuantities(experiment.syringe_source, transfer_volume * units.milliliters)
 
             # Finish worklist section.
-            worklist_script += 'W;\r\n' # queue wash tips
             worklist_script += 'B;\r\n' # execute queued batch of commands
 
             # Create datafile name.
@@ -293,6 +318,13 @@ class ITCExperimentSet(object):
             
         # Save Tecan worklist.
         self.worklist = worklist_script
+
+        # Report tracked quantities.
+        print "Necessary volumes:"
+        keys = self._tracked_quantities.keys()
+        keys.sort()
+        for key in keys:
+            print "%32s %12.1f mL" % (key, self._tracked_quantities[key] / units.milliliters)
 
         # Set validated flag.
         self._validated = True

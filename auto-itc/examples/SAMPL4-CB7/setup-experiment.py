@@ -29,10 +29,11 @@ source_plate = Labware(RackLabel='SourcePlate', RackType='12WellVialHolder')
 # Define source solutions on the deck.
 # TODO : Use actual compound and solvent masses.
 from automation import SimpleSolution, PipettingLocation
-host_solution = SimpleSolution(compound=host, compound_mass=1*milligrams, solvent=buffer, solvent_mass=10.0*grams, location=PipettingLocation(source_plate.RackLabel, source_plate.RackType, 1))
+host_solution = SimpleSolution(compound=host, compound_mass=1.6304*milligrams, solvent=buffer, solvent_mass=10.0*grams, location=PipettingLocation(source_plate.RackLabel, source_plate.RackType, 1))
 guest_solutions = list()
+guest_compound_masses = Quantity([2.145, 1.268, 1.576, 1.940, 1.919, 1.555, 1.391, 1.535, 1.679, 2.447, 1.514, 1.946, 1.781, 2.089], milligrams)
 for guest_index in range(nguests):
-    guest_solutions.append( SimpleSolution(compound=guests[guest_index], compound_mass=10*milligrams, solvent=buffer, solvent_mass=10.0*grams, location=PipettingLocation(source_plate.RackLabel, source_plate.RackType, 2+guest_index)) )
+    guest_solutions.append( SimpleSolution(compound=guests[guest_index], compound_mass=guest_compound_masses[guest_index], solvent=buffer, solvent_mass=10.0*grams, location=PipettingLocation(source_plate.RackLabel, source_plate.RackType, 2+guest_index)) )
 
 # Define ITC protocol.
 from itc import ITCProtocol
