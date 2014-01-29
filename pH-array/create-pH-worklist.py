@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
-# TODO: Replace this with a module that computes buffer recipes automatically.
+# TODO
+# * Stage dilution (manually?) of 10 mM stock into DMSO so that we are < 50 uM for final concentrations of erlotinib to avoid solubility problems.
+# * Create blanks using DMSO instead of erlotinib stock.
+
+# TODO: Replace this taable with a module that computes buffer recipes automatically.
 filename = 'citric-phosphate.txt'
 infile = open(filename, 'r')
 lines = infile.readlines()
@@ -38,7 +42,8 @@ def washtips():
 assay_volume = 100.0 # assay volume (uL)
 compound_volume = 5.0 # compound volume (uL)
 buffer_volume = assay_volume - compound_volume
-assay_RackType = 'Corning 3651'
+assay_RackType = 'Corning 3651' # black with clear bottom
+assay_RackType = 'Corning 3679' # uv-transparent half-area
 
 volume_consumed = dict()
 volume_consumed['compound'] = 0.0
