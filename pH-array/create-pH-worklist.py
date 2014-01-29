@@ -38,6 +38,7 @@ def washtips():
 assay_volume = 100.0 # assay volume (uL)
 compound_volume = 5.0 # compound volume (uL)
 buffer_volume = assay_volume - compound_volume
+assay_RackType = 'Corning 3651'
 
 # Build worklist.
 worklist = ""
@@ -45,21 +46,24 @@ for (condition_index, condition) in enumerate(conditions):
     print "pH : %8.1f" % condition['pH']
 
     # destination well of assay plate
-    destination_position = condition_index
+    destination_position = condition_index + 1
 
     # compound
-    worklist += aspirate('Compound Plate', '4x3 Vial Holder', 1, compound_volume, 1)
-    worklist += dispense('Assay Plate', 'Assay Plate', destination_position, compound_volume, 1)
+    volume = compound_volume
+    worklist += aspirate('Compound Plate', '4x3 Vial Holder', 1, volume, 1)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 1)
     worklist += washtips()
 
     # citric acid
-    worklist += aspirate('Citric Acid', 'Trough 100ml', 2, condition['citric acid']*buffer_volume, 2)
-    worklist += dispense('Assay Plate', 'Assay Plate', destination_position, condition['citric acid']*buffer_volume, 2)
+    volume = condition['citric acid']*buffer_volume
+    worklist += aspirate('Citric Acid', 'Trough 100ml', 2, volume, 2)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
     worklist += washtips()
     
     # sodium phosphate
-    worklist += aspirate('Sodium Phosphate', 'Trough 100ml', 3, condition['sodium phosphate']*buffer_volume, 3)
-    worklist += dispense('Assay Plate', 'Assay Plate', destination_position, condition['citric acid']*buffer_volume, 3)
+    volume = condition['sodium phosphate']*buffer_volume
+    worklist += aspirate('Sodium Phosphate', 'Trough 100ml', 3, volume, 4)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
     worklist += washtips()
     
 
