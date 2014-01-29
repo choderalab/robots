@@ -42,8 +42,7 @@ def washtips():
     return 'W;\r\n' # queue wash tips
 
 assay_volume = 100.0 # assay volume (uL)
-compound_volume = 5.0 # compound volume (uL)
-buffer_volume = assay_volume - compound_volume
+buffer_volume = assay_volume
 assay_RackType = 'Corning 3651' # black with clear bottom
 assay_RackType = 'Corning 3679' # uv-transparent half-area
 

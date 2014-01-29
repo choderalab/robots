@@ -1,29 +1,94 @@
+#!/usr/bin/env python
 
-buffer_reference_data = [
-# pH | ml 0.1M-citric acid | ml 0.2M Na2HPO4
-2.6, 89.10, 10.90
-2.8 84.15 15.85
-3.0 79.45 20.55
-3.2 75.30 24.70
-3.4 71.50 28.50
-3.6 67.80 32.20
-3.8 64.50 35.50
-4.0 61.45 38.55
-4.2 58.60 41.40
-4.4 55.90 44.10
-4.6 53.25 46.75
-4.8 50.70 49.30
-5.0 48.50 51.50
-5.2 46.40 53.60
-5.4 44.25 55.75
-5.6 42.00 58.00
-5.8 39.55 60.45
-6.0 36.85 63.15
-6.2 33.90 66.10
-6.4 30.75 69.25
-6.6 27.257 2.75
-6.8 22.75 77.25
-7.0 17.65 82.35
-7.2 13.05 86.95
-7.4 9.15 90.85
-7.6 6.35 93.65
+# TODO
+# * Stage dilution (manually?) of 10 mM stock into DMSO so that we are < 50 uM for final concentrations of erlotinib to avoid solubility problems.
+# * Create blanks using DMSO instead of erlotinib stock.
+
+# TODO: Replace this taable with a module that computes buffer recipes automatically.
+filename = 'citric-phosphate.txt'
+infile = open(filename, 'r')
+lines = infile.readlines()
+infile.close()
+conditions = list()
+for line in lines:
+    # ignore comments
+    if line[0] == '#': continue
+
+    # processs data
+    elements = line.split()
+    entry = dict()
+    entry['pH'] = float(elements[0])
+    entry['citric acid'] = float(elements[1])
+    entry['sodium phosphate'] = float(elements[2])
+
+    # Adjust for 0.1M sodium phosphate.
+    entry['sodium phosphate'] *= 2
+    total = entry['citric acid'] + entry['sodium phosphate'] 
+    entry['citric acid'] /= total
+    entry['sodium phosphate'] /= total
+
+    # Store entry.
+    conditions.append(entry)
+
+def aspirate(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
+    return 'A;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
+
+def dispense(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
+    return 'D;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
+
+def washtips():
+    return 'W;\r\n' # queue wash tips
+
+assay_volume = 100.0 # assay volume (uL)
+compound_volume = 5.0 # compound volume (uL)
+buffer_volume = assay_volume - compound_volume
+assay_RackType = 'Corning 3651' # black with clear bottom
+assay_RackType = 'Corning 3679' # uv-transparent half-area
+
+volume_consumed = dict()
+volume_consumed['compound'] = 0.0
+volume_consumed['citric acid'] = 0.0
+volume_consumed['sodium phosphate'] = 0.0
+
+# Build worklist.
+worklist = ""
+for (condition_index, condition) in enumerate(conditions):
+    print "pH : %8.1f" % condition['pH']
+
+    # destination well of assay plate
+    destination_position = condition_index + 1
+
+    # compound
+    volume = compound_volume
+    volume_consumed['compound'] += volume
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 1, volume, 1)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 1)
+    worklist += washtips()
+
+    # citric acid
+    volume = condition['citric acid']*buffer_volume
+    volume_consumed['citric acid'] += volume
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, volume, 2)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
+    worklist += washtips()
+    
+    # sodium phosphate
+    volume = condition['sodium phosphate']*buffer_volume
+    volume_consumed['sodium phosphate'] += volume
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, volume, 4)
+    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
+    worklist += washtips()
+    
+
+    volume_consumed['sodium phosphate'] += volume
+    
+# Write worklist.
+worklist_filename = 'ph-worklist.gwl'
+outfile = open(worklist_filename, 'w')
+outfile.write(worklist)
+outfile.close()
+
+# Report total volumes.
+print "compound:         %8.3f uL" % volume_consumed['compound']
+print "citric acid:      %8.3f uL" % volume_consumed['citric acid']
+print "sodium phosphate: %8.3f uL" % volume_consumed['sodium phosphate']
