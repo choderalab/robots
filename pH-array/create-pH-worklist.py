@@ -56,21 +56,21 @@ for (condition_index, condition) in enumerate(conditions):
     # compound
     volume = compound_volume
     volume_consumed['compound'] += volume
-    worklist += aspirate('Compound Plate', '4x3 Vial Holder', 1, volume, 1)
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 1, volume, 1)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 1)
     worklist += washtips()
 
     # citric acid
     volume = condition['citric acid']*buffer_volume
     volume_consumed['citric acid'] += volume
-    worklist += aspirate('Citric Acid', 'Trough 100ml', 2, volume, 2)
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, volume, 2)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
     worklist += washtips()
     
     # sodium phosphate
     volume = condition['sodium phosphate']*buffer_volume
     volume_consumed['sodium phosphate'] += volume
-    worklist += aspirate('Sodium Phosphate', 'Trough 100ml', 3, volume, 4)
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, volume, 4)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
     worklist += washtips()
     
