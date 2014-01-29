@@ -26,11 +26,11 @@ for line in lines:
     # Store entry.
     conditions.append(entry)
 
-def aspirate(RackLabel, RackType, position, volume, tipmask):
-    return 'A;%s;;%s;%d;;%f;;;%d\r\n' % (RackLabel, RackType, position, volume, tipmask)
+def aspirate(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
+    return 'A;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
 
-def dispense(RackLabel, RackType, position, volume, tipmask):
-    return 'D;%s;;%s;%d;;%f;;;%d\r\n' % (RackLabel, RackType, position, volume, tipmask)
+def dispense(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
+    return 'D;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
 
 def washtips():
     return 'W;\r\n' # queue wash tips
