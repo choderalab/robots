@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 # Create pH array (with no compound) with symmetric "blanks"
-
+# Optimized for speed.
+ 
 # TODO
 # * Stage dilution (manually?) of 10 mM stock into DMSO so that we are < 50 uM for final concentrations of erlotinib to avoid solubility problems.
 # * Create blanks using DMSO instead of erlotinib stock.
@@ -52,6 +53,43 @@ volume_consumed['sodium phosphate'] = 0.0
 
 # Build worklist.
 worklist = ""
+
+class TransferQueue(object):
+    def __init__(self, SourceRackLabel, SourceRackType, SourcePosition, tipmask):
+        self.SourceRackLabel = SourceRackLabel
+        self.SourceRackType = SourceRackType
+        self.SourcePosition = SourcePosition
+        self.tipmask = tipmask
+        self.worklist = ""
+        self.cumulative_volume = 0.0
+        self.MAX_VOLUME = 950.0
+        self.queue = list()
+        return
+
+    def transfer(self, DestRackLabel, DestRackType, DestPosition, volume):
+        if (self.cumulative_volume + volume > self.MAX_VOLUME):
+            self._flush()
+        item = (DestRackLabel, DestRackType, DestPosition, volume) 
+        self.queue.append(item)
+        self.cumulative_volume += volume
+        
+    def _flush(self):
+        self.worklist += aspirate(self.SourceRackLabel, self.SourceRackType, self.SourcePosition, self.cumulative_volume + 0.01, self.tipmask)
+        for item in self.queue:
+            (DestRackLabel, DestRackType, DestPosition, volume) = item
+            self.worklist += dispense(DestRackLabel, DestRackType, DestPosition, volume, self.tipmask)
+        self.worklist += washtips()
+        # Clear queue.
+        self.queue = list()
+        self.cumulative_volume = 0.0
+
+    def write(self):
+        self._flush()
+        return self.worklist
+    
+citric_acid_queue = TransferQueue('Source Plate', '4x3 Vial Holder', 1, 1)
+sodium_phosphate_queue = TransferQueue('Source Plate', '4x3 Vial Holder', 2, 2)
+
 for (condition_index, condition) in enumerate(conditions):
     print "pH : %8.1f" % condition['pH']
 
@@ -60,20 +98,20 @@ for (condition_index, condition) in enumerate(conditions):
 
     # citric acid
     volume = condition['citric acid']*buffer_volume
-    volume_consumed['citric acid'] += 2*volume + 1
-    worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, 2*volume + 1, 2)
-    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
-    worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 2) # C2 rotation for blanks
-    worklist += washtips()
-    
+    volume_consumed['citric acid'] += 2*volume 
+    citric_acid_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
+    citric_acid_queue.transfer('Assay Plate', assay_RackType, 96 - destination_position + 1, volume)
+
     # sodium phosphate
     volume = condition['sodium phosphate']*buffer_volume
     volume_consumed['sodium phosphate'] += 2*volume + 1
-    worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, 2*volume + 1, 4)
-    worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
-    worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 4)
-    worklist += washtips()
-    
+    sodium_phosphate_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
+    sodium_phosphate_queue.transfer('Assay Plate', assay_RackType, 96 - destination_position + 1, volume)
+
+worklist = ""
+worklist += citric_acid_queue.write()
+worklist += sodium_phosphate_queue.write()
+
 # Write worklist.
 worklist_filename = 'ph-worklist.gwl'
 outfile = open(worklist_filename, 'w')
