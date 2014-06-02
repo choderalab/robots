@@ -5,6 +5,8 @@ import simtk.unit as units
 
 import openpyxl # Excel spreadsheet I/O (for Auto iTC-200)
 
+from datetime import datetime 
+
 class ITCProtocol(object):
     def __init__(self, name, sample_prep_method, itc_method, analysis_method):
         """
@@ -282,7 +284,8 @@ class ITCExperimentSet(object):
             worklist_script += 'B;\r\n' # execute queued batch of commands
 
             # Create datafile name.
-            datecode = '20140113' # TODO: Build with date
+            now = datetime.now()
+            datecode = now.strftime("%Y%m%d")
             seriescode = 'a' # TODO: Use intelligent coding?
             indexcode = '%d' % (experiment_number + 1)
             itcdata.DataFile = datecode + seriescode + indexcode
