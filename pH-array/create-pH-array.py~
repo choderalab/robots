@@ -60,16 +60,16 @@ for (condition_index, condition) in enumerate(conditions):
 
     # citric acid
     volume = condition['citric acid']*buffer_volume
-    volume_consumed['citric acid'] += 2*volume
-    worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, 2*volume, 2)
+    volume_consumed['citric acid'] += 2*volume + 1
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, 2*volume + 1, 2)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
     worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 2) # C2 rotation for blanks
     worklist += washtips()
     
     # sodium phosphate
     volume = condition['sodium phosphate']*buffer_volume
-    volume_consumed['sodium phosphate'] += 2*volume
-    worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, 2*volume, 4)
+    volume_consumed['sodium phosphate'] += 2*volume + 1
+    worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, 2*volume + 1, 4)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
     worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 4)
     worklist += washtips()

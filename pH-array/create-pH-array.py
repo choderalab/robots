@@ -6,6 +6,12 @@
 # * Stage dilution (manually?) of 10 mM stock into DMSO so that we are < 50 uM for final concentrations of erlotinib to avoid solubility problems.
 # * Create blanks using DMSO instead of erlotinib stock.
 
+# Solutions to track
+solutions = ['citric acid', 'sodium phosphate']
+
+concentrations = { 'citric acid' : 0.1, 'sodium phosphate' : 0.1 } # M
+molecular_weights = { 'citric acid' : 192.124, 'sodium phosphate' : 141.96 } # g/mol
+
 # TODO: Replace this taable with a module that computes buffer recipes automatically.
 filename = 'citric-phosphate.txt'
 infile = open(filename, 'r')
@@ -46,9 +52,15 @@ buffer_volume = assay_volume
 assay_RackType = 'Corning 3651' # black with clear bottom
 assay_RackType = 'Corning 3679' # uv-transparent half-area
 
-volume_consumed = dict()
-volume_consumed['citric acid'] = 0.0
-volume_consumed['sodium phosphate'] = 0.0
+# Quantity of liquid that clings to outside of tips.
+tip_residue_quantity = 3.0 # uL (estimate)
+
+# Track total volume consumed and waste volumes of different solutions.
+volume_consumed = dict() # uL
+waste_volume = dict() # uL
+for solution in solutions:
+    volume_consumed[solution] = 0.0
+    waste_volume[solution] = 0.0
 
 # Build worklist.
 worklist = ""
@@ -61,19 +73,21 @@ for (condition_index, condition) in enumerate(conditions):
     # citric acid
     volume = condition['citric acid']*buffer_volume
     volume_consumed['citric acid'] += 2*volume + 1
+    waste_volume['citric acid'] += tip_residue_quantity
     worklist += aspirate('Source Plate', '4x3 Vial Holder', 2, 2*volume + 1, 2)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 2)
     worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 2) # C2 rotation for blanks
     worklist += washtips()
-    
+
     # sodium phosphate
     volume = condition['sodium phosphate']*buffer_volume
     volume_consumed['sodium phosphate'] += 2*volume + 1
+    waste_volume['sodium phosphate'] += tip_residue_quantity
     worklist += aspirate('Source Plate', '4x3 Vial Holder', 3, 2*volume + 1, 4)
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
     worklist += dispense('Assay Plate', assay_RackType, 96-destination_position+1, volume, 4)
     worklist += washtips()
-    
+
 # Write worklist.
 worklist_filename = 'ph-worklist.gwl'
 outfile = open(worklist_filename, 'w')
@@ -83,3 +97,14 @@ outfile.close()
 # Report total volumes.
 print "citric acid:      %8.3f uL" % volume_consumed['citric acid']
 print "sodium phosphate: %8.3f uL" % volume_consumed['sodium phosphate']
+print ""
+
+# Compute waste quantities.
+waste_quantity = dict() # quantity, in mg
+for solution in solutions:
+    waste_quantity[solution] = (waste_volume[solution] * 1e-6) * concentrations[solution] * molecular_weights[solution] # g
+
+# Report estimates of waste volumes.
+print "citric acid:      %8.3f uL (%8.3f mg)" % (waste_volume['citric acid'], waste_quantity['citric acid'] * 1e3)
+print "sodium phosphate: %8.3f uL (%8.3f mg)" % (waste_volume['sodium phosphate'], waste_quantity['sodium phosphate'] * 1e3)
+print ""

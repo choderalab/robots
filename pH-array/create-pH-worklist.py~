@@ -79,9 +79,6 @@ for (condition_index, condition) in enumerate(conditions):
     worklist += dispense('Assay Plate', assay_RackType, destination_position, volume, 4)
     worklist += washtips()
     
-
-    volume_consumed['sodium phosphate'] += volume
-    
 # Write worklist.
 worklist_filename = 'ph-worklist.gwl'
 outfile = open(worklist_filename, 'w')
