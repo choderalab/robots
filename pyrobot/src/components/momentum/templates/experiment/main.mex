@@ -1,0 +1,62 @@
+// Generated: Saturday, April 26, 2014 10:57:03 AM
+
+// ******************  Version 1  ******************
+// User: Admin  Date: Friday, April 25, 2014 Time: 5:54:13 PM
+
+// ******************  Version 2  ******************
+// User: Admin  Date: Friday, April 25, 2014 Time: 5:59:09 PM
+
+experiment E_PlateTypePreperation
+{
+	// Experiment settings
+	
+	settings
+		(Process = 'PlateTypePreperation', ReservationOption = 'AsSoonAsPossible', 
+		Iterations = '8', IterationsLockedForWorkUnits = 'No', 
+		MinimumDelayBetweenIterations = '0', Priority = '10', ValidForUse = 'Yes', 
+		EstimatedDuration = '00:00:09') ;
+	
+	// Start/End Instrument
+	
+	startend
+	{
+		Corning3569
+			(start = 'Hotel_2', end = 'Hotel_2', lidstate = 'DontCare', 
+			reserved = 'True') ;
+		Corning3761
+			(start = 'Hotels', end = 'Hotels', lidstate = 'DontCare', 
+			reserved = 'True') ;
+	}
+	
+	// Nests Restrictions
+	
+	nests
+	{
+	}
+}
+
+
+<experiment id='E_PlateTypePreperation'>
+	<comment>Experiment settings</comment>
+	
+	<settings
+		Process = 'PlateTypePreperation' 
+		ReservationOption = 'AsSoonAsPossible'
+		Iterations = '8' IterationsLockedForWorkUnits = 'No' 
+		MinimumDelayBetweenIterations = '0' Priority = '10' ValidForUse = 'Yes' 
+		EstimatedDuration = '00:00:09' />
+	
+	<comment>Start/End Instrument</comment>
+	
+	<startend>
+		<Corning3569 start = 'Hotel_2' end = 'Hotel_2' lidstate = 'DontCare'
+			reserved = 'True' />
+		<Corning3761 start = 'Hotels' end = 'Hotels' lidstate = 'DontCare' 
+			reserved = 'True' />
+	</startend>
+	
+	<comment>Nests Restrictions</comment>
+	
+	<nests>
+	</nests>
+</experiment>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.1.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="1.0.0" createdFrom="Program" createdAt="2005-09-13T13:58:43.4419518Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="NUN384fw" version="1.1.0" comment="Catalog No.: 164610/165195/264572/262360/460372" itemNr="45" drawingNr="PSS 1646XX" manufacturer="ThermoFischer Scientific-Nunclon" colordescription="White" color="0" material="Polystyrol" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127800" outsideY="85500" firstColumnDistanceX="12100" firstColumnDistanceY="9000" lastColumnDistanceX="115600" lastColumnDistanceY="76500" nrOfRows="16" nrOfColumns="24" heightTolerance="250" height="14400" skirtHeight="2500" heightWithCover="16900" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Square" bottomShape="Flat" dimensionX="3700" dimensionBottomX="" dimensionY="3700" dimensionBottomY="" dimensionZ="11700" maxCapacity="120" maxWorkingCapacity="100" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0">
+            <DefinitionPlateWasherData headType="Head96" bottomPosition="3500" overflowPosition="14500" aspirationPosition1X="1000" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="1000" />
+            <DefinitionPlateWasherData headType="Head96I" bottomPosition="3500" overflowPosition="14500" aspirationPosition1X="1000" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="1000" />
+            <DefinitionPlateWasherData headType="Head384" bottomPosition="3500" overflowPosition="14500" aspirationPosition1X="1000" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="1000" />
+        </DefinitionWasherBaseSettings>
+    </TecanPlateDefinition>
+</TecanFile>

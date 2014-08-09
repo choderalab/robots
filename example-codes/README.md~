@@ -1,0 +1,4 @@
+Some codes from other labs:
+
+csv2gwl converts a Salk GAL-E lab formatted .CSV file to a valid Tecan EVOware formatted work list file (.GWL). This script is used in conjuction with PCR cherry picking in mind.
+https://github.com/iamatypeofwalrus/csv2gwl

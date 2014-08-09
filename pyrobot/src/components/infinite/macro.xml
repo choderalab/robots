@@ -1,0 +1,25 @@
+<MeasurementAbsorbance id="6" mode="Normal" type="" name="ABS" longname="" description="">
+    <Well id="7" auto="true">
+        <MeasurementReading id="8" name="" beamDiameter="800" beamGridType="Single" beamGridSize="1" beamEdgeDistance="auto">
+            <ReadingLabel id="9" name="Label1" scanType="ScanFixed" refID="0">
+                <ReadingSettings number="25" rate="2500" />
+                <ReadingTime integrationTime="0" lagTime="0" readDelay="0" flash="0" dark="0" excitationTime="0" />
+                <ReadingFilter id="0" type="Ex" wavelength="2800" bandwidth="25" attenuation="0" usage="ABS" />
+            </ReadingLabel>
+        </MeasurementReading>
+    </Well>
+    <CustomData id="10" />
+</MeasurementAbsorbance>
+<MeasurementFluoInt readingMode="Bottom" id="11" mode="Normal" type="" name="FluoInt" longname="" description="">
+    <Well id="12" auto="true">
+        <MeasurementReading id="13" name="" beamDiameter="2500" beamGridType="Single" beamGridSize="1" beamEdgeDistance="auto">
+            <ReadingLabel id="14" name="Label2" scanType="ScanFixed" refID="0">
+                <ReadingSettings number="50" rate="2500" />
+                <ReadingGain type="" gain="100" optimalGainPercentage="0" automaticGain="False" mode="Manual" />
+                <ReadingTime integrationTime="20" lagTime="0" readDelay="0" flash="0" dark="0" excitationTime="0" />
+                <ReadingFilter id="15" type="Ex" wavelength="2800" bandwidth="50" attenuation="0" usage="FI" />
+                <ReadingFilter id="16" type="Em" wavelength="4800" bandwidth="50" attenuation="0" usage="FI" />
+            </ReadingLabel>
+        </MeasurementReading>
+    </Well>
+</MeasurementFluoInt>

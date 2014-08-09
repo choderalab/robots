@@ -1,0 +1,559 @@
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;1;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;9;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;17;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;25;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;33;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;41;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;49;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;57;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;65;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;73;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;81;;75.000000;Water free dispense;;1
+D;Corning3651;;Corning 3651;89;;75.000000;Water free dispense;;1
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;1;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;9;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;17;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;25;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;33;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;41;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;49;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;57;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;65;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;73;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;81;;75.000000;Water free dispense;;1
+D;96well-UVStar;;96 Well Microplate;89;;75.000000;Water free dispense;;1
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;1;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;9;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;17;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;25;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;33;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;41;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;49;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;57;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;65;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;73;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;81;;50.000000;Water free dispense;;1
+D;Corning3679;;Corning 3679;89;;50.000000;Water free dispense;;1
+D;384well;;384 Well Plate;193;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;209;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;225;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;241;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;257;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;273;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;289;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;305;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;321;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;337;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;353;;20.000000;Water free dispense;;1
+D;384well;;384 Well Plate;369;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;193;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;209;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;225;;20.000000;Water free dispense;;1
+W;
+A;Source;;5x3 Vial Holder;1;;420.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;241;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;257;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;273;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;289;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;305;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;321;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;337;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;353;;20.000000;Water free dispense;;1
+D;384well2;;384 Well Plate;369;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;193;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;209;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;225;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;241;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;257;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;273;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;289;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;305;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;321;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;337;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;353;;20.000000;Water free dispense;;1
+D;384well3;;384 Well Plate;369;;20.000000;Water free dispense;;1
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;3;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;11;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;19;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;27;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;35;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;43;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;51;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;59;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;67;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;75;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;83;;75.000000;Water free dispense;;4
+D;Corning3651;;Corning 3651;91;;75.000000;Water free dispense;;4
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;3;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;11;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;19;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;27;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;35;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;43;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;51;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;59;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;67;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;75;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;83;;75.000000;Water free dispense;;4
+D;96well-UVStar;;96 Well Microplate;91;;75.000000;Water free dispense;;4
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;3;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;11;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;19;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;27;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;35;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;43;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;51;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;59;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;67;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;75;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;83;;50.000000;Water free dispense;;4
+D;Corning3679;;Corning 3679;91;;50.000000;Water free dispense;;4
+D;384well;;384 Well Plate;195;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;211;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;227;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;243;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;259;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;275;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;291;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;307;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;323;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;339;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;355;;20.000000;Water free dispense;;4
+D;384well;;384 Well Plate;371;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;195;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;211;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;227;;20.000000;Water free dispense;;4
+W;
+A;Source;;5x3 Vial Holder;1;;420.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;243;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;259;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;275;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;291;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;307;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;323;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;339;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;355;;20.000000;Water free dispense;;4
+D;384well2;;384 Well Plate;371;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;195;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;211;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;227;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;243;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;259;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;275;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;291;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;307;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;323;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;339;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;355;;20.000000;Water free dispense;;4
+D;384well3;;384 Well Plate;371;;20.000000;Water free dispense;;4
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;5;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;13;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;21;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;29;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;37;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;45;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;53;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;61;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;69;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;77;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;85;;75.000000;Water free dispense;;16
+D;Corning3651;;Corning 3651;93;;75.000000;Water free dispense;;16
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;5;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;13;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;21;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;29;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;37;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;45;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;53;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;61;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;69;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;77;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;85;;75.000000;Water free dispense;;16
+D;96well-UVStar;;96 Well Microplate;93;;75.000000;Water free dispense;;16
+W;
+A;Source;;5x3 Vial Holder;1;;900.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;5;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;13;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;21;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;29;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;37;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;45;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;53;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;61;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;69;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;77;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;85;;50.000000;Water free dispense;;16
+D;Corning3679;;Corning 3679;93;;50.000000;Water free dispense;;16
+D;384well;;384 Well Plate;197;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;213;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;229;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;245;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;261;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;277;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;293;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;309;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;325;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;341;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;357;;20.000000;Water free dispense;;16
+D;384well;;384 Well Plate;373;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;197;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;213;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;229;;20.000000;Water free dispense;;16
+W;
+A;Source;;5x3 Vial Holder;1;;420.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;245;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;261;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;277;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;293;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;309;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;325;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;341;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;357;;20.000000;Water free dispense;;16
+D;384well2;;384 Well Plate;373;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;197;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;213;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;229;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;245;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;261;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;277;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;293;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;309;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;325;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;341;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;357;;20.000000;Water free dispense;;16
+D;384well3;;384 Well Plate;373;;20.000000;Water free dispense;;16
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;2;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;10;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;18;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;26;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;34;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;42;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;50;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;58;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;66;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;74;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;82;;75.000000;Water free dispense;;2
+D;Corning3651;;Corning 3651;90;;75.000000;Water free dispense;;2
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;2;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;10;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;18;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;26;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;34;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;42;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;50;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;58;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;66;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;74;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;82;;75.000000;Water free dispense;;2
+D;96well-UVStar;;96 Well Microplate;90;;75.000000;Water free dispense;;2
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;2;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;10;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;18;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;26;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;34;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;42;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;50;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;58;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;66;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;74;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;82;;50.000000;Water free dispense;;2
+D;Corning3679;;Corning 3679;90;;50.000000;Water free dispense;;2
+D;384well;;384 Well Plate;194;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;210;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;226;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;242;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;258;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;274;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;290;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;306;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;322;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;338;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;354;;20.000000;Water free dispense;;2
+D;384well;;384 Well Plate;370;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;194;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;210;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;226;;20.000000;Water free dispense;;2
+W;
+A;Source;;5x3 Vial Holder;2;;420.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;242;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;258;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;274;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;290;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;306;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;322;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;338;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;354;;20.000000;Water free dispense;;2
+D;384well2;;384 Well Plate;370;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;194;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;210;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;226;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;242;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;258;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;274;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;290;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;306;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;322;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;338;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;354;;20.000000;Water free dispense;;2
+D;384well3;;384 Well Plate;370;;20.000000;Water free dispense;;2
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;4;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;12;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;20;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;28;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;36;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;44;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;52;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;60;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;68;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;76;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;84;;75.000000;Water free dispense;;8
+D;Corning3651;;Corning 3651;92;;75.000000;Water free dispense;;8
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;4;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;12;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;20;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;28;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;36;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;44;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;52;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;60;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;68;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;76;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;84;;75.000000;Water free dispense;;8
+D;96well-UVStar;;96 Well Microplate;92;;75.000000;Water free dispense;;8
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;4;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;12;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;20;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;28;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;36;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;44;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;52;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;60;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;68;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;76;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;84;;50.000000;Water free dispense;;8
+D;Corning3679;;Corning 3679;92;;50.000000;Water free dispense;;8
+D;384well;;384 Well Plate;196;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;212;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;228;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;244;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;260;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;276;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;292;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;308;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;324;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;340;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;356;;20.000000;Water free dispense;;8
+D;384well;;384 Well Plate;372;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;196;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;212;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;228;;20.000000;Water free dispense;;8
+W;
+A;Source;;5x3 Vial Holder;2;;420.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;244;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;260;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;276;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;292;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;308;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;324;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;340;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;356;;20.000000;Water free dispense;;8
+D;384well2;;384 Well Plate;372;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;196;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;212;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;228;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;244;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;260;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;276;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;292;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;308;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;324;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;340;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;356;;20.000000;Water free dispense;;8
+D;384well3;;384 Well Plate;372;;20.000000;Water free dispense;;8
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;6;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;14;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;22;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;30;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;38;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;46;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;54;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;62;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;70;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;78;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;86;;75.000000;Water free dispense;;32
+D;Corning3651;;Corning 3651;94;;75.000000;Water free dispense;;32
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;6;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;14;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;22;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;30;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;38;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;46;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;54;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;62;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;70;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;78;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;86;;75.000000;Water free dispense;;32
+D;96well-UVStar;;96 Well Microplate;94;;75.000000;Water free dispense;;32
+W;
+A;Source;;5x3 Vial Holder;2;;900.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;6;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;14;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;22;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;30;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;38;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;46;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;54;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;62;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;70;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;78;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;86;;50.000000;Water free dispense;;32
+D;Corning3679;;Corning 3679;94;;50.000000;Water free dispense;;32
+D;384well;;384 Well Plate;198;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;214;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;230;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;246;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;262;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;278;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;294;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;310;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;326;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;342;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;358;;20.000000;Water free dispense;;32
+D;384well;;384 Well Plate;374;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;198;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;214;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;230;;20.000000;Water free dispense;;32
+W;
+A;Source;;5x3 Vial Holder;2;;420.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;246;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;262;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;278;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;294;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;310;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;326;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;342;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;358;;20.000000;Water free dispense;;32
+D;384well2;;384 Well Plate;374;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;198;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;214;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;230;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;246;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;262;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;278;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;294;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;310;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;326;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;342;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;358;;20.000000;Water free dispense;;32
+D;384well3;;384 Well Plate;374;;20.000000;Water free dispense;;32
+W;
+A;Source;;5x3 Vial Holder;3;;900.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;7;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;15;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;23;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;31;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;39;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;47;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;55;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;63;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;71;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;79;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;87;;75.000000;Water free dispense;;64
+D;Corning3651;;Corning 3651;95;;75.000000;Water free dispense;;64
+W;
+A;Source;;5x3 Vial Holder;3;;900.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;7;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;15;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;23;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;31;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;39;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;47;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;55;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;63;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;71;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;79;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;87;;75.000000;Water free dispense;;64
+D;96well-UVStar;;96 Well Microplate;95;;75.000000;Water free dispense;;64
+W;
+A;Source;;5x3 Vial Holder;3;;900.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;7;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;15;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;23;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;31;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;39;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;47;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;55;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;63;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;71;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;79;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;87;;50.000000;Water free dispense;;64
+D;Corning3679;;Corning 3679;95;;50.000000;Water free dispense;;64
+D;384well;;384 Well Plate;199;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;215;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;231;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;247;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;263;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;279;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;295;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;311;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;327;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;343;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;359;;20.000000;Water free dispense;;64
+D;384well;;384 Well Plate;375;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;199;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;215;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;231;;20.000000;Water free dispense;;64
+W;
+A;Source;;5x3 Vial Holder;3;;420.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;247;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;263;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;279;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;295;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;311;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;327;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;343;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;359;;20.000000;Water free dispense;;64
+D;384well2;;384 Well Plate;375;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;199;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;215;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;231;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;247;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;263;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;279;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;295;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;311;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;327;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;343;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;359;;20.000000;Water free dispense;;64
+D;384well3;;384 Well Plate;375;;20.000000;Water free dispense;;64

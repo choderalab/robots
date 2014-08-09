@@ -1,0 +1,10 @@
+{% block process_variables %}
+variables
+		{
+			{% for variable in process.variables %}
+			{{ variable.type }} {{ variable.name }}
+				(DefaultValue = '', PromptForValue = 'No', Comments = '') ;
+
+			{% endfor %}
+		}
+{% endblock %}

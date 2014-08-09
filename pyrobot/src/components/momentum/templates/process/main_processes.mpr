@@ -1,0 +1,19 @@
+{% block main_process %}
+
+	process {{ process.name }}
+	{
+		// Containers
+		
+		{% include 'main_containers.mpr' %}
+
+		// Process variables
+		
+		{% include 'process_variables.mpr' %}
+		
+		// Process steps
+		
+		{% block process_steps %}
+		{% endblock %}
+
+	}
+{% endblock %}

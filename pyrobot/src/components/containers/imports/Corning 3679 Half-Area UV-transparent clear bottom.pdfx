@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2014-05-09T19:14:58.3388051Z" createdWith="RdrOleDll4AddOn6" description="" />
+    <TecanPlateDefinition name="Corning 3679 Half-Area UV-transparent clear bottom" version="1.0.0" comment="JDC" itemNr="" drawingNr="" manufacturer="" colordescription="" color="0" material="" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127800" outsideY="85500" firstColumnDistanceX="14947" firstColumnDistanceY="12090" lastColumnDistanceX="113266" lastColumnDistanceY="73869" nrOfRows="8" nrOfColumns="12" heightTolerance="250" height="14200" skirtHeight="6096" heightWithCover="14200" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="5000" dimensionBottomX="0" dimensionY="5000" dimensionBottomY="0" dimensionZ="11470" maxCapacity="205" maxWorkingCapacity="50" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0">
+            <DefinitionPlateWasherData headType="Head96" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+            <DefinitionPlateWasherData headType="Head96I" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+            <DefinitionPlateWasherData headType="Head384" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+        </DefinitionWasherBaseSettings>
+    </TecanPlateDefinition>
+</TecanFile>

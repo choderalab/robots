@@ -1,0 +1,60 @@
+{% macro tabs(no = 3) %}{% for n in range(0,no) %}	{% endfor %}{% endmacro %}
+
+{% macro parameter(params, tab = 3) %}{{ tabs(tab) }}({%- for key, value in params.iteritems() %}{{ key }} = '{{ value|striptags }}'{% if loop.index0 < params|length - 1%}, {% if loop.index0 % 3 == 2 %}
+{{ tabs(tab) }}{% else %} {% endif %}{% endif %}{%- endfor %}) {%- endmacro %}
+
+{% macro container(containers, tab = 3) %}{%- for con in containers %}{{ tabs(tab) }}{{ con.id }}{% if con.lid %} '{{ con.lid }}'{% endif %}{% if con.in %} in '{{con.in}}'{% endif %}{% if con.ends %} ends '{{con.ends}}'{% endif %}{% if loop.index0 < loop.length - 1 and loop.length > 1 %}, 
+{% else %} ;{% endif %}{% endfor %}
+{%- endmacro %}
+
+{% macro cmd_step(step, tab = 3) %}{{ tabs(tab) }}{{ step.device }} {{ step.action }}
+{{ parameter(step.params, tab + 1) }}
+{{ container(step.containers, tab + 1) }}{%- endmacro %}
+
+{% macro cmd_flow(step, tab = 3) %}{{ tabs(tab) }}{{ step.action }} {% if step.action == 'comment' %}({{step.params.Comment}}) ;
+{% elif step.action == 'wait_until' %}'{{ step.params.DateTime }}' (IgnoreDate='{{ step.params.IgnoreDate }}') ;
+{% elif step.action == 'delay' %}{{ parameter(step.params,0) }} ;
+{% elif step.action == 'acquire' %}({{ step.params.Variable }}) ;
+{% endif %}
+{% endmacro -%}
+
+{% macro cmd_set(step, tab = 3) %}{{ tabs(tab) }}set {{ step.key }} = '{{ step.value }}' ;{%- endmacro -%}
+
+{% macro cmd_rec(steps, tab = 3) -%}
+{% for step in steps -%}
+{% if step.type == 'step' -%}
+{{ cmd_step(step, tab) }}
+{% elif step.type == 'set' -%}
+{{ cmd_set(step, tab) }}
+{% elif step.type == 'flow' -%}
+{{ cmd_flow(step, tab) }}
+{% elif step.type == 'if' -%}
+{{ tabs(tab) }}if ('{{ step.condition|striptags }}')
+{{ tabs(tab) }}{
+{{ cmd_rec(step.true, tab + 1) }}
+{{ tabs(tab) }}} 
+{{ tabs(tab) }}else
+{{ tabs(tab) }}{
+{{ cmd_rec(step.false, tab + 1) }}
+{{ tabs(tab) }}}
+{% elif step.type == 'parallel' -%}
+{{ tabs(tab) }}parallel
+{{ tabs(tab) }}{ {% for p in step.branches %}
+{{ tabs(tab + 1) }}branch
+{{ tabs(tab + 1) }}{
+{{ cmd_rec(p, tab + 2) }}{{ tabs(tab + 1) }}} 
+{% endfor %}{{ tabs(tab) }}}
+{% elif step.type == 'lock' -%}
+{{ tabs(tab) }}lock ({{ step.var|striptags }})
+{{ tabs(tab) }}{
+{{ cmd_rec(step.content, tab + 1) }}
+{{ tabs(tab) }}}
+{% elif step.type == 'foreach' -%}
+{{ tabs(tab) }}foreach {{ step.containers|join(', ', 'id') }} {{ parameter(step.params, 0) }}
+{{ tabs(tab) }}{
+{{ cmd_rec(step.content, tab + 1) }}
+{{ tabs(tab) }}} 
+{% else %}
+{%- endif %}
+{% endfor %}
+{%- endmacro %}

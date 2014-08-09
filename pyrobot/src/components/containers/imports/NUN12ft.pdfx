@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="NUN12ft" version="1.0.0" comment="Cat. No.: 150200/ 150628" itemNr="92" drawingNr="Drawing - Multidish 12" manufacturer="NUNC" colordescription="Transparent" color="0" material="PS" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127700" outsideY="85600" firstColumnDistanceX="23400" firstColumnDistanceY="15800" lastColumnDistanceX="104400" lastColumnDistanceY="69800" nrOfRows="3" nrOfColumns="4" heightTolerance="100" height="18900" skirtHeight="12000" heightWithCover="22600" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="21500" dimensionBottomX="21200" dimensionY="21500" dimensionBottomY="21200" dimensionZ="15600" maxCapacity="4500" maxWorkingCapacity="2000" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

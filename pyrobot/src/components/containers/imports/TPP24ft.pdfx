@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="TPP24ft" version="1.0.0" comment="Cat. No.: 92024" itemNr="89" drawingNr="http://www.tpp.ch/page/downloads/TC_plates/tech_info_test_plates.pdf" manufacturer="Techno Plastic Products AG" colordescription="Transparent" color="0" material="PS" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127800" outsideY="85500" firstColumnDistanceX="15400" firstColumnDistanceY="14850" lastColumnDistanceX="108400" lastColumnDistanceY="70650" nrOfRows="4" nrOfColumns="6" heightTolerance="250" height="20200" skirtHeight="8800" heightWithCover="22400" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="16200" dimensionBottomX="15400" dimensionY="16200" dimensionBottomY="15400" dimensionZ="17100" maxCapacity="3340" maxWorkingCapacity="3290" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

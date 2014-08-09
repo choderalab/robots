@@ -1,0 +1,20 @@
+# Do not remove first line!
+general_comment,manufacturer_name,manufacturer_number,,plate_wells,well_bottom,well_coating,well_volume_max,plate_color,,,,
+4-NBS*,Corning,3655,25,384,Clear,NBS,Full,Black,,,,X
+1-Normal*,Corning,3711,25,384,Clear,Untreated,Full,Black,,,,X
+3-High Content,Corning,4581,2,384,High Content,Untreated?,Full,Black,,,,
+0-Clear,Corning,3675,4,384,UV-transparent,Untreated?,Full,Clear,,,,
+2-Black*,Corning,3821,10,384,Black Bottom,Untreated,Low,Black,,,,
+1-Normal*,4titude,0203,60,384,Clear,Untreated,Full,Black,,,,X
+4-NBS,Greiner,781900,9,384,Black Bottom,NBS,Full,Black,,,,
+4-Med-Binding,Greiner,781076,9,384,Black Bottom,Med-Binding,Full,Black,,,,
+0-Clear,Corning,3635,25,96,UV-transparent,Untreated,Full,Clear,,,,X
+2-Black*,Corning,3915,1,96,Black Bottom,Untreated,Full,Black,,,,
+0-Clear,Corning,3679,50,96,UV-transparent,Untreated,Half Area,Clear,,,,X
+3-High Content,Corning,3615,25,96,Special Optics,Untreated,Full,Black,,,,
+4-NBS*,Corning,3651,50,96,Clear,NBS,Full,Black,,,,X
+1-Normal*,4titude,0223,60,96,Clear,Untreated,Full,Black,,,,X
+3-High Content,Greiner,655 866 (Screenstar),4,96,UV transparent,Untreated,Full,Black,,,,
+3-High Content,Greiner,655809 (UV-Star),28,96,UV transparent,Untreated,Full,Black,,,,
+4-Med-Binding,Greiner,655096,20,96,uClear,Med-Binding,Full ,Black,,,,
+0-Clear,Greiner,655801 (UV-Star),10,96,UV-transparent,Untreated,Full,Clear,,,,

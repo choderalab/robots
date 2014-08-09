@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <SWVersion>2.3.0</SWVersion>
+  <FileVersion>1</FileVersion>
+  <Protocol>C:\Users\Thermo\Desktop\HP D300\Protocols\DMSO Concentration Test.hpdd</Protocol>
+  <Simulated>True</Simulated>
+  <StartTime>2014-07-30T19:39:50.966-04:00</StartTime>
+  <EndTime>2014-07-30T19:40:00.192-04:00</EndTime>
+  <DispenseOrder>LastPriority</DispenseOrder>
+  <Fluids>
+    <Fluid Index="0">
+      <Name>Bosutinib</Name>
+      <ClassID>0</ClassID>
+      <Concentration>10</Concentration>
+      <ConcentrationUnit>mM</ConcentrationUnit>
+    </Fluid>
+    <Fluid Index="1">
+      <Name>DMSO normalization</Name>
+      <ClassID>0</ClassID>
+      <IsNormalization>True</IsNormalization>
+    </Fluid>
+  </Fluids>
+  <Plates>
+    <Plate Index="0">
+      <Type>Default96</Type>
+      <DLLName>96 Default</DLLName>
+      <Name />
+      <ID />
+      <Rows>8</Rows>
+      <Cols>12</Cols>
+      <AssayVolume>100000</AssayVolume>
+      <DMSOLimit>0.01</DMSOLimit>
+      <DontShake>False</DontShake>
+      <DontDispense>False</DontDispense>
+    </Plate>
+    <Plate Index="1">
+      <Type>Default96</Type>
+      <DLLName>96 Default</DLLName>
+      <Name />
+      <ID />
+      <Rows>8</Rows>
+      <Cols>12</Cols>
+      <AssayVolume>50000</AssayVolume>
+      <DMSOLimit>0.01</DMSOLimit>
+      <DontShake>False</DontShake>
+      <DontDispense>False</DontDispense>
+    </Plate>
+  </Plates>
+  <Cassettes>
+    <Cassette Index="0">
+      <Type>T8</Type>
+      <ID />
+    </Cassette>
+  </Cassettes>
+  <DispenseHeads>
+    <DispenseHead Type="T8" Cassette="0" Head="0" Fluid="0">
+      <LoadVolume>4015.81108073958</LoadVolume>
+      <DispenseVolume>3234.64</DispenseVolume>
+    </DispenseHead>
+    <DispenseHead Type="T8" Cassette="0" Head="1" Fluid="1">
+      <LoadVolume>19902.7926128403</LoadVolume>
+      <DispenseVolume>17044.8</DispenseVolume>
+    </DispenseHead>
+    <DispenseHead Type="T8" Cassette="0" Head="2" Fluid="1">
+      <LoadVolume>10101.3963064201</LoadVolume>
+      <DispenseVolume>8521.6</DispenseVolume>
+    </DispenseHead>
+  </DispenseHeads>
+  <Dispensed VolumeUnit="nL">
+    <Plate Index="0">
+      <Well R="0" C="0">
+        <Fluid Index="0" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.291-04:00" Cassette="0" Head="0" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="1">
+        <Fluid Index="0" TotalVolume="126">
+          <Detail Time="2014-07-30T19:39:55.293-04:00" Cassette="0" Head="0" Volume="126" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74">
+          <Detail Time="2014-07-30T19:39:55.905-04:00" Cassette="0" Head="1" Volume="74" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="2">
+        <Fluid Index="0" TotalVolume="79.6">
+          <Detail Time="2014-07-30T19:39:55.295-04:00" Cassette="0" Head="0" Volume="79.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="120.4">
+          <Detail Time="2014-07-30T19:39:55.907-04:00" Cassette="0" Head="1" Volume="120.4" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="3">
+        <Fluid Index="0" TotalVolume="50.4">
+          <Detail Time="2014-07-30T19:39:55.296-04:00" Cassette="0" Head="0" Volume="50.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="149.6">
+          <Detail Time="2014-07-30T19:39:55.908-04:00" Cassette="0" Head="1" Volume="149.6" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="4">
+        <Fluid Index="0" TotalVolume="31.6">
+          <Detail Time="2014-07-30T19:39:55.298-04:00" Cassette="0" Head="0" Volume="31.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="168.4">
+          <Detail Time="2014-07-30T19:39:55.909-04:00" Cassette="0" Head="1" Volume="168.4" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="5">
+        <Fluid Index="0" TotalVolume="20">
+          <Detail Time="2014-07-30T19:39:55.299-04:00" Cassette="0" Head="0" Volume="20" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="180">
+          <Detail Time="2014-07-30T19:39:55.911-04:00" Cassette="0" Head="1" Volume="180" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="6">
+        <Fluid Index="0" TotalVolume="12.8">
+          <Detail Time="2014-07-30T19:39:55.301-04:00" Cassette="0" Head="0" Volume="12.8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="187.2">
+          <Detail Time="2014-07-30T19:39:55.912-04:00" Cassette="0" Head="1" Volume="187.2" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="7">
+        <Fluid Index="0" TotalVolume="8">
+          <Detail Time="2014-07-30T19:39:55.302-04:00" Cassette="0" Head="0" Volume="8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="192">
+          <Detail Time="2014-07-30T19:39:55.914-04:00" Cassette="0" Head="1" Volume="192" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="8">
+        <Fluid Index="0" TotalVolume="5.2">
+          <Detail Time="2014-07-30T19:39:55.304-04:00" Cassette="0" Head="0" Volume="5.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="194.8">
+          <Detail Time="2014-07-30T19:39:55.915-04:00" Cassette="0" Head="1" Volume="194.8" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="9">
+        <Fluid Index="0" TotalVolume="3.16">
+          <Detail Time="2014-07-30T19:39:55.306-04:00" Cassette="0" Head="0" Volume="3.16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="196.8">
+          <Detail Time="2014-07-30T19:39:55.916-04:00" Cassette="0" Head="1" Volume="196.8" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="10">
+        <Fluid Index="0" TotalVolume="2">
+          <Detail Time="2014-07-30T19:39:55.308-04:00" Cassette="0" Head="0" Volume="2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="198">
+          <Detail Time="2014-07-30T19:39:55.918-04:00" Cassette="0" Head="1" Volume="198" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.903-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="0">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.936-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="1">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.934-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="2">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.933-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="3">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.931-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="4">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.930-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="5">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.928-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="6">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.927-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="7">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.925-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="8">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.924-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="9">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.922-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="10">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.921-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.919-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="0">
+        <Fluid Index="0" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.309-04:00" Cassette="0" Head="0" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="1">
+        <Fluid Index="0" TotalVolume="126">
+          <Detail Time="2014-07-30T19:39:55.311-04:00" Cassette="0" Head="0" Volume="126" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74">
+          <Detail Time="2014-07-30T19:39:55.937-04:00" Cassette="0" Head="1" Volume="74" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="2">
+        <Fluid Index="0" TotalVolume="79.6">
+          <Detail Time="2014-07-30T19:39:55.312-04:00" Cassette="0" Head="0" Volume="79.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="120.4">
+          <Detail Time="2014-07-30T19:39:55.939-04:00" Cassette="0" Head="1" Volume="120.4" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="3">
+        <Fluid Index="0" TotalVolume="50.4">
+          <Detail Time="2014-07-30T19:39:55.314-04:00" Cassette="0" Head="0" Volume="50.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="149.6">
+          <Detail Time="2014-07-30T19:39:55.940-04:00" Cassette="0" Head="1" Volume="149.6" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="4">
+        <Fluid Index="0" TotalVolume="31.6">
+          <Detail Time="2014-07-30T19:39:55.315-04:00" Cassette="0" Head="0" Volume="31.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="168.4">
+          <Detail Time="2014-07-30T19:39:55.942-04:00" Cassette="0" Head="1" Volume="168.4" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="5">
+        <Fluid Index="0" TotalVolume="20">
+          <Detail Time="2014-07-30T19:39:55.317-04:00" Cassette="0" Head="0" Volume="20" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="180">
+          <Detail Time="2014-07-30T19:39:55.943-04:00" Cassette="0" Head="1" Volume="180" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="6">
+        <Fluid Index="0" TotalVolume="12.8">
+          <Detail Time="2014-07-30T19:39:55.318-04:00" Cassette="0" Head="0" Volume="12.8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="187.2">
+          <Detail Time="2014-07-30T19:39:55.945-04:00" Cassette="0" Head="1" Volume="187.2" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="7">
+        <Fluid Index="0" TotalVolume="8">
+          <Detail Time="2014-07-30T19:39:55.320-04:00" Cassette="0" Head="0" Volume="8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="192">
+          <Detail Time="2014-07-30T19:39:55.946-04:00" Cassette="0" Head="1" Volume="192" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="8">
+        <Fluid Index="0" TotalVolume="5.2">
+          <Detail Time="2014-07-30T19:39:55.321-04:00" Cassette="0" Head="0" Volume="5.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="194.8">
+          <Detail Time="2014-07-30T19:39:55.948-04:00" Cassette="0" Head="1" Volume="194.8" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="9">
+        <Fluid Index="0" TotalVolume="3.16">
+          <Detail Time="2014-07-30T19:39:55.323-04:00" Cassette="0" Head="0" Volume="3.16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="196.8">
+          <Detail Time="2014-07-30T19:39:55.949-04:00" Cassette="0" Head="1" Volume="196.8" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="10">
+        <Fluid Index="0" TotalVolume="2">
+          <Detail Time="2014-07-30T19:39:55.325-04:00" Cassette="0" Head="0" Volume="2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="198">
+          <Detail Time="2014-07-30T19:39:55.951-04:00" Cassette="0" Head="1" Volume="198" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.952-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="0">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.975-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="1">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.968-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="2">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.967-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="3">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.965-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="4">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.964-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="5">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.962-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="6">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.961-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="7">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.959-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="8">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.958-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="9">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.957-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="10">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.955-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.954-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="0">
+        <Fluid Index="0" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.327-04:00" Cassette="0" Head="0" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="1">
+        <Fluid Index="0" TotalVolume="126">
+          <Detail Time="2014-07-30T19:39:55.328-04:00" Cassette="0" Head="0" Volume="126" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74">
+          <Detail Time="2014-07-30T19:39:55.976-04:00" Cassette="0" Head="1" Volume="74" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="2">
+        <Fluid Index="0" TotalVolume="79.6">
+          <Detail Time="2014-07-30T19:39:55.330-04:00" Cassette="0" Head="0" Volume="79.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="120.4">
+          <Detail Time="2014-07-30T19:39:55.977-04:00" Cassette="0" Head="1" Volume="120.4" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="3">
+        <Fluid Index="0" TotalVolume="50.4">
+          <Detail Time="2014-07-30T19:39:55.331-04:00" Cassette="0" Head="0" Volume="50.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="149.6">
+          <Detail Time="2014-07-30T19:39:55.979-04:00" Cassette="0" Head="1" Volume="149.6" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="4">
+        <Fluid Index="0" TotalVolume="31.6">
+          <Detail Time="2014-07-30T19:39:55.333-04:00" Cassette="0" Head="0" Volume="31.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="168.4">
+          <Detail Time="2014-07-30T19:39:55.980-04:00" Cassette="0" Head="1" Volume="168.4" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="5">
+        <Fluid Index="0" TotalVolume="20">
+          <Detail Time="2014-07-30T19:39:55.334-04:00" Cassette="0" Head="0" Volume="20" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="180">
+          <Detail Time="2014-07-30T19:39:55.982-04:00" Cassette="0" Head="1" Volume="180" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="6">
+        <Fluid Index="0" TotalVolume="12.8">
+          <Detail Time="2014-07-30T19:39:55.336-04:00" Cassette="0" Head="0" Volume="12.8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="187.2">
+          <Detail Time="2014-07-30T19:39:55.983-04:00" Cassette="0" Head="1" Volume="187.2" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="7">
+        <Fluid Index="0" TotalVolume="8">
+          <Detail Time="2014-07-30T19:39:55.337-04:00" Cassette="0" Head="0" Volume="8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="192">
+          <Detail Time="2014-07-30T19:39:55.985-04:00" Cassette="0" Head="1" Volume="192" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="8">
+        <Fluid Index="0" TotalVolume="5.2">
+          <Detail Time="2014-07-30T19:39:55.339-04:00" Cassette="0" Head="0" Volume="5.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="194.8">
+          <Detail Time="2014-07-30T19:39:55.986-04:00" Cassette="0" Head="1" Volume="194.8" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="9">
+        <Fluid Index="0" TotalVolume="3.16">
+          <Detail Time="2014-07-30T19:39:55.341-04:00" Cassette="0" Head="0" Volume="3.16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="196.8">
+          <Detail Time="2014-07-30T19:39:55.988-04:00" Cassette="0" Head="1" Volume="196.8" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="10">
+        <Fluid Index="0" TotalVolume="2">
+          <Detail Time="2014-07-30T19:39:55.343-04:00" Cassette="0" Head="0" Volume="2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="198">
+          <Detail Time="2014-07-30T19:39:55.989-04:00" Cassette="0" Head="1" Volume="198" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.991-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="0">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.009-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="1">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.007-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="2">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.006-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="3">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.004-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="4">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.003-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="5">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.001-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="6">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.000-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="7">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.998-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="8">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.997-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="9">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.995-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="10">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.994-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.992-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="0">
+        <Fluid Index="0" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.344-04:00" Cassette="0" Head="0" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="1">
+        <Fluid Index="0" TotalVolume="126">
+          <Detail Time="2014-07-30T19:39:55.346-04:00" Cassette="0" Head="0" Volume="126" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74">
+          <Detail Time="2014-07-30T19:39:56.010-04:00" Cassette="0" Head="1" Volume="74" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="2">
+        <Fluid Index="0" TotalVolume="79.6">
+          <Detail Time="2014-07-30T19:39:55.347-04:00" Cassette="0" Head="0" Volume="79.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="120.4">
+          <Detail Time="2014-07-30T19:39:56.012-04:00" Cassette="0" Head="1" Volume="120.4" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="3">
+        <Fluid Index="0" TotalVolume="50.4">
+          <Detail Time="2014-07-30T19:39:55.349-04:00" Cassette="0" Head="0" Volume="50.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="149.6">
+          <Detail Time="2014-07-30T19:39:56.013-04:00" Cassette="0" Head="1" Volume="149.6" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="4">
+        <Fluid Index="0" TotalVolume="31.6">
+          <Detail Time="2014-07-30T19:39:55.350-04:00" Cassette="0" Head="0" Volume="31.6" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="168.4">
+          <Detail Time="2014-07-30T19:39:56.015-04:00" Cassette="0" Head="1" Volume="168.4" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="5">
+        <Fluid Index="0" TotalVolume="20">
+          <Detail Time="2014-07-30T19:39:55.352-04:00" Cassette="0" Head="0" Volume="20" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="180">
+          <Detail Time="2014-07-30T19:39:56.016-04:00" Cassette="0" Head="1" Volume="180" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="6">
+        <Fluid Index="0" TotalVolume="12.8">
+          <Detail Time="2014-07-30T19:39:55.353-04:00" Cassette="0" Head="0" Volume="12.8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="187.2">
+          <Detail Time="2014-07-30T19:39:56.017-04:00" Cassette="0" Head="1" Volume="187.2" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="7">
+        <Fluid Index="0" TotalVolume="8">
+          <Detail Time="2014-07-30T19:39:55.355-04:00" Cassette="0" Head="0" Volume="8" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="192">
+          <Detail Time="2014-07-30T19:39:56.019-04:00" Cassette="0" Head="1" Volume="192" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="8">
+        <Fluid Index="0" TotalVolume="5.2">
+          <Detail Time="2014-07-30T19:39:55.356-04:00" Cassette="0" Head="0" Volume="5.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="194.8">
+          <Detail Time="2014-07-30T19:39:56.020-04:00" Cassette="0" Head="1" Volume="194.8" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="9">
+        <Fluid Index="0" TotalVolume="3.16">
+          <Detail Time="2014-07-30T19:39:55.358-04:00" Cassette="0" Head="0" Volume="3.16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="196.8">
+          <Detail Time="2014-07-30T19:39:56.022-04:00" Cassette="0" Head="1" Volume="196.8" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="10">
+        <Fluid Index="0" TotalVolume="2">
+          <Detail Time="2014-07-30T19:39:55.360-04:00" Cassette="0" Head="0" Volume="2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="198">
+          <Detail Time="2014-07-30T19:39:56.023-04:00" Cassette="0" Head="1" Volume="198" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.025-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="0">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.043-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="1">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.041-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="2">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.040-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="3">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.038-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="4">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.037-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="5">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.035-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="6">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.034-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="7">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.032-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="8">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.031-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="9">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.029-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="10">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.028-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="11">
+        <Fluid Index="1" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:56.026-04:00" Cassette="0" Head="1" Volume="200" />
+        </Fluid>
+      </Well>
+    </Plate>
+    <Plate Index="1">
+      <Well R="0" C="0">
+        <Fluid Index="0" TotalVolume="100">
+          <Detail Time="2014-07-30T19:39:59.948-04:00" Cassette="0" Head="0" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="1">
+        <Fluid Index="0" TotalVolume="63.2">
+          <Detail Time="2014-07-30T19:39:59.949-04:00" Cassette="0" Head="0" Volume="63.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="36.8">
+          <Detail Time="2014-07-30T19:40:00.032-04:00" Cassette="0" Head="2" Volume="36.8" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="2">
+        <Fluid Index="0" TotalVolume="40">
+          <Detail Time="2014-07-30T19:39:59.951-04:00" Cassette="0" Head="0" Volume="40" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="60">
+          <Detail Time="2014-07-30T19:40:00.034-04:00" Cassette="0" Head="2" Volume="60" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="3">
+        <Fluid Index="0" TotalVolume="25.2">
+          <Detail Time="2014-07-30T19:39:59.952-04:00" Cassette="0" Head="0" Volume="25.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74.8">
+          <Detail Time="2014-07-30T19:40:00.036-04:00" Cassette="0" Head="2" Volume="74.8" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="4">
+        <Fluid Index="0" TotalVolume="16">
+          <Detail Time="2014-07-30T19:39:59.954-04:00" Cassette="0" Head="0" Volume="16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="84">
+          <Detail Time="2014-07-30T19:40:00.037-04:00" Cassette="0" Head="2" Volume="84" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="5">
+        <Fluid Index="0" TotalVolume="10">
+          <Detail Time="2014-07-30T19:39:59.956-04:00" Cassette="0" Head="0" Volume="10" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="90">
+          <Detail Time="2014-07-30T19:40:00.038-04:00" Cassette="0" Head="2" Volume="90" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="6">
+        <Fluid Index="0" TotalVolume="6.4">
+          <Detail Time="2014-07-30T19:39:59.957-04:00" Cassette="0" Head="0" Volume="6.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="93.6">
+          <Detail Time="2014-07-30T19:40:00.040-04:00" Cassette="0" Head="2" Volume="93.6" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="7">
+        <Fluid Index="0" TotalVolume="4">
+          <Detail Time="2014-07-30T19:39:59.959-04:00" Cassette="0" Head="0" Volume="4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="96">
+          <Detail Time="2014-07-30T19:40:00.041-04:00" Cassette="0" Head="2" Volume="96" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="8">
+        <Fluid Index="0" TotalVolume="2.52">
+          <Detail Time="2014-07-30T19:39:59.961-04:00" Cassette="0" Head="0" Volume="2.52" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="97.6">
+          <Detail Time="2014-07-30T19:40:00.043-04:00" Cassette="0" Head="2" Volume="97.6" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="9">
+        <Fluid Index="0" TotalVolume="1.58">
+          <Detail Time="2014-07-30T19:39:59.962-04:00" Cassette="0" Head="0" Volume="1.58" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="98.4">
+          <Detail Time="2014-07-30T19:40:00.044-04:00" Cassette="0" Head="2" Volume="98.4" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="10">
+        <Fluid Index="0" TotalVolume="1">
+          <Detail Time="2014-07-30T19:39:59.964-04:00" Cassette="0" Head="0" Volume="1" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="99.2">
+          <Detail Time="2014-07-30T19:40:00.046-04:00" Cassette="0" Head="2" Volume="99.2" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.031-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="0">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.065-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="1">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.063-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="2">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.062-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="3">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.060-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="4">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.058-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="5">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.057-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="6">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.055-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="7">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.054-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="8">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.052-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="9">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.051-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="10">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.049-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="1" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.048-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="0">
+        <Fluid Index="0" TotalVolume="100">
+          <Detail Time="2014-07-30T19:39:59.966-04:00" Cassette="0" Head="0" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="1">
+        <Fluid Index="0" TotalVolume="63.2">
+          <Detail Time="2014-07-30T19:39:59.967-04:00" Cassette="0" Head="0" Volume="63.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="36.8">
+          <Detail Time="2014-07-30T19:40:00.066-04:00" Cassette="0" Head="2" Volume="36.8" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="2">
+        <Fluid Index="0" TotalVolume="40">
+          <Detail Time="2014-07-30T19:39:59.977-04:00" Cassette="0" Head="0" Volume="40" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="60">
+          <Detail Time="2014-07-30T19:40:00.068-04:00" Cassette="0" Head="2" Volume="60" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="3">
+        <Fluid Index="0" TotalVolume="25.2">
+          <Detail Time="2014-07-30T19:39:59.979-04:00" Cassette="0" Head="0" Volume="25.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74.8">
+          <Detail Time="2014-07-30T19:40:00.069-04:00" Cassette="0" Head="2" Volume="74.8" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="4">
+        <Fluid Index="0" TotalVolume="16">
+          <Detail Time="2014-07-30T19:39:59.980-04:00" Cassette="0" Head="0" Volume="16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="84">
+          <Detail Time="2014-07-30T19:40:00.071-04:00" Cassette="0" Head="2" Volume="84" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="5">
+        <Fluid Index="0" TotalVolume="10">
+          <Detail Time="2014-07-30T19:39:59.982-04:00" Cassette="0" Head="0" Volume="10" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="90">
+          <Detail Time="2014-07-30T19:40:00.072-04:00" Cassette="0" Head="2" Volume="90" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="6">
+        <Fluid Index="0" TotalVolume="6.4">
+          <Detail Time="2014-07-30T19:39:59.984-04:00" Cassette="0" Head="0" Volume="6.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="93.6">
+          <Detail Time="2014-07-30T19:40:00.074-04:00" Cassette="0" Head="2" Volume="93.6" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="7">
+        <Fluid Index="0" TotalVolume="4">
+          <Detail Time="2014-07-30T19:39:59.985-04:00" Cassette="0" Head="0" Volume="4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="96">
+          <Detail Time="2014-07-30T19:40:00.075-04:00" Cassette="0" Head="2" Volume="96" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="8">
+        <Fluid Index="0" TotalVolume="2.52">
+          <Detail Time="2014-07-30T19:39:59.987-04:00" Cassette="0" Head="0" Volume="2.52" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="97.6">
+          <Detail Time="2014-07-30T19:40:00.077-04:00" Cassette="0" Head="2" Volume="97.6" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="9">
+        <Fluid Index="0" TotalVolume="1.58">
+          <Detail Time="2014-07-30T19:39:59.989-04:00" Cassette="0" Head="0" Volume="1.58" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="98.4">
+          <Detail Time="2014-07-30T19:40:00.079-04:00" Cassette="0" Head="2" Volume="98.4" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="10">
+        <Fluid Index="0" TotalVolume="1">
+          <Detail Time="2014-07-30T19:39:59.991-04:00" Cassette="0" Head="0" Volume="1" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="99.2">
+          <Detail Time="2014-07-30T19:40:00.080-04:00" Cassette="0" Head="2" Volume="99.2" />
+        </Fluid>
+      </Well>
+      <Well R="2" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.082-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="0">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.100-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="1">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.098-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="2">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.097-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="3">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.095-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="4">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.094-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="5">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.092-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="6">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.091-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="7">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.089-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="8">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.088-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="9">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.086-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="10">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.085-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="3" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.083-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="0">
+        <Fluid Index="0" TotalVolume="100">
+          <Detail Time="2014-07-30T19:39:59.992-04:00" Cassette="0" Head="0" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="1">
+        <Fluid Index="0" TotalVolume="63.2">
+          <Detail Time="2014-07-30T19:39:59.994-04:00" Cassette="0" Head="0" Volume="63.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="36.8">
+          <Detail Time="2014-07-30T19:40:00.101-04:00" Cassette="0" Head="2" Volume="36.8" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="2">
+        <Fluid Index="0" TotalVolume="40">
+          <Detail Time="2014-07-30T19:39:59.995-04:00" Cassette="0" Head="0" Volume="40" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="60">
+          <Detail Time="2014-07-30T19:40:00.103-04:00" Cassette="0" Head="2" Volume="60" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="3">
+        <Fluid Index="0" TotalVolume="25.2">
+          <Detail Time="2014-07-30T19:39:59.997-04:00" Cassette="0" Head="0" Volume="25.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74.8">
+          <Detail Time="2014-07-30T19:40:00.104-04:00" Cassette="0" Head="2" Volume="74.8" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="4">
+        <Fluid Index="0" TotalVolume="16">
+          <Detail Time="2014-07-30T19:39:59.998-04:00" Cassette="0" Head="0" Volume="16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="84">
+          <Detail Time="2014-07-30T19:40:00.106-04:00" Cassette="0" Head="2" Volume="84" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="5">
+        <Fluid Index="0" TotalVolume="10">
+          <Detail Time="2014-07-30T19:39:59.999-04:00" Cassette="0" Head="0" Volume="10" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="90">
+          <Detail Time="2014-07-30T19:40:00.107-04:00" Cassette="0" Head="2" Volume="90" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="6">
+        <Fluid Index="0" TotalVolume="6.4">
+          <Detail Time="2014-07-30T19:40:00.001-04:00" Cassette="0" Head="0" Volume="6.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="93.6">
+          <Detail Time="2014-07-30T19:40:00.109-04:00" Cassette="0" Head="2" Volume="93.6" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="7">
+        <Fluid Index="0" TotalVolume="4">
+          <Detail Time="2014-07-30T19:40:00.003-04:00" Cassette="0" Head="0" Volume="4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="96">
+          <Detail Time="2014-07-30T19:40:00.110-04:00" Cassette="0" Head="2" Volume="96" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="8">
+        <Fluid Index="0" TotalVolume="2.52">
+          <Detail Time="2014-07-30T19:40:00.004-04:00" Cassette="0" Head="0" Volume="2.52" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="97.6">
+          <Detail Time="2014-07-30T19:40:00.111-04:00" Cassette="0" Head="2" Volume="97.6" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="9">
+        <Fluid Index="0" TotalVolume="1.58">
+          <Detail Time="2014-07-30T19:40:00.006-04:00" Cassette="0" Head="0" Volume="1.58" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="98.4">
+          <Detail Time="2014-07-30T19:40:00.113-04:00" Cassette="0" Head="2" Volume="98.4" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="10">
+        <Fluid Index="0" TotalVolume="1">
+          <Detail Time="2014-07-30T19:40:00.008-04:00" Cassette="0" Head="0" Volume="1" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="99.2">
+          <Detail Time="2014-07-30T19:40:00.114-04:00" Cassette="0" Head="2" Volume="99.2" />
+        </Fluid>
+      </Well>
+      <Well R="4" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.116-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="0">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.142-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="1">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.140-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="2">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.139-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="3">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.137-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="4">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.127-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="5">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.126-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="6">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.124-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="7">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.123-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="8">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.122-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="9">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.120-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="10">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.119-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="5" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.117-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="0">
+        <Fluid Index="0" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.009-04:00" Cassette="0" Head="0" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="1">
+        <Fluid Index="0" TotalVolume="63.2">
+          <Detail Time="2014-07-30T19:40:00.011-04:00" Cassette="0" Head="0" Volume="63.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="36.8">
+          <Detail Time="2014-07-30T19:40:00.143-04:00" Cassette="0" Head="2" Volume="36.8" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="2">
+        <Fluid Index="0" TotalVolume="40">
+          <Detail Time="2014-07-30T19:40:00.012-04:00" Cassette="0" Head="0" Volume="40" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="60">
+          <Detail Time="2014-07-30T19:40:00.145-04:00" Cassette="0" Head="2" Volume="60" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="3">
+        <Fluid Index="0" TotalVolume="25.2">
+          <Detail Time="2014-07-30T19:40:00.014-04:00" Cassette="0" Head="0" Volume="25.2" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74.8">
+          <Detail Time="2014-07-30T19:40:00.146-04:00" Cassette="0" Head="2" Volume="74.8" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="4">
+        <Fluid Index="0" TotalVolume="16">
+          <Detail Time="2014-07-30T19:40:00.016-04:00" Cassette="0" Head="0" Volume="16" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="84">
+          <Detail Time="2014-07-30T19:40:00.148-04:00" Cassette="0" Head="2" Volume="84" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="5">
+        <Fluid Index="0" TotalVolume="10">
+          <Detail Time="2014-07-30T19:40:00.017-04:00" Cassette="0" Head="0" Volume="10" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="90">
+          <Detail Time="2014-07-30T19:40:00.149-04:00" Cassette="0" Head="2" Volume="90" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="6">
+        <Fluid Index="0" TotalVolume="6.4">
+          <Detail Time="2014-07-30T19:40:00.018-04:00" Cassette="0" Head="0" Volume="6.4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="93.6">
+          <Detail Time="2014-07-30T19:40:00.150-04:00" Cassette="0" Head="2" Volume="93.6" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="7">
+        <Fluid Index="0" TotalVolume="4">
+          <Detail Time="2014-07-30T19:40:00.020-04:00" Cassette="0" Head="0" Volume="4" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="96">
+          <Detail Time="2014-07-30T19:40:00.152-04:00" Cassette="0" Head="2" Volume="96" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="8">
+        <Fluid Index="0" TotalVolume="2.52">
+          <Detail Time="2014-07-30T19:40:00.022-04:00" Cassette="0" Head="0" Volume="2.52" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="97.6">
+          <Detail Time="2014-07-30T19:40:00.153-04:00" Cassette="0" Head="2" Volume="97.6" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="9">
+        <Fluid Index="0" TotalVolume="1.58">
+          <Detail Time="2014-07-30T19:40:00.024-04:00" Cassette="0" Head="0" Volume="1.58" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="98.4">
+          <Detail Time="2014-07-30T19:40:00.155-04:00" Cassette="0" Head="2" Volume="98.4" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="10">
+        <Fluid Index="0" TotalVolume="1">
+          <Detail Time="2014-07-30T19:40:00.025-04:00" Cassette="0" Head="0" Volume="1" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="99.2">
+          <Detail Time="2014-07-30T19:40:00.156-04:00" Cassette="0" Head="2" Volume="99.2" />
+        </Fluid>
+      </Well>
+      <Well R="6" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.158-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="0">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.175-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="1">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.174-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="2">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.172-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="3">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.171-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="4">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.169-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="5">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.168-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="6">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.167-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="7">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.165-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="8">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.164-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="9">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.162-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="10">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.161-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+      <Well R="7" C="11">
+        <Fluid Index="1" TotalVolume="100">
+          <Detail Time="2014-07-30T19:40:00.159-04:00" Cassette="0" Head="2" Volume="100" />
+        </Fluid>
+      </Well>
+    </Plate>
+  </Dispensed>
+</Report>

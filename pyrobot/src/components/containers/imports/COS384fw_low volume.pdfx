@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-09-08T11:50:27.3262063Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="COS384fw_low volume" version="1.0.0" comment="Catalog No.: 3824/3824BC" itemNr="106" drawingNr="DWG02035/ DWG01848" manufacturer="Corning" colordescription="White" color="0" material="Polystyrene" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127760" outsideY="85470" firstColumnDistanceX="12130" firstColumnDistanceY="8990" lastColumnDistanceX="115630" lastColumnDistanceY="76490" nrOfRows="16" nrOfColumns="24" heightTolerance="250" height="12190" skirtHeight="2410" heightWithCover="" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="3300" dimensionBottomX="2000" dimensionY="3300" dimensionBottomY="2000" dimensionZ="9390" maxCapacity="50" maxWorkingCapacity="40" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

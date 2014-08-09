@@ -1,0 +1,247 @@
+// Generated: Saturday, April 26, 2014 2:36:15 PM
+
+profile MSK
+{
+	// Runtime settings
+	
+	runtime
+		(Mode = 'Normal', IsAccelerated = 'Yes', AuditOnSimulate = 'Yes', 
+		LogOnSimulate = 'Yes', HibernateOnSimulate = 'No', EnableFixedStartTime = 'Yes', 
+		SimulationStartTime = '1/28/2014 12:00 AM', AllowNewIterationsOnDeviceError = 'No', 
+		EnableCongestionDetection = 'Yes', CongestionClearQueueTimeThreshold = '00:02:00', 
+		MaxQueueTimeThreshold = '00:05:00', EnableVerboseLogging = 'No', 
+		AutoOffline = 'No') ;
+	
+	// Devices and settings
+	
+	devices
+	{
+		KeyenceSR600 BarCode
+			(Active = 'Active') ;
+		MultidropCombi Combi
+			(ValvePortsUI = '0', InitFluid = 'Default Fluid', PrimeWhenIdle = 'No', 
+			PrimeOnInitialization = 'Yes', PrimeVolumeWhenIdle = '10', 
+			PrimeIntervalWhenIdle = '5', CassetteUI = '1', Active = 'Active') ;
+		ContainerDataDriver ContainerDataDriver
+			(SummaryFormat = 'CSV', SummaryFilename = '', SummaryColumns = 'DateTime,Location', 
+			Active = 'Active') ;
+		CytomatHotel CytomatHotel
+			(Active = 'Active') ;
+		DataMiner DataMiner
+			(Active = 'Active') ;
+		FreedomEVO EVO
+			(ProtocolPath = '\\\\Tecan-hp8300\\C\\ProgramData\\Tecan\\EVOware\\database\\scripts', 
+			ParkScript = 'ThermoTest_Safe_Left.esc', ExecuteParkMethod = 'Yes', 
+			UserName = 'Admin', UserPass = 'admin1', Active = 'Active') ;
+		FileManager FileManager
+			(Active = 'Active') ;
+		FreeNest FreeNest
+			(Active = 'Inactive') ;
+		HiG4Centrifuge HiG4Centrifuge
+			(CounterWeight = 'Bucket2', Active = 'Active') ;
+		Hotel Hotel_1
+			(Active = 'Active') ;
+		Hotel Hotel_2
+			(Active = 'Active') ;
+		InfiniteReader Infinite
+			(ProtocolPathListUI = '<Click Button to Edit>', KeepDoorOpenBetweenRead = 'Yes', 
+			Active = 'Active') ;
+		IncuShake Inheco
+			(XFreq = '142', YFreq = '142', XAmp = '20', YAmp = '20', 
+			XYPhaseShift = '0', OnlineTemp = '-1', OfflineTemp = '-1', 
+			ShakeDuringLoadIncubate = 'No', UseExactDuration = 'No', 
+			Active = 'Active') ;
+		LC480 LC480
+			(ProtocolPathListUI = '<Click Button to Edit>', Active = 'Active') ;
+		MomentumOperator MomentumOperator
+			(Active = 'Active') ;
+		GenericMover Orbitor
+			(ParkLocation = 'STDloc:safe', ParkMoverAtEndOfRun = 'Yes', 
+			MotionSettings = 'Velocity: 100%, Acceleration: 100%, Jerk: 100%', 
+			AllowLidding = 'Yes', Active = 'Active') ;
+		PlateLoc PlateLoc
+			(PlateLocProfileName = 'Seal', PreHeatingTemperature = '160', 
+			PostCoolOffTemperature = '40', CloseStageOnLoad = 'Yes', 
+			Active = 'Active') ;
+		Regrip Regrip
+			(Active = 'Active') ;
+		AgilentMicroplateLabeler Vcode
+			(ProfileName = 'LOR3413', Active = 'Active') ;
+		Waste Waste
+			(Active = 'Active') ;
+	}
+	
+	// Device Pools
+	
+	pools
+	{
+		StoragePool Hotels
+			(Strategy = 'Priority First Available', ResetOnNewWorkUnit = 'Yes', 
+			SkipError = 'No', SkipOffline = 'No') Hotel_1, Hotel_2 ;
+	}
+	
+	// Profile variables
+	
+	variables
+	{
+		Boolean Lock
+			(DefaultValue = 'No', PromptForValue = 'No', Persist = 'No', 
+			Comments = '') ;
+	}
+	
+	// ******************  Version 1  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 4:24:24 PM
+	
+	// ******************  Version 2  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 4:30:51 PM
+	
+	// ******************  Version 3  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 6:05:10 PM
+	
+	// ******************  Version 4  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 6:06:12 PM
+	
+	// ******************  Version 5  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 6:41:55 PM
+	
+	// ******************  Version 6  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 6:58:29 PM
+	
+	// ******************  Version 7  ******************
+	// User: Admin  Date: Friday, April 25, 2014 Time: 6:59:24 PM
+	
+	// ******************  Version 8  ******************
+	// User: Admin  Date: Saturday, April 26, 2014 Time: 2:32:38 PM
+	
+	// ******************  Version 9  ******************
+	// User: Admin  Date: Saturday, April 26, 2014 Time: 2:35:55 PM
+	
+	process PlateTypeAnalysis
+	{
+		// Containers
+		
+		containers
+		{
+			plate ActivePlate
+				(WithLidOffset = '-5', MoverLiddingGripOffset = '3', 
+				WithLidHeight = '17', Thickness = '1', SealThickness = '0', 
+				NumberOfWellRows = '8', NumberOfWellColumns = '12', 
+				WellNumberingMethod = 'Rows', ContainerTypeNameId = '', 
+				BarCodeRegularExpression = '', BarCodeFile = '', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				GripOffset = 'Identity', GripForce = '0', Height = '15', 
+				StackHeight = '13.13', SetSize = '1', Attributes = '') ;
+			
+			plate Corning3569
+				(SealThickness = '0', ContainerTypeNameId = 'CORNING 3724', 
+				BarCodeRegularExpression = '', BarCodeFile = '', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				SetSize = '1', Attributes = '') ;
+			
+			plate Corning3671
+				(WithLidOffset = '-5', MoverLiddingGripOffset = '3', 
+				WithLidHeight = '17', Thickness = '1', SealThickness = '0', 
+				NumberOfWellRows = '8', NumberOfWellColumns = '12', 
+				WellNumberingMethod = 'Rows', ContainerTypeNameId = '', 
+				BarCodeRegularExpression = '', BarCodeFile = '', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				GripOffset = 'Identity', GripForce = '0', Height = '15', 
+				StackHeight = '13.13', SetSize = '1', Attributes = '') ;
+		}
+
+		// Process variables
+		
+		variables
+		{
+			String Barcode
+				(DefaultValue = '', PromptForValue = 'No', Comments = '') ;
+			String PlateType
+				(DefaultValue = '', PromptForValue = 'No', Comments = '') ;
+		}
+		
+		// Process steps
+		
+		EVO [RunScript]
+			(SetVars = 'No', ScriptName = 'ThermoTest_Safe_Left.esc', 
+			MaximumOperationTime = '00:20:00', RunOnAbortedIteration = 'No', 
+			Duration = '00:02:00', Comments = '', Enabled = 'Yes', 
+			Result = '')
+			Corning3569 'Unlidded' in 'EVOHotel_Left(3)',
+			ActivePlate 'Unlidded' in 'EVOHotel_Right(1)' ends 'EVOHotel_Right(2)',
+			Corning3671 'Unlidded' in 'EVOHotel_Left(1)' ends 'EVOHotel_Left(2)' ;
+		
+		Infinite [Run Protocol]
+			(ProtocolName = 'Infinite - 30 seconds.mdfx', ProtocolPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite', 
+			OutputNameFormat = '<BC>_<PROTOCOL>_<DATETIME>_PRESPIN', 
+			OutputPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite', 
+			RunOnAbortedIteration = 'No', Duration = '00:00:01', 
+			Comments = '', Enabled = 'Yes', Result = '')
+			Corning3671 'Unlidded' in 'Nest' ;
+		
+		HiG4Centrifuge [Spin]
+			(SpinGs = '500', AccelerationPercent = '50', DecelerationPercent = '50', 
+			SpinTimeAtCruiseVelocity = '00:00:10', BucketNumberToLoad = 'Bucket1', 
+			RunOnAbortedIteration = 'No', Duration = '00:00:10', 
+			Comments = '', Enabled = 'Yes', Result = '')
+			ActivePlate in 'Bucket 1' ;
+		
+		Infinite [Run Protocol]
+			(ProtocolName = 'Infinite - 30 seconds.mdfx', ProtocolPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite', 
+			OutputNameFormat = '<BC>_<PROTOCOL>_<DATETIME>_POSTSPIN', 
+			OutputPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite', 
+			RunOnAbortedIteration = 'No', Duration = '00:00:01', 
+			Comments = '', Enabled = 'Yes', Result = '')
+			ActivePlate 'Unlidded' in 'Nest' ;
+		
+		if ('Iteration>4')
+		{
+			if ('Iteration>6')
+			{
+				if ('Iteration>7')
+				{
+					set PlateType = '"Corning3569"' ;
+				}
+				else
+				{
+					set PlateType = '"4ti-0123"' ;
+				}
+			}
+			else
+			{
+				if ('Iteration>5')
+				{
+					set PlateType = '"Corning3651"' ;
+				}
+				else
+				{
+					set PlateType = '"Corning3569"' ;
+				}
+			}
+		}
+		else
+		{
+			if ('Iteration>2')
+			{
+				if ('Iteration>3')
+				{
+					set PlateType = '"Corning3569"' ;
+				}
+				else
+				{
+					set PlateType = '"4ti-0123"' ;
+				}
+			}
+			else
+			{
+				if ('Iteration>1')
+				{
+					set PlateType = '"Corning3651"' ;
+				}
+				else
+				{
+					set PlateType = '"Corning3569"' ;
+				}
+			}
+		}
+	}
+}

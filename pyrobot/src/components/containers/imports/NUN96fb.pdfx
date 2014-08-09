@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2006-10-19T11:25:56.7560315Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="NUN96fb" version="1.0.0" comment="Catalog No.: 137101/137103/237105/237107/237108/437111/437112" itemNr="78" drawingNr="http://www.nuncbrand.com/us/frame.aspx?id=11653" manufacturer="ThermoFischer Scientific-Nunclon" colordescription="Black" color="0" material="Polystyrol" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127700" outsideY="85600" firstColumnDistanceX="14200" firstColumnDistanceY="11400" lastColumnDistanceX="113200" lastColumnDistanceY="74400" nrOfRows="8" nrOfColumns="12" heightTolerance="300" height="14600" skirtHeight="2700" heightWithCover="15700" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="7050" dimensionBottomX="6550" dimensionY="7050" dimensionBottomY="6550" dimensionZ="11200" maxCapacity="400" maxWorkingCapacity="250" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0">
+            <DefinitionPlateWasherData headType="Head96" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+            <DefinitionPlateWasherData headType="Head96I" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+            <DefinitionPlateWasherData headType="Head384" bottomPosition="0" overflowPosition="0" aspirationPosition1X="0" aspirationPosition2X="0" aspirationPosition3Y="0" aspirationPosition4Y="0" dispenseOffset="0" />
+        </DefinitionWasherBaseSettings>
+	</TecanPlateDefinition>
+</TecanFile>

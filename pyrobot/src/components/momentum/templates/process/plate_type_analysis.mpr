@@ -1,0 +1,12 @@
+{% import 'commands.mpr' as cmd %}
+{% extends 'main.mpr' %}
+
+{% block process_steps -%}
+
+	{{ cmd.momentum_set('Barcode', '"Corning3569"') }}
+	{{ cmd.vcode_print( 'Corning3569', '$Barcode' ) }}	
+		
+	{{ cmd.momentum_set('Barcode', '"Corning3761"') }}
+	{{ cmd.vcode_print( 'Corning3761', '$Barcode' ) }}		
+
+{%- endblock %}

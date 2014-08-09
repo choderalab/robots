@@ -1,0 +1,93 @@
+{%- import 'commands.mpr' as cmd -%}
+
+// Generated: {{ data.date|datetime }}
+
+profile {{ data.profile.id }}
+{
+
+	// Runtime settings
+	
+	{% block runtimesettings -%}
+	runtime
+{{ cmd.parameter(data.profile.runtime.params, 2) }} ;
+	{%- endblock %}
+	
+	// Devices and settings	
+
+	{% block devicesettings -%}
+	devices
+	{
+		{% for device in data.profile.devices -%}
+		{{ device.type }} {{ device.id }}
+{{ cmd.parameter(device.params, 3) }} ;
+		{% endfor %}
+	}
+	{%- endblock %}
+		
+	// Device Pools
+
+	{% block devicepools -%}
+	pools
+	{
+		{% for variable in data.profile.pools -%}
+		{{ variable.type }} {{ variable.id }}
+{{ cmd.parameter(variable.params) }} {{ variable.containers|join(', ', attribute = 'id')}} ;
+		{% endfor %}
+	}
+	{%- endblock %}
+
+	// Profile variables
+
+	{% block profilevariables -%}
+	variables
+	{
+		{% for variable in data.profile.variables -%}
+		{{ variable.type }} {{ variable.id }}
+{{ cmd.parameter(variable.params) }};
+		{% endfor %}
+	}
+	{%- endblock %}
+	
+	// Version history
+	
+	{% block versionhistory -%}
+
+	// ******************  Version 1  ******************
+	// User: Admin  Date: {{ data.date|datetime }}
+
+	{%- endblock %}
+	
+	// Process Definition
+	
+	process {{ data.process.id }}
+	{
+		// Containers
+		
+		{% block maincontainers -%}
+		containers
+		{
+			{% for container in data.process.containers %}
+			{{ container.type }} {{ container.id }}
+{{ cmd.parameter(container.params, 4) }};
+{{ cmd.container(container.containers) }}
+			{%- endfor %}
+		}
+		{%- endblock %}
+		
+		// Process variables
+		
+		{% block processvariables -%}
+		variables
+		{
+			{% for variable in data.process.variables -%}
+			{{ variable.type }} {{ variable.id }}
+{{ cmd.parameter(variable.params, 4) }};
+			{% endfor %}
+		}
+		{%- endblock %}
+		
+		// Process steps
+		
+{{ cmd.cmd_rec(data.process.steps, 2) }}
+	}
+}

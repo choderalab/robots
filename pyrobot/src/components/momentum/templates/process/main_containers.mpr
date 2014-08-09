@@ -1,0 +1,14 @@
+{% block main_containers %}
+		containers
+		{
+			{% for container in process.containers %}
+			plate {{ container.name }}
+				(SealThickness = '0', ContainerTypeNameId = '{{ container.type }}', 
+				BarCodeRegularExpression = '', BarCodeFile = '', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				SetSize = '1', Attributes = '') ;
+					
+			{% endfor %}
+		}
+
+{% endblock %}

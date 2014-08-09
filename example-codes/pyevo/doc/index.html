@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>PyEvo Documentation</title>
+        <style>
+            body {
+                width: 600px;
+            }
+            h4 {
+                margin-top: 12px;
+                margin-bottom: 4px;
+                font-size: 125%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>PyEvo Documentation</h1>
+        Version 2
+        <h2>Introduction</h2>
+        <p>
+        PyEvo provides a python interface to Tecan Robots through the Freedom EVOWare COM API.  It allows specifying scripts using higher level abstractions as well as providing an interactive environemnt for <i>interpreted</i> execution of robot scripts written in Python.  The interpreted nature allows the Tecan to be controlled from a Read-Eval-Print-Loop as well providing for easy development and debugging.
+        </p>
+        <h2>Getting Started</h2>
+        <p>
+            Using PyEvo is easy.  Import the pyevo module.
+            </p>
+            <pre>
+import pyevo
+</pre>
+            <p>
+            Then create an EVO object that talks to the Tecan and instruct the EVO object to connect to the robot.  <code>evo.logon()</code> starts EVOWare if is not already running and logs into its remote mode.
+            </p>
+            <pre>
+evo = pyevo.EVO()
+evo.logon()
+</pre>
+            <p>
+            Next, create a RobotScripter object which provides high level abstractions to different Tecan commands.  Pass in the arguments for the connection to EVOWare and <code>True</code> specifying the interpreted mode is requested.
+            </p>
+            <pre>
+scripter = pyevo.RobotScripter(evo,True)
+</pre>
+            <h2>Class Documentation</h2>
+            <h3>Location</h3>
+            The <code>Location</code> class represents a location on the robot work table.
+            <h4><code>Location(grid,site)</code></h4>
+            The constructor takes 2 arguments, the location's grid and site.
+            <h4><code>grid</code></h4>
+            Is the member containing the grid position on the robot work table.
+            <h4><code>site</code></h4>
+            Is the member containing the site position on the robot work table.
+
+            <h3>Plate</h3>
+            A <code>Plate</code> is a lab plate located at some location on the robot work table containing wells.
+            <h4><code>Plate(grid,site)</code></h4>
+            The constructor takes 2 arguments, the plate's grid and site.
+            <h4><code>plateType</code></h4>
+            The plate type. By default it is P96WellEppendorf.
+            <h4><code>getFreeWell()</code></h4>
+            Returns a <code>Well</code> object of the next unused well on the plate.
+
+            <h3>Well</h3>
+            A well or other location that can contain liquid.
+            <h4><code>Well(plate,row,column)</code></h4>
+            The constructor takes 3 arguments, the plate the well is on and the row and column on that plate.
+            <h4><code>row</code></h4>
+            Is the member containing the well's row on the parent plate.
+            <h4><code>column</code></h4>
+            Is the member containing the well's column on the parent plate.
+            <h4><code>plate</code></h4>
+            Is the member pointing to the plate the well is on.
+
+            <h3>Tip</h3>
+            <h3>TipPlate</h3>
+
+            <h2>Work Table Settings</h2>
+
+            <h2>RobotScipter</h2>
+            Provides a high level interface to the Tecan robot.
+            <h4><code>RobotScripter(evo,interactive=False)</code></h4>
+            The constructor takes 2 arguments, a logged-in EVO object and a boolean indicating whether an interactive or purely script saving mode is desired.
+            <h4><code>aspirate(tipNumber, well, amount)</code></h4>
+            Using a given tip, aspirate <code>amount</code> uL from the given well.
+            <h4><code>dispense(tipNumber, well, amount)</code></h4>
+            Using a given tip, dispense <code>amount</code> uL into the given well.
+            <h4><code>pipetteMix(tipNumber, well, amount, numTimes)</code></h4>
+            Using a given tip, aspirate and dispense <code>amount</code> uL multiple times from the given well.
+            <h4><code>pickUpTip(tipNumber, tip)</code></h4>
+            Mount the given tip onto DiTi number <code>tipNumber</code>.
+            <h4><code>setBackTip(tipNumber, tip)</code></h4>
+            Put back the given tip, assuming it is mounted on DiTi number <code>tipNumber</code>.
+    <h2>Examples</h2>
+    <pre>
+import pyevo
+evo = pyevo.EVO()
+evo.logon()
+scripter = pyevo.RobotScripter(evo,True)
+
+#A plate of 1000 uL DiTi tips exists at grid 3, site 0 on the worktable.
+ditiLocation = pyevo.TipPlate(3,0,TipPlateTypes.DiTi1000ul)
+
+#A 96 Well Eppendorf Plate exists at grid 16, site 1 on the worktable.
+workPlate = pyevo.Plate(16,1,pyevo.PlateTypes.P96WellEppendorf)
+
+#Mount a free DiTi on tip 1
+scripter.pickUpTip(1,ditiLocation.getFreeTip())
+
+    </pre>
+
+    </body>
+</html>

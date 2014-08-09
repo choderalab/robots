@@ -1,0 +1,201 @@
+
+// Generated: Sunday, July 27, 2014 03:58:37 PM
+
+profile MSK
+{
+
+	// Runtime settings
+	
+	runtime
+		(AllowNewIterationsOnDeviceError = 'No',  EnableCongestionDetection = 'Yes',  AutoOffline = 'No', 
+		IsAccelerated = 'Yes',  EnableVerboseLogging = 'No',  LogOnSimulate = 'Yes', 
+		SimulationStartTime = '1/28/2014 12:00 AM',  EnableFixedStartTime = 'Yes',  Mode = 'Normal', 
+		MaxQueueTimeThreshold = '00:05:00',  CongestionClearQueueTimeThreshold = '00:02:00',  HibernateOnSimulate = 'No', 
+		AuditOnSimulate = 'Yes') ;
+	
+	// Devices and settings	
+
+	devices
+	{
+		KeyenceSR600 BarCode
+			(Active = 'Active') ;
+		MultidropCombi Combi
+			(CassetteUI = '1',  PrimeVolumeWhenIdle = '10',  PrimeIntervalWhenIdle = '5', 
+			PrimeWhenIdle = 'No',  InitFluid = 'Default Fluid',  ValvePortsUI = '0', 
+			Active = 'Active',  PrimeOnInitialization = 'Yes') ;
+		ContainerDataDriver ContainerDataDriver
+			(SummaryFilename = '',  Active = 'Active',  SummaryFormat = 'CSV', 
+			SummaryColumns = 'DateTime,Location') ;
+		CytomatHotel CytomatHotel
+			(Active = 'Active') ;
+		DataMiner DataMiner
+			(Active = 'Active') ;
+		FreedomEVO EVO
+			(UserName = 'Admin',  ProtocolPath = '\\\\Tecan-hp8300\\C\\ProgramData\\Tecan\\EVOware\\database\\scripts',  ExecuteParkMethod = 'Yes', 
+			ParkScript = 'ThermoTest_Safe_Left.esc',  Active = 'Active',  UserPass = 'admin1') ;
+		FileManager FileManager
+			(Active = 'Active') ;
+		FreeNest FreeNest
+			(Active = 'Inactive') ;
+		HiG4Centrifuge HiG4Centrifuge
+			(Active = 'Active',  CounterWeight = 'Bucket2') ;
+		Hotel Hotel_1
+			(Active = 'Active') ;
+		Hotel Hotel_2
+			(Active = 'Active') ;
+		InfiniteReader Infinite
+			(Active = 'Active',  ProtocolPathListUI = '<Click Button to Edit>',  KeepDoorOpenBetweenRead = 'Yes') ;
+		IncuShake Inheco
+			(OfflineTemp = '-1',  XAmp = '20',  ShakeDuringLoadIncubate = 'No', 
+			YAmp = '20',  OnlineTemp = '-1',  UseExactDuration = 'No', 
+			XFreq = '142',  XYPhaseShift = '0',  Active = 'Active', 
+			YFreq = '142') ;
+		LC480 LC480
+			(Active = 'Active',  ProtocolPathListUI = '<Click Button to Edit>') ;
+		MomentumOperator MomentumOperator
+			(Active = 'Active') ;
+		GenericMover Orbitor
+			(Active = 'Active',  ParkLocation = 'STDloc:safe',  MotionSettings = 'Velocity: 100%, Acceleration: 100%, Jerk: 100%', 
+			ParkMoverAtEndOfRun = 'Yes',  AllowLidding = 'Yes') ;
+		PlateLoc PlateLoc
+			(Active = 'Active',  CloseStageOnLoad = 'Yes',  PostCoolOffTemperature = '40', 
+			PreHeatingTemperature = '160',  PlateLocProfileName = 'Seal') ;
+		Regrip Regrip
+			(Active = 'Active') ;
+		AgilentMicroplateLabeler Vcode
+			(Active = 'Active',  ProfileName = 'LOR3413') ;
+		Waste Waste
+			(Active = 'Active') ;
+		
+	}
+		
+	// Device Pools
+
+	pools
+	{
+		StoragePool Hotels
+			(SkipOffline = 'No',  ResetOnNewWorkUnit = 'Yes',  SkipError = 'No', 
+			Strategy = 'Priority First Available') Hotel_1, Hotel_2 ;
+		
+	}
+
+	// Profile variables
+
+	variables
+	{
+		Boolean Lock
+			(PromptForValue = 'No',  DefaultValue = 'No',  Comments = '', 
+			Persist = 'No');
+		
+	}
+	
+	// Version history
+	
+	// ******************  Version 1  ******************
+	// User: Admin  Date: Sunday, July 27, 2014 03:58:37 PM
+	
+	// Process Definition
+	
+	process PlateTypeAnalysis
+	{
+		// Containers
+		
+		containers
+		{
+			
+			plate ActivePlate
+				(MoverLiddingGripOffset = '3',  GripOffset = 'Identity',  ContainerTypeNameId = '', 
+				WellNumberingMethod = 'Rows',  Thickness = '1',  BarCodeFile = '', 
+				GripForce = '0',  WithLidHeight = '17',  BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				Height = '15',  NumberOfWellColumns = '12',  BarCodeRegularExpression = '', 
+				WithLidOffset = '-5',  Attributes = '',  StackHeight = '13.13', 
+				NumberOfWellRows = '8',  SetSize = '1',  SealThickness = '0');
+
+			plate Corning3569
+				(ContainerTypeNameId = 'CORNING 3724',  BarCodeFile = '',  BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				BarCodeRegularExpression = '',  Attributes = '',  SetSize = '1', 
+				SealThickness = '0');
+
+			plate Corning3671
+				(MoverLiddingGripOffset = '3',  GripOffset = 'Identity',  ContainerTypeNameId = '', 
+				WellNumberingMethod = 'Rows',  Thickness = '1',  BarCodeFile = '', 
+				GripForce = '0',  WithLidHeight = '17',  BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				Height = '15',  NumberOfWellColumns = '12',  BarCodeRegularExpression = '', 
+				WithLidOffset = '-5',  Attributes = '',  StackHeight = '13.13', 
+				NumberOfWellRows = '8',  SetSize = '1',  SealThickness = '0');
+
+		}
+		
+		// Process variables
+		
+		variables
+		{
+			String Barcode
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '');
+			String PlateType
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '');
+			
+		}
+		
+		// Process steps
+		
+		EVO [RunScript]
+			(SetVars = 'No',  Enabled = 'Yes',  Comments = '', 
+			ScriptName = 'ThermoTest_Safe_Left.esc',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:02:00',  MaximumOperationTime = '00:20:00')
+			ActivePlate 'Unlidded' in 'EVOHotel_Left(3)' ;
+
+		Infinite [Run Protocol]
+			(Enabled = 'Yes',  ProtocolPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  Comments = '', 
+			OutputPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:00:01',  ProtocolName = 'Infinite - 30 seconds.mdfx',  OutputNameFormat = '<BC>_<PROTOCOL>_<DATETIME>_PRESPIN')
+			Corning3671 'Unlidded' in 'Nest' ;
+
+		HiG4Centrifuge [Spin]
+			(BucketNumberToLoad = 'Bucket1',  Enabled = 'Yes',  AccelerationPercent = '50', 
+			Comments = '',  SpinTimeAtCruiseVelocity = '00:00:10',  SpinGs = '500', 
+			RunOnAbortedIteration = 'No',  Result = '',  Duration = '00:00:10', 
+			DecelerationPercent = '50')
+			ActivePlate in 'Bucket 1' ;
+
+		EVO [RunScript]
+			(SetVars = 'No',  Enabled = 'Yes',  Comments = '', 
+			ScriptName = 'ThermoTest_Safe_Left.esc',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:02:00',  MaximumOperationTime = '00:20:00')
+			Corning3569 'Unlidded' in 'EVOHotel_Left(3)' ;
+
+		Infinite [Run Protocol]
+			(Enabled = 'Yes',  ProtocolPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  Comments = '', 
+			OutputPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:00:01',  ProtocolName = 'Infinite - 30 seconds.mdfx',  OutputNameFormat = '<BC>_<PROTOCOL>_<DATETIME>_PRESPIN')
+			Corning3671 'Unlidded' in 'Nest' ;
+
+		HiG4Centrifuge [Spin]
+			(BucketNumberToLoad = 'Bucket1',  Enabled = 'Yes',  AccelerationPercent = '50', 
+			Comments = '',  SpinTimeAtCruiseVelocity = '00:00:10',  SpinGs = '500', 
+			RunOnAbortedIteration = 'No',  Result = '',  Duration = '00:00:10', 
+			DecelerationPercent = '50')
+			ActivePlate in 'Bucket 1' ;
+
+		EVO [RunScript]
+			(SetVars = 'No',  Enabled = 'Yes',  Comments = '', 
+			ScriptName = 'ThermoTest_Safe_Left.esc',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:02:00',  MaximumOperationTime = '00:20:00')
+			Corning3671 'Unlidded' in 'EVOHotel_Left(3)' ;
+
+		Infinite [Run Protocol]
+			(Enabled = 'Yes',  ProtocolPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  Comments = '', 
+			OutputPath = '\\\\Tecan-hp8300\\c\\Momentum Protocols\\Infinite',  RunOnAbortedIteration = 'No',  Result = '', 
+			Duration = '00:00:01',  ProtocolName = 'Infinite - 30 seconds.mdfx',  OutputNameFormat = '<BC>_<PROTOCOL>_<DATETIME>_PRESPIN')
+			Corning3671 'Unlidded' in 'Nest' ;
+
+		HiG4Centrifuge [Spin]
+			(BucketNumberToLoad = 'Bucket1',  Enabled = 'Yes',  AccelerationPercent = '50', 
+			Comments = '',  SpinTimeAtCruiseVelocity = '00:00:10',  SpinGs = '500', 
+			RunOnAbortedIteration = 'No',  Result = '',  Duration = '00:00:10', 
+			DecelerationPercent = '50')
+			ActivePlate in 'Bucket 1' ;
+
+
+	}
+}

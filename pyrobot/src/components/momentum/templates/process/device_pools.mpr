@@ -1,0 +1,8 @@
+{% block device_pools %}
+	pools
+	{
+		StoragePool Hotels
+			(Strategy = 'Priority First Available', ResetOnNewWorkUnit = 'Yes', 
+			SkipError = 'No', SkipOffline = 'No') Hotel_1, Hotel_2 ;
+	}
+{% endblock %}

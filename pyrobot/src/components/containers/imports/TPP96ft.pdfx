@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="TPP96ft" version="1.0.0" comment="Cat. No.: 92696" itemNr="90" drawingNr="http://www.tpp.ch/page/downloads/TC_plates/tech_info_test_plates.pdf" manufacturer="Techno Plastic Products AG" colordescription="Transparent" color="0" material="PS" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127800" outsideY="85500" firstColumnDistanceX="14400" firstColumnDistanceY="11240" lastColumnDistanceX="113400" lastColumnDistanceY="74240" nrOfRows="8" nrOfColumns="12" heightTolerance="250" height="14350" skirtHeight="3050" heightWithCover="16700" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="6950" dimensionBottomX="6550" dimensionY="6950" dimensionBottomY="6550" dimensionZ="11100" maxCapacity="403" maxWorkingCapacity="340" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

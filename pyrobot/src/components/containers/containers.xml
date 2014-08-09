@@ -1,0 +1,20 @@
+<containers>
+	<container id="">
+		<parameters>
+			<param key="size" value="96" />
+			<param key="vendor" value="" />
+			<param key="model" value="" />
+			<param key="bottomread" value="True" />
+			<param key="volume" value="80" />
+			<param key="halfwell" value="False" />	
+			<param key="bottomshape" value="" />		
+			<param key="bottomminwavelength" value="" />
+			<param key="bottommaxwavelength" value="" />
+		</parameters>
+		<references>
+			<ref device="momentum" id="" />
+			<ref device="evo" id="" />
+			<ref device="infinite" id="" />			
+		</references>
+	</container>
+</containers>

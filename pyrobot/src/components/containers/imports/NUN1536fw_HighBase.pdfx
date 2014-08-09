@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="NUN1536fw_HighBase" version="1.0.0" comment="Cat.No.: 264712/ 164709" itemNr="101" drawingNr="PSS X647XX" manufacturer="ThermoFisher SCIENTIFIC" colordescription="White" color="0" material="PS" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127800" outsideY="85500" firstColumnDistanceX="11000" firstColumnDistanceY="7900" lastColumnDistanceX="114400" lastColumnDistanceY="76100" nrOfRows="32" nrOfColumns="48" heightTolerance="260" height="10400" skirtHeight="2300" heightWithCover="13000" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="1700" dimensionBottomX="" dimensionY="1700" dimensionBottomY="" dimensionZ="5100" maxCapacity="13" maxWorkingCapacity="10" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

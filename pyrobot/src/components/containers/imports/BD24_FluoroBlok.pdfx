@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="BD24_FluoroBlok" version="1.0.0" comment="FluoroBlok" itemNr="" drawingNr="PD801712" manufacturer="BD Falcon" colordescription="Transparent/Black" color="0" material="Polyethylene Terephthalate" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127640" outsideY="85090" firstColumnDistanceX="12970" firstColumnDistanceY="11950" lastColumnDistanceX="108460" lastColumnDistanceY="69850" nrOfRows="4" nrOfColumns="6" heightTolerance="200" height="22150" skirtHeight="9000" heightWithCover="24360" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="6500" dimensionBottomX="0" dimensionY="6500" dimensionBottomY="0" dimensionZ="17960" maxCapacity="500" maxWorkingCapacity="0" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

@@ -1,0 +1,9 @@
+{% block runtime_settings %}
+	runtime
+		(Mode = 'Simulation', IsAccelerated = 'Yes', AuditOnSimulate = 'Yes', 
+		LogOnSimulate = 'Yes', HibernateOnSimulate = 'No', EnableFixedStartTime = 'Yes', 
+		SimulationStartTime = '1/28/2014 12:00 AM', AllowNewIterationsOnDeviceError = 'No', 
+		EnableCongestionDetection = 'Yes', CongestionClearQueueTimeThreshold = '00:02:00', 
+		MaxQueueTimeThreshold = '00:05:00', EnableVerboseLogging = 'No', 
+		AutoOffline = 'No') ;
+{% endblock %}

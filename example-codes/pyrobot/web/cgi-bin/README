@@ -1,0 +1,5 @@
+In order to make this work as a cgi script on a web server do the follwing:
+
+1) assume <path> is the absolute path to the folder containing this README file
+2) sudo ln -s <path> /usr/lib/cgi-bin/victor
+3) sudo ln -s <path>/victor.cgi /usr/lib/cgi-bin/victor.py

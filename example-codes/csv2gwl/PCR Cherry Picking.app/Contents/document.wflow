@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>346</string>
+	<key>AMApplicationVersion</key>
+	<string>2.3</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>import string
+import os
+import csv
+import sys
+import re
+
+def checkFile(f):
+
+
+    csv_file = f
+
+    try:
+        f = open(csv_file,"r")
+        f.close
+
+        return csv_file
+
+    except IOError:
+        print
+        print "Looks like that file doesn't exist!"
+        print
+        sys.exit(1)
+
+def convertCSV(csv_file,gwl_file,dnaType):
+
+    w = csv.reader(open(csv_file, "rU"))
+
+    # aspirate count
+
+    aspirate_plate_number = 0
+    prev_experiment_number = ""
+    dispense_count = 0
+    destination_plate_number = 0
+
+    for row in w:
+
+        destination = row[0]
+
+        # since it is really not known how long the experiment names (really just numbers) are going to be, we can't count on the source well to always be in the same position
+        # this is why a regular expression will be used. the well format will always be in a [A-Z][0-9][0-9] format. re.search returns an object where .group(0) shows all the text that conforms to the regular expression
+        try:
+            match = re.search("([A-Z]|[a-z])[0-9][0-9]",row[1])
+            source = match.group(0)
+        except AttributeError:
+            continue
+
+        # search for the A00 patterna and grab everthing before it.
+        try:
+            experiment = re.search("\w+(?=[A-Z][0-9][0-9])",row[1])
+            experiment = experiment.group(0)
+        except AttributeError:
+            continue
+
+        
+        # increment the plate number if the experiment number changes
+        if experiment != prev_experiment_number:
+            prev_experiment_number = experiment
+            aspirate_plate_number += 1
+
+
+        # increment destination plate every 96 dispenses
+        if dispense_count % 96 == 0:
+            destination_plate_number += 1
+
+        dispense_count  += 1
+
+
+        convertToGWL(source,destination,gwl_file,aspirate_plate_number,destination_plate_number,dnaType)
+
+    return aspirate_plate_number,destination_plate_number
+
+def convertToGWL(source,destination,gwl_file,aspirate_plate_number,destination_plate_number,dnaType):
+
+
+
+    plateLabelAspirate = dnaType +" "
+    plateLabelAspirate += str(aspirate_plate_number)
+    plateTypeAspirate = "50ul - 96 PCR Plate" 
+    volumeAspirate = 20
+    
+    plateLabelDispense = dnaType + " " + "Final" + " "
+    plateLabelDispense += str(destination_plate_number)
+    plateTypeDispense = "50ul - 96 Nunc V-Bottom" 
+    volumeDispense = 20
+
+
+    # this is a dictionary that allows any A01 formatted well to be converted into a linear, 96 well scheme that the EVOware expects.
+    # the formula is: [Some Letter][Some number between 1 and 12] --&gt; (8 x (Some Number - 1)) + (Value of the letter ie A = 1, B = 2 ...)
+    microplate2Evoware = {"A":1,"a":1,"B":2,"b":2,"C":3,"c":3,"D":4,"d":4,"E":5,"e":5,"F":6,"f":6,"G":7,"g":7,"H":8,"h":8}
+
+    evowareSource      = ( 8 * ( int(source[1:]) - 1) + microplate2Evoware[source[0]])
+    evowareDestination = ( 8 * ( int(destination[1:]) - 1) + microplate2Evoware[destination[0]])
+
+
+    aspirate = "".join(["A;",plateLabelAspirate,";;",plateTypeAspirate,";",str(evowareSource),";;",str(volumeAspirate),";;;\n"])
+    dispense = "".join(["D;",plateLabelDispense,";;",plateTypeDispense,";",str(evowareDestination),";;",str(volumeDispense),";;;\nW;\n"])
+
+    gwl_file.write(aspirate)
+    gwl_file.write(dispense)
+
+def finished(argv,aspirate_plate_number_TDNA,destination_plate_number_TDNA):
+    print
+    print "All done :-]"
+    print 
+    print "You have " + str(aspirate_plate_number_TDNA) + " source plates"
+    print
+    print "You have " + str(destination_plate_number_TDNA) + " destination plates"
+    print
+
+def main(f):
+
+    csv_file = checkFile(f)
+
+    directory, newFileNameWithExtension = os.path.split(f)
+    newFileName, extension              = os.path.splitext(newFileNameWithExtension)
+
+    TDNA = newFileName + "-TDNA-Worklist.gwl"
+    WT   = newFileName + "-WT-Worklist.gwl"
+
+    cwd           = os.getcwd() + "/"
+    destination   = "Desktop/"
+
+    gwl_TDNA_file = open(cwd + destination + TDNA,"w")
+    gwl_WT_file   = open(cwd + destination + WT,"w")
+
+    aspirate_plate_number_TDNA,destination_plate_number_TDNA = convertCSV(csv_file,gwl_TDNA_file,"TDNA")
+    aspirate_plate_number_WT, destination_plate_number_WT = convertCSV(csv_file,gwl_WT_file,"WT")
+
+    gwl_TDNA_file.close()
+    gwl_WT_file.close()
+
+    finished(f,aspirate_plate_number_TDNA,destination_plate_number_TDNA)
+
+if __name__ == "__main__":
+    for f in sys.argv[1:]:
+        print f
+        main(f)</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/usr/bin/python</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>BFB5BBAF-64E4-4D67-9D3D-D0A40B114982</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
+					<string>Run</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>DED8A3FD-F191-4EFB-BE42-B78C8F9B66A8</string>
+				<key>UUID</key>
+				<string>07DEA9A0-1642-47ED-8389-BC672EA86913</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>332.000000:734.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.application</string>
+	</dict>
+</dict>
+</plist>

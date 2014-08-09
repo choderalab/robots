@@ -1,0 +1,58 @@
+{% block device_settings %}
+	devices
+	{
+		KeyenceSR600 BarCode
+			(Active = 'Active') ;
+		MultidropCombi Combi
+			(ValvePortsUI = '0', InitFluid = 'Default Fluid', PrimeWhenIdle = 'No', 
+			PrimeOnInitialization = 'Yes', PrimeVolumeWhenIdle = '10', 
+			PrimeIntervalWhenIdle = '5', CassetteUI = '1', Active = 'Active') ;
+		ContainerDataDriver ContainerDataDriver
+			(SummaryFormat = 'CSV', SummaryFilename = '', SummaryColumns = 'DateTime,Location', 
+			Active = 'Active') ;
+		CytomatHotel CytomatHotel
+			(Active = 'Active') ;
+		DataMiner DataMiner
+			(Active = 'Active') ;
+		FreedomEVO EVO
+			(ProtocolPath = '\\\\Tecan-hp8300\\C\\ProgramData\\Tecan\\EVOware\\database\\scripts', 
+			ParkScript = 'ThermoTest_Safe_Left.esc', ExecuteParkMethod = 'Yes', 
+			UserName = 'Admin', UserPass = 'admin1', Active = 'Active') ;
+		FileManager FileManager
+			(Active = 'Active') ;
+		FreeNest FreeNest
+			(Active = 'Inactive') ;
+		HiG4Centrifuge HiG4Centrifuge
+			(CounterWeight = 'Bucket2', Active = 'Active') ;
+		Hotel Hotel_1
+			(Active = 'Active') ;
+		Hotel Hotel_2
+			(Active = 'Active') ;
+		InfiniteReader Infinite
+			(ProtocolPathListUI = '<Click Button to Edit>', KeepDoorOpenBetweenRead = 'Yes', 
+			Active = 'Active') ;
+		IncuShake Inheco
+			(XFreq = '142', YFreq = '142', XAmp = '20', YAmp = '20', 
+			XYPhaseShift = '0', OnlineTemp = '-1', OfflineTemp = '-1', 
+			ShakeDuringLoadIncubate = 'No', UseExactDuration = 'No', 
+			Active = 'Active') ;
+		LC480 LC480
+			(ProtocolPathListUI = '<Click Button to Edit>', Active = 'Active') ;
+		MomentumOperator MomentumOperator
+			(Active = 'Active') ;
+		GenericMover Orbitor
+			(ParkLocation = 'STDloc:safe', ParkMoverAtEndOfRun = 'Yes', 
+			MotionSettings = 'Velocity: 100%, Acceleration: 100%, Jerk: 100%', 
+			AllowLidding = 'Yes', Active = 'Active') ;
+		PlateLoc PlateLoc
+			(PlateLocProfileName = 'Seal', PreHeatingTemperature = '160', 
+			PostCoolOffTemperature = '40', CloseStageOnLoad = 'Yes', 
+			Active = 'Active') ;
+		Regrip Regrip
+			(Active = 'Active') ;
+		AgilentMicroplateLabeler Vcode
+			(ProfileName = 'LOR3413', Active = 'Active') ;
+		Waste Waste
+			(Active = 'Active') ;
+	}
+{% endblock %}

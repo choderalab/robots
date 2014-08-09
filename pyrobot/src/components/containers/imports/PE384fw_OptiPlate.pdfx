@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="PE384fw_OptiPlate" version="1.0.0" comment="#6007290" itemNr="85" drawingNr="TechnicalDrawing2: Dimensions aplly to 384 well OptiPlates" manufacturer="PerkinElmer" colordescription="White" color="0" material="Polystyrene" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127760" outsideY="85470" firstColumnDistanceX="12100" firstColumnDistanceY="9000" lastColumnDistanceX="115600" lastColumnDistanceY="76500" nrOfRows="16" nrOfColumns="24" heightTolerance="130" height="14350" skirtHeight="2750" heightWithCover="" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Square" bottomShape="Flat" dimensionX="3650" dimensionBottomX="3000" dimensionY="3650" dimensionBottomY="3000" dimensionZ="10400" maxCapacity="105" maxWorkingCapacity="100" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

@@ -1,0 +1,8 @@
+{% block profile_variables %}
+	variables
+	{
+		Boolean Lock
+			(DefaultValue = 'No', PromptForValue = 'No', Persist = 'No', 
+			Comments = '') ;
+	}
+{% endblock %}

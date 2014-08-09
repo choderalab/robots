@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="Tecan.At.Measurement" fileversion="2.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="infinite M1000Pro" version="" createdFrom="Thermo" createdAt="2014-05-09T19:21:35.6811079Z" createdWith="Tecan.At.XFluor.ReaderEditor.XFluorReaderEditor" description="" />
+    <TecanMeasurement id="1" class="">
+        <MeasurementManualCycle id="2" number="1" type="Standard">
+            <CyclePlate id="3" file="Corning 3679 Half-Area UV-transparent clear bottom" plateWithCover="False">
+                <Barcode id="4" readingFrom="ALL" />
+                <PlateRange id="5" range="A1:G12" auto="false">
+                    <MeasurementAbsorbance id="6" mode="Normal" type="" name="ABS" longname="" description="">
+                        <Well id="7" auto="true">
+                            <MeasurementReading id="8" name="" beamDiameter="800" beamGridType="Single" beamGridSize="1" beamEdgeDistance="auto">
+                                <ReadingLabel id="9" name="Abs" scanType="ScanFixed" refID="0">
+                                    <ReadingSettings number="25" rate="2500" />
+                                    <ReadingTime integrationTime="0" lagTime="0" readDelay="0" flash="0" dark="0" excitationTime="0" />
+                                    <ReadingFilter id="0" type="Ex" wavelength="2800" bandwidth="25" attenuation="0" usage="ABS" />
+                                </ReadingLabel>
+                            </MeasurementReading>
+                        </Well>
+                        <CustomData id="10" />
+                    </MeasurementAbsorbance>
+                    <MeasurementFluoInt readingMode="Top" id="11" mode="Normal" type="" name="FluoInt" longname="" description="">
+                        <Well id="12" auto="true">
+                            <MeasurementReading id="13" name="" beamDiameter="2500" beamGridType="Single" beamGridSize="1" beamEdgeDistance="auto">
+                                <ReadingLabel id="14" name="top" scanType="ScanFixed" refID="0">
+                                    <ReadingSettings number="50" rate="2500" />
+                                    <ReadingGain type="" gain="100" optimalGainPercentage="0" automaticGain="False" mode="Manual" />
+                                    <ReadingTime integrationTime="20" lagTime="0" readDelay="0" flash="0" dark="0" excitationTime="0" />
+                                    <ReadingFilter id="15" type="Ex" wavelength="2800" bandwidth="50" attenuation="0" usage="FI" />
+                                    <ReadingFilter id="16" type="Em" wavelength="4800" bandwidth="50" attenuation="0" usage="FI" />
+                                    <ReadingZPosition mode="Manual" zPosition="20000" />
+                                </ReadingLabel>
+                            </MeasurementReading>
+                        </Well>
+                    </MeasurementFluoInt>
+                    <MeasurementFluoInt readingMode="Bottom" id="17" mode="Normal" type="" name="FluoInt" longname="" description="">
+                        <Well id="18" auto="true">
+                            <MeasurementReading id="19" name="" beamDiameter="2500" beamGridType="Single" beamGridSize="1" beamEdgeDistance="auto">
+                                <ReadingLabel id="20" name="bottom" scanType="ScanFixed" refID="0">
+                                    <ReadingSettings number="50" rate="2500" />
+                                    <ReadingGain type="" gain="100" optimalGainPercentage="0" automaticGain="False" mode="Manual" />
+                                    <ReadingTime integrationTime="20" lagTime="0" readDelay="0" flash="0" dark="0" excitationTime="0" />
+                                    <ReadingFilter id="21" type="Ex" wavelength="2800" bandwidth="50" attenuation="0" usage="FI" />
+                                    <ReadingFilter id="22" type="Em" wavelength="4800" bandwidth="50" attenuation="0" usage="FI" />
+                                </ReadingLabel>
+                            </MeasurementReading>
+                        </Well>
+                    </MeasurementFluoInt>
+                </PlateRange>
+            </CyclePlate>
+        </MeasurementManualCycle>
+        <MeasurementInfo id="0" description="">
+            <ScriptTemplateSettings id="0">
+                <ScriptTemplateGeneralSettings id="0" Title="" Group="" Info="" Image="" />
+                <ScriptTemplateDescriptionSettings id="0" Internal="" External="" IsExternal="False" />
+            </ScriptTemplateSettings>
+        </MeasurementInfo>
+    </TecanMeasurement>
+</TecanFile>

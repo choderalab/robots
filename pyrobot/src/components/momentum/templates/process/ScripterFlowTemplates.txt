@@ -1,0 +1,162 @@
+// Generated: Tuesday, May 06, 2014 7:25:14 PM
+
+profile MSK
+{
+	// Runtime settings
+	
+	runtime
+		(Mode = 'Simulation', IsAccelerated = 'Yes', AuditOnSimulate = 'Yes', 
+		LogOnSimulate = 'Yes', HibernateOnSimulate = 'No', EnableFixedStartTime = 'Yes', 
+		SimulationStartTime = '1/28/2014 12:00 AM', AllowNewIterationsOnDeviceError = 'No', 
+		EnableCongestionDetection = 'Yes', CongestionClearQueueTimeThreshold = '00:02:00', 
+		MaxQueueTimeThreshold = '00:05:00', EnableVerboseLogging = 'No', 
+		AutoOffline = 'No') ;
+	
+	// Devices and settings
+	
+	devices
+	{
+		KeyenceSR600 BarCode
+			(Active = 'Active') ;
+		MultidropCombi Combi
+			(ValvePortsUI = '0', InitFluid = 'Default Fluid', PrimeWhenIdle = 'No', 
+			PrimeOnInitialization = 'Yes', PrimeVolumeWhenIdle = '10', 
+			PrimeIntervalWhenIdle = '5', CassetteUI = '1', Active = 'Active') ;
+		ContainerDataDriver ContainerDataDriver
+			(SummaryFormat = 'CSV', SummaryFilename = '', SummaryColumns = 'DateTime,Location', 
+			Active = 'Active') ;
+		CytomatHotel CytomatHotel
+			(Active = 'Active') ;
+		DataMiner DataMiner
+			(Active = 'Active') ;
+		FreedomEVO EVO
+			(ProtocolPath = '\\\\Tecan-hp8300\\C\\ProgramData\\Tecan\\EVOware\\database\\scripts', 
+			ParkScript = 'ThermoTest_Safe_Left.esc', ExecuteParkMethod = 'Yes', 
+			UserName = 'Admin', UserPass = 'admin1', Active = 'Active') ;
+		FileManager FileManager
+			(Active = 'Active') ;
+		FreeNest FreeNest
+			(Active = 'Inactive') ;
+		HiG4Centrifuge HiG4Centrifuge
+			(CounterWeight = 'Bucket2', Active = 'Active') ;
+		Hotel Hotel_1
+			(Active = 'Active') ;
+		Hotel Hotel_2
+			(Active = 'Active') ;
+		InfiniteReader Infinite
+			(ProtocolPathListUI = '<Click Button to Edit>', KeepDoorOpenBetweenRead = 'Yes', 
+			Active = 'Active') ;
+		IncuShake Inheco
+			(XFreq = '142', YFreq = '142', XAmp = '20', YAmp = '20', 
+			XYPhaseShift = '0', OnlineTemp = '-1', OfflineTemp = '-1', 
+			ShakeDuringLoadIncubate = 'No', UseExactDuration = 'No', 
+			Active = 'Active') ;
+		LC480 LC480
+			(ProtocolPathListUI = '<Click Button to Edit>', Active = 'Active') ;
+		MomentumOperator MomentumOperator
+			(Active = 'Active') ;
+		GenericMover Orbitor
+			(ParkLocation = 'STDloc:safe', ParkMoverAtEndOfRun = 'Yes', 
+			MotionSettings = 'Velocity: 100%, Acceleration: 100%, Jerk: 100%', 
+			AllowLidding = 'Yes', Active = 'Active') ;
+		PlateLoc PlateLoc
+			(PlateLocProfileName = 'Seal', PreHeatingTemperature = '160', 
+			PostCoolOffTemperature = '40', CloseStageOnLoad = 'Yes', 
+			Active = 'Active') ;
+		Regrip Regrip
+			(Active = 'Active') ;
+		AgilentMicroplateLabeler Vcode
+			(ProfileName = 'ethernet', Active = 'Active') ;
+		Waste Waste
+			(Active = 'Active') ;
+	}
+	
+	// Device Pools
+	
+	pools
+	{
+		StoragePool Hotels
+			(Strategy = 'Priority First Available', ResetOnNewWorkUnit = 'Yes', 
+			SkipError = 'No', SkipOffline = 'No') Hotel_1, Hotel_2 ;
+	}
+	
+	// Profile variables
+	
+	variables
+	{
+		Boolean Lock
+			(DefaultValue = 'No', PromptForValue = 'No', Persist = 'No', 
+			Comments = '') ;
+	}
+	
+	// ******************  Version 1  ******************
+	// User: Admin  Date: Tuesday, May 06, 2014 Time: 7:22:19 PM
+	
+	// ******************  Version 2  ******************
+	// User: Admin  Date: Tuesday, May 06, 2014 Time: 7:24:53 PM
+	
+	process FlowControlTest
+	{
+		// Containers
+		
+		containers
+		{
+			plate Plate1
+				(WithLidOffset = '-5', MoverLiddingGripOffset = '3', 
+				WithLidHeight = '17', Thickness = '1', SealThickness = '0', 
+				NumberOfWellRows = '8', NumberOfWellColumns = '12', 
+				WellNumberingMethod = 'Rows', ContainerTypeNameId = '', 
+				BarCodeRegularExpression = '', BarCodeFile = '', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")', 
+				GripOffset = 'Identity', GripForce = '0', Height = '15', 
+				StackHeight = '13.13', SetSize = '1', Attributes = '') ;
+		}
+
+		// Process variables
+		
+		variables
+		{
+			Integer Variable1
+				(DefaultValue = '0', PromptForValue = 'No', Comments = '') ;
+		}
+		
+		// Process steps
+		
+		foreach Plate1 (ReverseContainerSet = 'No', DelayBetweenLoops = '00:00:01')
+		{
+			set Variable1 = '1' ;
+		} // foreach Plate1
+		
+		EVO [RunScript]
+			(SetVars = 'No', ScriptName = 'DoNoting.esc', MaximumOperationTime = '00:20:00', 
+			RunOnAbortedIteration = 'No', Duration = '00:00:01', 
+			Comments = '', Enabled = 'Yes', Result = '')
+			Plate1 in 'Waste' ;
+		
+		acquire (Lock) ;
+		
+		comment ('Test Comment') ;
+		
+		lock (Lock)
+		{
+		}
+		
+		parallel
+		{
+			branch // 1 of 2
+			
+			{
+				set Variable1 = '1' ;
+			}
+			branch // 2 of 2
+			
+			{
+				set Variable1 = '1' ;
+			}
+		}
+		
+		delay (MinDelay = '00:00:10', MaxDelaySpecified = 'No') ;
+		
+		wait_until '5/6/2014 7:19 PM' (IgnoreDate = 'Yes') ;
+	}
+}

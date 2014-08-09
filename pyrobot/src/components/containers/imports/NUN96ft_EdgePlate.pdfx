@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TecanFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tecan.at.schema.documents Main.xsd" fileformat="tecan.at.Platedefinition" fileversion="1.0.0" xmlns="tecan.at.schema.documents">
+    <FileInfo type="" instrument="" version="" createdFrom="Program" createdAt="2010-10-19T07:44:33.5089846Z" createdWith="PlateFileConverter" description="" />
+    <TecanPlateDefinition name="NUN96ft_EdgePlate" version="1.0.0" comment="Cat.No.: 167311/ 167314/ 267312/ 267313" itemNr="95" drawingNr="Thermo Scientific Nunc Edge Plate" manufacturer="ThermoFisher SCIENTIFIC" colordescription="Transparent" color="0" material="PS" id="0" guid="00000000-0000-0000-0000-000000000000">
+        <DefinitionRectanglePlateBaseDimensions outsideX="127760" outsideY="85470" firstColumnDistanceX="14320" firstColumnDistanceY="11200" lastColumnDistanceX="113280" lastColumnDistanceY="74130" nrOfRows="8" nrOfColumns="12" heightTolerance="200" height="14400" skirtHeight="2600" heightWithCover="17000" shuttleHeight="0" clampHeight="0" sampleHeight="0" />
+        <DefinitionWellBaseDimensions topShape="Round" bottomShape="Flat" dimensionX="7100" dimensionBottomX="6700" dimensionY="7100" dimensionBottomY="6700" dimensionZ="11400" maxCapacity="400" maxWorkingCapacity="250" />
+        <DefinitionWasherBaseSettings bottomPosition="0" overflowPosition="0" cellPosition="0" aspirationPosition1="0" aspirationPosition2="0" dispenseYOffset="0" />
+    </TecanPlateDefinition>
+</TecanFile>

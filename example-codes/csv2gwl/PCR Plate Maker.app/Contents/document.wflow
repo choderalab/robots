@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>346</string>
+	<key>AMApplicationVersion</key>
+	<string>2.3</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>import string
+import os
+import csv
+import sys
+import re
+
+
+# the input file is the same type of file as the csv2gwl cherry picking file.
+def checkFile(input_file):
+
+    csv_file = input_file
+
+    try:
+        f = open(csv_file,"r")
+        f.close
+
+        return csv_file
+
+    except IOError:
+        print
+        print "Looks like that file doesn't exist!"
+        print
+        sys.exit(1)
+
+def convertCSV(csv_file,gwl_file):
+    w = csv.reader(open(csv_file, "rU"))
+
+    prevExperimentNumber = ""
+    primerSets = 0
+    destinationWellCount = 0
+    destinationPlateCount = 0
+
+    for row in w:
+
+        destination = row[0]
+
+        # search for the A00 patterna and grab everthing before it.
+        # Some of Adeline's CSV's have a different format. With missing row[1]'s. This will catch that.
+        try:
+            experiment = re.search("\w+(?=[A-Z][0-9][0-9])",row[1])
+            experiment = experiment.group(0)
+        except AttributeError:
+            continue
+
+        source = re.search("[A-Z][0-9][0-9]",row[1])
+        source = source.group(0)
+        
+        # increment the plate number if the experiment number changes
+        if experiment != prevExperimentNumber:
+            prevExperimentNumber = experiment
+            primerSets += 1
+
+        # increment destination plate every 96 dispenses
+        if destinationWellCount % 96 == 0:
+            destinationPlateCount += 1
+
+        destinationWellCount    += 1
+        
+        convertToGWL(destination,primerSets,source,destinationPlateCount,gwl_file)
+
+
+    return primerSets, destinationPlateCount
+
+def convertToGWL(destination,primerSets,source,destinationPlateCount,gwl_file):
+
+    destination = microplate2evoware(destination)
+    source      = microplate2evoware(source)
+
+    plateTypeForwardPrimer = "50ul - 96 Nunc V-Bottom"
+    plateTypeReversePrimer = "50ul - 96 Nunc V-Bottom" 
+    plateTypeTDNA = "50ul - 96 DeepWell Frosted Small"
+    plateTypeWT   = "50ul - 96 DeepWell Frosted Small"
+
+    plateNameForwardPrimer = "F " + str(primerSets)
+    plateNameReversePrimer = "R " + str(primerSets)
+
+    plateNameTDNA = "TDNA " + str(destinationPlateCount)
+    plateNameWT   = "WT " + str(destinationPlateCount)
+
+    volumeDispense = "2.7"
+
+    # forward primer
+    aspirateForward     = "".join(["A;",plateNameForwardPrimer,";;",plateTypeForwardPrimer,";",str(source),";;",volumeDispense,";;;\n"])
+    dispenseForwardWT   = "".join(["D;",plateNameWT,";;",plateTypeWT,";",str(destination),";;",volumeDispense,";;;\nW;\n"])
+    dispenseForwardTDNA = "".join(["D;",plateNameTDNA,";;",plateTypeTDNA,";",str(destination),";;",volumeDispense,";;;\nW;\n"])
+
+    # reverse primer
+    aspirateReverse     = "".join(["A;",plateNameReversePrimer,";;",plateTypeReversePrimer,";",str(source),";;",volumeDispense,";;;\n"])
+    dispenseReverseWT   = "".join(["D;",plateNameWT,";;",plateTypeWT,";",str(destination),";;",volumeDispense,";;;\nW;\n"])
+
+
+    # write forward primer sequence
+    gwl_file.write(aspirateForward)
+    gwl_file.write(dispenseForwardWT)
+    gwl_file.write(aspirateForward)
+    gwl_file.write(dispenseForwardTDNA)
+
+    # write reverse primer sequence
+    gwl_file.write(aspirateReverse)
+    gwl_file.write(dispenseReverseWT)
+
+def microplate2evoware(microplate_well):
+    # this is a dictionary that allows any A01 formatted well to be converted into a linear, 96 well scheme that the EVOware expects.
+    # the formula is: [Some Letter][Some number between 1 and 12] --&gt; (8 x (Some Number - 1)) + (Value of the letter ie A = 1, B = 2 ...)
+
+    microplate2Evoware = {"A":1,"a":1,"B":2,"b":2,"C":3,"c":3,"D":4,"d":4,"E":5,"e":5,"F":6,"f":6,"G":7,"g":7,"H":8,"h":8}
+
+    destination        = ( 8 * ( int(microplate_well[1:]) - 1) + microplate2Evoware[microplate_well[0]])
+
+    return destination
+
+def main(input_file):
+    csv_file = checkFile(input_file)
+
+    directory, newFileNameWithExtension = os.path.split(input_file)
+    gwl_file_name, extension              = os.path.splitext(newFileNameWithExtension)
+
+    gwl_file_name += "-PCRPlateMaker.gwl"
+    
+    cwd         = os.getcwd() + "/"
+    destination = "Desktop/"
+    file_path   = cwd + destination + gwl_file_name
+
+    gwl_file = open(file_path,"w")
+
+    primerSets,destinationPlateCount = convertCSV(csv_file,gwl_file)
+
+    gwl_file.close()
+
+    print
+    print "All Done :-]"
+    print
+    print "You have " + str(primerSets) + " Forward and Reverse Primer set(s)"
+    print
+    print "You have " + str(destinationPlateCount) + " TDNA and WT set(s)"
+    print
+
+if __name__ == "__main__":
+    for f in sys.argv[1:]:
+        main(f)</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/usr/bin/python</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>7A121ED1-D57E-4B93-A791-00EA3D122A2B</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
+					<string>Run</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>96ACB885-9C61-4628-9400-738FCBECD75E</string>
+				<key>UUID</key>
+				<string>AE9FCC20-E893-459D-91DF-C2C6A97BF92D</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>262.000000:734.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.application</string>
+	</dict>
+</dict>
+</plist>
