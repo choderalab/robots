@@ -21,7 +21,7 @@ if __name__ == '__main__':
     
 #        Container._db.query('TRUNCATE plates')
     
-    filename = 'components/containers/imports/SMH_Platelist.csv'
+    filename = 'imports/SMH_Platelist.csv'
     s = ''
     with open (filename, "r") as myfile:
         s = myfile.read()   
@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 c = Container(d)   
                 c.store(d.keys())                                          
     
-    filename = 'components/containers/imports/containerTypes.cfg.txt'
+    filename = 'imports/containerTypes.cfg.txt'
     s = etree.tostring(objectify.parse(filename), pretty_print = True)
     s = string.replace(s, '\\', '/')
     s = s.decode('unicode_escape').encode('ascii','ignore')
@@ -99,7 +99,7 @@ if __name__ == '__main__':
         c = Container(plate)
         c.store()
 
-    infiles = glob.glob('components/containers/imports/*.pdfx')
+    infiles = glob.glob('imports/*.pdfx')
     
     for filename in infiles:    
         s = etree.tostring(objectify.parse(filename), pretty_print = True)
