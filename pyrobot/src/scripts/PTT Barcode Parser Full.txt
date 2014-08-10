@@ -1,5 +1,5 @@
 
-// Generated: Thursday, August 07, 2014 03:34:12 PMsr
+// Generated: Saturday, August 09, 2014 08:33:52 PMsr
 
 profile MSK
 {
@@ -102,7 +102,7 @@ profile MSK
 	// Version history
 	
 	// ******************  Version 1  ******************
-	// User: Admin  Date: Thursday, August 07, 2014 03:34:12 PMsr
+	// User: Admin  Date: Saturday, August 09, 2014 08:33:52 PMsr
 	
 	// Process Definition
 	
@@ -161,10 +161,16 @@ profile MSK
 			Time ThisDay
 				(PromptForValue = 'No',  DefaultValue = '2014-08-05T19:22:19.0281093Z',  Comments = '', 
 				Persist = 'No');
-			String size
+			Boolean bottom_read
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String bottomread
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
 			String label
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String size
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
 			
@@ -172,32 +178,23 @@ profile MSK
 		
 		// Process steps
 		
+		comment ('set plate-specific variables') ;
+
+		set Day = '"08/06/14"' ;
+
+		set ProjectID = '"PTTX"' ;
+
+		set Descriptor = '"PlateTypeTest 4ti-0223"' ;
+
 		parallel
 		{ 
 			branch
 			{
 				if ('PlateType = "A"')
 				{
-					set label = '"Corning 3635"' ;
+					set bottomread = 'True' ;
 
-					set dropstage = 'True' ;
-
-					set size = '"96"' ;
-
-
-				} 
-				else
-				{
-
-				}
-
-			} 
-
-			branch
-			{
-				if ('PlateType = "C"')
-				{
-					set label = '"Corning 3651"' ;
+					set label = '"4titude 0223 96 Well"' ;
 
 					set dropstage = 'True' ;
 
@@ -216,9 +213,53 @@ profile MSK
 			{
 				if ('PlateType = "B"')
 				{
-					set label = '"Corning 3679"' ;
+					set bottomread = 'True' ;
 
-					set dropstage = 'True' ;
+					set label = '"Corning 3651"' ;
+
+					set dropstage = 'False' ;
+
+					set size = '"96"' ;
+
+
+				} 
+				else
+				{
+
+				}
+
+			} 
+
+			branch
+			{
+				if ('PlateType = "C"')
+				{
+					set bottomread = 'True' ;
+
+					set label = '"Corning 3679 96 Well UV Clear"' ;
+
+					set dropstage = 'False' ;
+
+					set size = '"96"' ;
+
+
+				} 
+				else
+				{
+
+				}
+
+			} 
+
+			branch
+			{
+				if ('PlateType = "D"')
+				{
+					set bottomread = 'True' ;
+
+					set label = '"Corning 3635 96 Well UV Clear"' ;
+
+					set dropstage = 'False' ;
 
 					set size = '"96"' ;
 
@@ -235,45 +276,9 @@ profile MSK
 			{
 				if ('PlateType = "E"')
 				{
-					set label = '"Corning 3655"' ;
+					set bottomread = 'True' ;
 
-					set dropstage = 'False' ;
-
-					set size = '"384"' ;
-
-
-				} 
-				else
-				{
-
-				}
-
-			} 
-
-			branch
-			{
-				if ('PlateType = "D"')
-				{
-					set label = '"4titude 0223"' ;
-
-					set dropstage = 'True' ;
-
-					set size = '"96"' ;
-
-
-				} 
-				else
-				{
-
-				}
-
-			} 
-
-			branch
-			{
-				if ('PlateType = "G"')
-				{
-					set label = '"4titude 0203"' ;
+					set label = '"4titude 0203 384 Well "' ;
 
 					set dropstage = 'False' ;
 
@@ -292,9 +297,32 @@ profile MSK
 			{
 				if ('PlateType = "F"')
 				{
-					set label = '"Corning 3711"' ;
+					set bottomread = 'True' ;
 
-					set dropstage = 'False' ;
+					set label = '"Corning 3711 384 Well "' ;
+
+					set dropstage = 'True' ;
+
+					set size = '"384"' ;
+
+
+				} 
+				else
+				{
+
+				}
+
+			} 
+
+			branch
+			{
+				if ('PlateType = "G"')
+				{
+					set bottomread = 'True' ;
+
+					set label = '"Corning 3655"' ;
+
+					set dropstage = 'True' ;
 
 					set size = '"384"' ;
 

@@ -3,6 +3,9 @@
     general_id : string
 internal identifier, must be unique
 
+	general_checked : bool (default=false)
+if true the plate entry is considered correct and can be safely used
+
     general_name : string
 a readable representation
 
