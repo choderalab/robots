@@ -1,0 +1,394 @@
+
+// Generated: Thursday, August 21, 2014 08:10:08 PMsr
+
+profile MSK
+{
+
+	// Runtime settings
+	
+	runtime
+		(EnableCampaigns = 'Yes',  AllowNewIterationsOnDeviceError = 'No',  ContainerUnloadPrompting = 'Yes', 
+		EnableCongestionDetection = 'Yes',  EnableExperiments = 'Yes',  IsAccelerated = 'Yes', 
+		EnableVerboseLogging = 'No',  LogOnSimulate = 'Yes',  SimulationStartTime = '1/28/2014 12:00 AM', 
+		SimplifiedInterface = 'No',  EnableFixedStartTime = 'Yes',  Mode = 'Normal', 
+		AutoUnload = 'No',  AutoOffline = 'No',  EnableSimulationEmailNotification = 'No', 
+		MaxQueueTimeThreshold = '00:05:00',  CongestionClearQueueTimeThreshold = '00:02:00',  ContainerLoadPrompting = 'Yes', 
+		HibernateOnSimulate = 'No',  IsHybridExecution = 'No',  AuditOnSimulate = 'Yes') ;
+	
+	// Devices and settings	
+
+	devices
+	{
+		KeyenceSR600 BarCode
+			(OperationDefaults = '',  Active = 'Active') ;
+		MultidropCombi Combi
+			(CassetteUI = '1',  PrimeVolumeWhenIdle = '10',  OperationDefaults = '', 
+			PrimeIntervalWhenIdle = '5',  PrimeWhenIdle = 'No',  InitFluid = 'Default Fluid', 
+			Active = 'Active',  PrimeOnInitialization = 'Yes') ;
+		ContainerDataDriver ContainerDataDriver
+			(SummaryFilename = '',  ExcelPass = 'Momentum1',  SummaryFormat = 'CSV', 
+			OperationDefaults = '',  Active = 'Active',  SummaryColumns = 'DateTime,Location') ;
+		CytomatHotel CytomatHotel
+			(ContainersParticipationLabel = '<Click to Edit ...>',  OperationDefaults = '',  RPMT2 = '100', 
+			HotelsOccupancyLabel = '<Click to Edit ...>',  SearchMode = 'Entire Device',  FAMModeEnabled = 'No', 
+			ShakeDuringIncubate = 'No',  ScanBarcodeOnGet = 'Yes',  Active = 'Inactive', 
+			RPMT1 = '100') ;
+		DataMiner DataMiner
+			(OperationDefaults = '',  Active = 'Active') ;
+		FreedomEVO EVO
+			(UserName = 'Admin',  OperationDefaults = 'Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\Result~\'\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\Enabled~\'Yes\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\Comments~\'\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\Duration~\'00:02:44\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\RunOnAbortedIteration~\'No\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\MaximumOperationTime~\'00:20:00\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\ScriptName~\'BufferDispense4ti0203.esc\';Thermo.Automation.Devices.Instruments.Tecan.FreedomEVO.RunScriptParameter\\SetVars~\'No\'',  ProtocolPath = '\\\\Tecan-hp8300\\C\\ProgramData\\Tecan\\EVOware\\database\\scripts', 
+			ExecuteParkMethod = 'Yes',  ParkScript = 'ThermoTest_Safe_Left.esc',  Active = 'Active', 
+			UserPass = 'admin1') ;
+		FileManager FileManager
+			(OperationDefaults = '',  Active = 'Active') ;
+		FreeNest FreeNest
+			(OperationDefaults = '',  Active = 'Active') ;
+		HiG4Centrifuge HiG4Centrifuge
+			(OperationDefaults = '',  CounterWeight = 'Bucket2',  Active = 'Inactive') ;
+		Hotel Hotel_1
+			(OperationDefaults = '',  Active = 'Active') ;
+		Hotel Hotel_2
+			(OperationDefaults = '',  Active = 'Active') ;
+		InfiniteReader Infinite
+			(OperationDefaults = '',  ProtocolPathListUI = '<Click Button to Edit>',  KeepDoorOpenBetweenRead = 'No', 
+			Active = 'Active') ;
+		IncuShake Inheco
+			(OfflineTemp = '-1',  XAmp = '20',  OperationDefaults = '', 
+			ShakeDuringLoadIncubate = 'No',  YAmp = '20',  OnlineTemp = '-1', 
+			UseExactDuration = 'No',  XFreq = '142',  XYPhaseShift = '0', 
+			Active = 'Active',  YFreq = '142') ;
+		LC480 LC480
+			(OperationDefaults = '',  Active = 'Active') ;
+		MomentumOperator MomentumOperator
+			(OperationDefaults = '',  Active = 'Active') ;
+		GenericMover Orbitor
+			(MotionSettings = 'Velocity: 100%, Acceleration: 100%, Jerk: 100%',  ParkMoverAtEndOfRun = 'Yes',  AllowLidding = 'Yes', 
+			OperationDefaults = '',  Active = 'Active',  ParkLocation = 'STDloc:safe') ;
+		PlateLoc PlateLoc
+			(PostCoolOffTemperature = '40',  OperationDefaults = '',  PlateLocProfileName = 'Seal', 
+			Active = 'Active',  CloseStageOnLoad = 'Yes',  PreHeatingTemperature = '160') ;
+		Regrip Regrip
+			(OperationDefaults = '',  Active = 'Active') ;
+		AgilentMicroplateLabeler Vcode
+			(OperationDefaults = '',  ProfileName = 'LOR3413',  Active = 'Active') ;
+		Waste Waste
+			(OperationDefaults = '',  Active = 'Active') ;
+		
+	}
+		
+	// Device Pools
+
+	pools
+	{
+		StoragePool Hotels
+			(SkipOffline = 'No',  ResetOnNewWorkUnit = 'Yes',  SkipError = 'No', 
+			OfflineSkipDuration = '00:00:00',  Strategy = 'Priority First Available') Hotel_1, Hotel_2 ;
+		
+	}
+
+	// Profile variables
+
+	variables
+	{
+		Boolean Lock
+			(PromptForValue = 'No',  DefaultValue = 'No',  Comments = '', 
+			Persist = 'No');
+		Integer PlateCount
+			(PromptForValue = 'No',  DefaultValue = '1',  Comments = '', 
+			Persist = 'Yes');
+		
+	}
+	
+	// Version history
+	
+	// ******************  Version 1  ******************
+	// User: Admin  Date: Thursday, August 21, 2014 08:10:08 PMsr
+	
+	// Process Definition
+	
+	process PTT_Barcode_Template
+	{
+		// Containers
+		
+		containers
+		{
+			
+			plate ActivePlate
+				(Lid = '(None)',  NumberOfWellRows = '8',  MoverLiddingGripOffset = '3', 
+				GripOffset = 'Identity',  ContainerTypeNameId = '',  WellNumberingMethod = 'Rows', 
+				GripForce = '0',  BarCodeFile = '',  WithLidHeight = '17', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")',  Height = '15',  NumberOfWellColumns = '12', 
+				BarCodeRegularExpression = '',  WithLidOffset = '-5',  Attributes = '', 
+				StackHeight = '13.13',  Thickness = '1',  SetSize = '1', 
+				SealThickness = '0');
+
+		}
+		
+		// Process variables
+		
+		variables
+		{
+			String BC
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String BCEast
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String BCRead
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String BCWest
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String Day
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String Descriptor
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			Boolean dropstage
+				(PromptForValue = 'No',  DefaultValue = 'No',  Comments = '', 
+				Persist = 'No');
+			String FullDescriptor
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String PlateType
+				(PromptForValue = 'No',  DefaultValue = 'A',  Comments = '', 
+				Persist = 'No');
+			String ProjectID
+				(PromptForValue = 'No',  DefaultValue = 'PTTX',  Comments = '', 
+				Persist = 'No');
+			Time ThisDay
+				(PromptForValue = 'No',  DefaultValue = '2014-08-05T19:22:19.0281093Z',  Comments = '', 
+				Persist = 'No');
+			Boolean Bottomread
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String Dropstage
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String Size
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			
+		}
+		
+		// Process steps
+		
+		comment ('project variables') ;
+
+
+		set Day = '"21/08/14"' ;
+
+		set ProjectID = '"PTTX"' ;
+
+		set Descriptor = '"PlateTypeTest"' ;
+
+		if ('Iteration>4')
+		{
+			if ('Iteration>6')
+			{
+				set Descriptor = '"Corning 3655 384 Well"' ;
+
+				set Bottomread = 'True' ;
+
+				set PlateType = '"G"' ;
+
+				set Dropstage = 'True' ;
+
+				set Size = '"384"' ;
+
+
+			} 
+			else
+			{
+				if ('Iteration>5')
+				{
+					set Descriptor = '"Corning 3711 384 Well "' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"F"' ;
+
+					set Dropstage = 'True' ;
+
+					set Size = '"384"' ;
+
+
+				} 
+				else
+				{
+					set Descriptor = '"4titude 0203 384 Well "' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"E"' ;
+
+					set Dropstage = 'False' ;
+
+					set Size = '"384"' ;
+
+
+				}
+
+
+			}
+
+
+		} 
+		else
+		{
+			if ('Iteration>2')
+			{
+				if ('Iteration>3')
+				{
+					set Descriptor = '"Corning 3635 96 Well UV Clear"' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"D"' ;
+
+					set Dropstage = 'False' ;
+
+					set Size = '"96"' ;
+
+
+				} 
+				else
+				{
+					set Descriptor = '"Corning 3679 96 Well UV Clear"' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"C"' ;
+
+					set Dropstage = 'False' ;
+
+					set Size = '"96"' ;
+
+
+				}
+
+
+			} 
+			else
+			{
+				if ('Iteration>1')
+				{
+					set Descriptor = '"Corning 3651"' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"B"' ;
+
+					set Dropstage = 'False' ;
+
+					set Size = '"96"' ;
+
+
+				} 
+				else
+				{
+					set Descriptor = '"4titude 0223 96 Well"' ;
+
+					set Bottomread = 'True' ;
+
+					set PlateType = '"A"' ;
+
+					set Dropstage = 'True' ;
+
+					set Size = '"96"' ;
+
+
+				}
+
+
+			}
+
+
+		}
+
+		comment ('compute dependent variables') ;
+
+
+		set FullDescriptor = 'Day + " " + Descriptor' ;
+
+		set BC = 'PlateType + ProjectID +  EncodeBase26(PlateCount, 5, \'A\')' ;
+
+		set BCEast = 'BC+"E"' ;
+
+		set BCWest = 'BC+"W"' ;
+
+		FileManager [Write File]
+			(MinDelay = '00:00:00',  RequestedMaxDelay = '00:00:00',  MaxDelaySpecified = 'No', 
+			FileWriteMode = 'Append',  FileType = 'Text File',  Enabled = 'Yes', 
+			Comments = '',  OutputFileExcel = '',  Header = 'No', 
+			OutputFileRaw = 'C:\\Users\\Thermo\\Google Drive\\results\\barcode\\bc.txt',  SpoilIfMaxDelayExceeded = 'No',  DisplayErrors = 'No', 
+			WaitDuration = '00:00:01',  Duration = '00:00:01',  InputVariable = 'Descriptor', 
+			OutputFileCsv = '',  Result = '') ;
+
+		FileManager [Write File]
+			(MinDelay = '00:00:00',  RequestedMaxDelay = '00:00:00',  MaxDelaySpecified = 'No', 
+			FileWriteMode = 'Append',  FileType = 'Text File',  Enabled = 'Yes', 
+			Comments = '',  OutputFileExcel = '',  Header = 'No', 
+			OutputFileRaw = 'C:\\Users\\Thermo\\Google Drive\\results\\barcode\\bc.txt',  SpoilIfMaxDelayExceeded = 'No',  DisplayErrors = 'No', 
+			WaitDuration = '00:00:01',  Duration = '00:00:01',  InputVariable = 'BC', 
+			OutputFileCsv = '',  Result = '') ;
+
+		Vcode [Print and Apply]
+			(MinDelay = '00:00:00',  PreCondition = '',  AssignBarcodeIfSuccessful = 'True', 
+			Format = '5',  Field2 = $BCEast,  Field3 = 'field2', 
+			Enabled = 'Yes',  Field1 = $BCEast,  Field6 = 'field5', 
+			RequestedMaxDelay = '00:00:00',  Field4 = 'field3',  Field5 = 'field4', 
+			Result = '',  RunOnAbortedIteration = 'No',  Comments = '', 
+			MaxDelaySpecified = 'No',  Duration = '00:00:01',  AutomaticRetry = 'No', 
+			Sides = 'East',  DropStage = $dropstage,  SpoilIfMaxDelayExceeded = 'No')
+			ActivePlate 'Unlidded' in 'Nest' ;
+
+		Vcode [Print and Apply]
+			(MinDelay = '00:00:00',  PreCondition = '',  AssignBarcodeIfSuccessful = 'True', 
+			Format = '5',  Field2 = $BCWest,  Field3 = 'field2', 
+			Enabled = 'Yes',  Field1 = $BCWest,  Field6 = 'field5', 
+			RequestedMaxDelay = '00:00:00',  Field4 = 'field3',  Field5 = 'field4', 
+			Result = '',  RunOnAbortedIteration = 'No',  Comments = '', 
+			MaxDelaySpecified = 'No',  Duration = '00:00:01',  AutomaticRetry = 'No', 
+			Sides = 'West',  DropStage = $dropstage,  SpoilIfMaxDelayExceeded = 'No')
+			ActivePlate 'Unlidded' in 'Nest' ;
+
+		Vcode [Print and Apply]
+			(MinDelay = '00:00:00',  PreCondition = '',  AssignBarcodeIfSuccessful = 'True', 
+			Format = '8',  Field2 = $FullDescriptor,  Field3 = 'field2', 
+			Enabled = 'Yes',  Field1 = $FullDescriptor,  Field6 = 'field5', 
+			RequestedMaxDelay = '00:00:00',  Field4 = 'field3',  Field5 = 'field4', 
+			Result = '',  RunOnAbortedIteration = 'No',  Comments = '', 
+			MaxDelaySpecified = 'No',  Duration = '00:00:01',  AutomaticRetry = 'No', 
+			Sides = 'South',  DropStage = $dropstage,  SpoilIfMaxDelayExceeded = 'No')
+			ActivePlate 'Unlidded' in 'Nest' ;
+
+		BarCode [Scan Barcode]
+			(MinDelay = '00:00:00',  PreCondition = '',  OverrideUnattendedMode = 'No', 
+			Enabled = 'Yes',  RequestedMaxDelay = '00:00:00',  Comments = '', 
+			RunOnAbortedIteration = 'No',  SpoilIfMaxDelayExceeded = 'No',  MaxDelaySpecified = 'No', 
+			Duration = '00:00:01',  NoReadWarningWhenUnattended = 'No',  Result = '')
+			ActivePlate in 'Nest' ;
+
+		Hotel_1 [Load]
+			(MinDelay = '00:00:00',  PreCondition = '',  Enabled = 'Yes', 
+			RequestedMaxDelay = '00:00:00',  Comments = '',  RunOnAbortedIteration = 'No', 
+			SpoilIfMaxDelayExceeded = 'No',  MaxDelaySpecified = 'No',  Duration = '00:00:01', 
+			Result = '')
+			ActivePlate ;
+
+		set BCRead = 'ActivePlate.Barcode' ;
+
+		FileManager [Write File]
+			(MinDelay = '00:00:00',  RequestedMaxDelay = '00:00:00',  MaxDelaySpecified = 'No', 
+			FileWriteMode = 'Append',  FileType = 'Text File',  Enabled = 'Yes', 
+			Comments = '',  OutputFileExcel = '',  Header = 'No', 
+			OutputFileRaw = 'C:\\Users\\Thermo\\Google Drive\\robot\\barcode\\bc.txt',  SpoilIfMaxDelayExceeded = 'No',  DisplayErrors = 'No', 
+			WaitDuration = '00:00:01',  Duration = '00:00:01',  InputVariable = 'BCRead', 
+			OutputFileCsv = '',  Result = '') ;
+
+
+	}
+}
