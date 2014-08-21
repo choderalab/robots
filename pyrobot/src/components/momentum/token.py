@@ -2,24 +2,37 @@
 Created on 05.05.2014
 
 @author: jan-hendrikprinz
+
+Constructs a set of tokens to be used to interprete ThermoFisher momentum processes and experiments
 '''
 
 import re
 import string
 
 class Token:
+    '''
+    A string token that contains a regular expression to find a string part and a function that can process the returned results.
+    '''
     def __init__(self, name, regex, rule):
         self.name = name
         self.needle = regex
         self.rule = rule
         
     def apply(self, s):
+        '''
+        Apply the token to a string
+        
+        Parameters
+        ----------
+        
+        s : string
+            string the rule function should be applied to
+        '''
         return self.rule(self.needle, s)
         
 def _xml_rule_equal(needle, s):
     s = re.sub(needle, '<set key = \'\\1\' value = \\2 />', s)
     return s
-tok_equal = Token('equal', 'set[\\s]+([\\w]+)[\\s]+=[\\s]+([\\w_\'"]+)[\\s]+;', _xml_rule_equal )
 
 def _xml_rule_foreach(needle, s):
     find = re.search(needle, s)
@@ -29,11 +42,7 @@ def _xml_rule_foreach(needle, s):
     other_id = find.group(3)
     
     attr = string.split(attributes, ",")
-    is_item = False
-        
-    if (ident is not None):
-        is_item = True
-                
+
     tag = 'foreach'
     ret = '<foreach>'
     
@@ -64,8 +73,6 @@ def _xml_rule_foreach(needle, s):
     
     return ret
 
-tok_foreach = Token( 'foreach', 'foreach [\\s]*(([\\w]+)?(, [\\w]+)*)[\\s]*\\(([\\w\\s=,]+)\\)\\n[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_foreach )
-
 def _xml_rule_lock(needle, s):
     find = re.search(needle, s)
     var = find.group(1)
@@ -86,8 +93,6 @@ def _xml_rule_lock(needle, s):
     ret += '</' + tag + '>'
     
     return ret
-
-tok_lock = Token( 'lock', 'lock [\\s]*\\(([\\w\\s]*)\\)\\n[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_lock )
     
 def _xml_rule_command(needle, s):
     find = re.search(needle, s)
@@ -188,10 +193,7 @@ def _xml_rule_command(needle, s):
     ret += '</' + tag + '>'
     
     return ret
-
-tok_command = Token( 'command', '([\\w_]+)[ ]*(([\\w]+)?(, [\\w]+)*)[\\s]*((\\[[\\w ]+\\])?)[\\s]*\\(([\\w\\s=,$]+)\\)\\s*([\\w, \\s]*);', _xml_rule_command )
-        
-    
+ 
 def _xml_rule_string(needle, s):
     s = string.replace(s, '<', '&lt;')
     s = string.replace(s, '>', '&gt;')
@@ -200,22 +202,15 @@ def _xml_rule_string(needle, s):
     s = s[0] + string.replace(s[1:-1], "'", '&apos;') + s[-1]
 #    s = string.replace(s, '\\\\', '\\')
     return s
-   
-   
-tok_string = Token('string', '\'(([~\\w \\(\\):;,-\\./<>\%$+"]|\\\\\'|\\\\)*?)\'', _xml_rule_string )
-    
+       
 def _xml_rule_comment(needle, s):
 #    s = re.sub(needle, '', s)
     s = re.sub(needle, '<comment>\\2</comment>', s)
     return s    
-
-tok_comment = Token('comment', '(// (.+))', _xml_rule_comment )
     
 def _xml_rule_if(needle, s):
     s = re.sub(needle, '<if condition = \\1><true>\\2</true><false>\\3</false></if>', s)
     return s
-
-tok_if = Token( 'if', 'if \\(([\\w]+)\\)[\\s ]*\\{([^\\{]*?)\\}[\\s]*else[\\s]*\\{([^\\{]*?)\\}', _xml_rule_if )
 
 def _xml_rule_group(needle, s):
     find = re.search(needle, s)
@@ -226,16 +221,22 @@ def _xml_rule_group(needle, s):
         
     return s
 
+tok_equal = Token('equal', 'set[\\s]+([\\w]+)[\\s]+=[\\s]+([\\w_\'"]+)[\\s]+;', _xml_rule_equal )
+tok_foreach = Token( 'foreach', 'foreach [\\s]*(([\\w]+)?(, [\\w]+)*)[\\s]*\\(([\\w\\s=,]+)\\)\\n[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_foreach )
+tok_lock = Token( 'lock', 'lock [\\s]*\\(([\\w\\s]*)\\)\\n[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_lock )
+tok_command = Token( 'command', '([\\w_]+)[ ]*(([\\w]+)?(, [\\w]+)*)[\\s]*((\\[[\\w ]+\\])?)[\\s]*\\(([\\w\\s=,$]+)\\)\\s*([\\w, \\s]*);', _xml_rule_command )
+tok_string = Token('string', '\'(([~\\w \\(\\):;,-\\./<>\%$+"]|\\\\\'|\\\\)*?)\'', _xml_rule_string )
+tok_comment = Token('comment', '(// (.+))', _xml_rule_comment )
+tok_if = Token( 'if', 'if \\(([\\w]+)\\)[\\s ]*\\{([^\\{]*?)\\}[\\s]*else[\\s]*\\{([^\\{]*?)\\}', _xml_rule_if )
 tok_group = Token( 'group', '([\\w_]+[ ]?)([\\w]*)[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_group )
 
-
-ALLTOKEN = [
-             tok_comment,
-             tok_string,
-             tok_equal,
-             tok_command,
-             tok_if,
-             tok_foreach,
-             tok_lock,
-             tok_group
-             ]
+all_token = [
+     tok_comment,
+     tok_string,
+     tok_equal,
+     tok_command,
+     tok_if,
+     tok_foreach,
+     tok_lock,
+     tok_group
+]

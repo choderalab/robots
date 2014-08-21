@@ -2,6 +2,8 @@
 Created on 27.04.2014
 
 @author: JH Prinz
+
+Provides functionality to convert between different Momentum script representations.
 '''
 
 import re
@@ -9,22 +11,16 @@ import string
 from lxml import etree
 from jinja2 import Environment, PackageLoader
 import datetime
-from token import ALLTOKEN
+from token import all_token
 
 def _tokenize(tokenlist, s):
-    for token in ALLTOKEN:
+    for token in all_token:
         prog = re.compile(token.needle)
-
-#        print s
         cc = 0
         while (prog.search(s) is not None and cc < 10000):   
-            
             found = prog.search(s).group(0)
-            
             key = token.name + str(cc)
-            
             tokenlist.append( (token, key, found) )
-            
             s = prog.sub(key , s, count=1)
             cc += 1
     return s        
@@ -92,6 +88,24 @@ def _walk_steps(root):
         
 
 def momentum_to_xml(s):
+    '''
+    Converts a Momentum string to an XML representation
+    
+    Parameters
+    ----------
+    s : string
+        Momentum string representation of the Momentum script
+
+    Returns
+    -------
+    s : string
+        XML representation of the Momentum script
+
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
+
     tokenlist = []
     s = re.sub('(\\S) // (.+)', '\\1', s)
 
@@ -103,10 +117,25 @@ def momentum_to_xml(s):
     s = "<document>\n" + s + "\n</document>"
     return s
 
-def xml_to_momentum(s):
-    return python_to_momentum(xml_to_python(s))
-
 def xml_to_python(s):
+    '''
+    Converts a xml string to nested python dict representation
+    
+    Parameters
+    ----------
+    s : string
+        XML representation of the Momentum script
+
+    Returns
+    -------
+    d : nested dict
+        python dict representation of the Momentum script
+
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
+    
     root = etree.XML(s)
 
     profile = root.xpath("/document/profile")[0]
@@ -162,6 +191,23 @@ def xml_to_python(s):
             }        
         
 def python_to_momentum(d):
+    '''
+    Converts a nested python dict to momentum script string
+    
+    Parameters
+    ----------
+    d : nested dict
+        python dict representation of the Momentum script
+        
+    Returns
+    -------
+    s : string
+        Momentum script as a string
+
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
     env = Environment(loader=PackageLoader('components', 'momentum/templates/process'))
     
     def format_datetime(value, format='auto'):
@@ -178,3 +224,68 @@ def python_to_momentum(d):
 #    result = string.replace(, '\\', '\\\\')
 
     return result
+
+def xml_to_momentum(s):
+    '''
+    Converts a xml string to Momentum string representation
+    
+    Parameters
+    ----------
+    s : string
+        XML representation of the Momentum script
+
+    Returns
+    -------
+    s : string
+        Momentum string representation of the Momentum script
+        
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
+
+    return python_to_momentum(xml_to_python(s))
+
+
+def python_to_xml(d):
+    '''
+    Converts a python nested dict to an XML representation
+    
+    Parameters
+    ----------
+    d : nested dict
+        python representation ot the Momentum script
+
+    Returns
+    -------
+    s : string
+        XML representation of the Momentum script
+        
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
+
+    return momentum_to_xml(python_to_momentum(d))
+
+
+def momentum_to_python(s):
+    '''
+    Converts a python nested dict to an XML representation
+    
+    Parameters
+    ----------
+    s : string
+        Momentum representation of the Momentum script
+
+    Returns
+    -------
+    d : nested dict
+        python representation of the Momentum script
+        
+    See also
+    --------
+    xml_to_python, xml_to_momentum, python_to_xml, python_to_momentum, momentum_to_xml, momentum_to_python
+    '''
+
+    return xml_to_python(momentum_to_xml(s))

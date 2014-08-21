@@ -25,15 +25,15 @@
 # Add detailed output for plate definition in some kind of XML format containing amounts and errors
 # Add Advances WL commands to Worklist
 # Think about use of Units, maybe switch to other units package
-# Clean up parsing stuff in util.Parser
+# Clean up parsing stuff in util.Momentum
 # Clean up WellSet, Well using util.Place
 
 import copy
 
-from components.momentum.momentum import Parser
+from components.momentum.momentum import Momentum
 from components.evo import Plate, Worklist, Source, Mixture, Scheduler, V
 
-import xmlutil as xp
+import util.xmlutil as xp
 
 ################################################################################
 ##  PATH DEFINITIONS FOR MOMENTUM
@@ -87,7 +87,7 @@ plateDefinitions = {
 ##  READ CONTAINER TYPES IN MOMENTUM
 ################################################################################
 
-psr = Parser.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
+psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
 
 plates = [ psr for psr in psr['process/containers'] ]
 plateIDs = [ psr['id'] for psr in plates ]

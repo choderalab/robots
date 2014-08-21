@@ -8,7 +8,12 @@ import math
 
 class WellUtils(object):
     '''
-    Mixin that allows a container to compute lots of useful properties for wells
+    Mixin that allows a `Container` to compute lots of useful properties for wells
+    
+    Note
+    ----
+    
+    The computation of well volumes, surfaces works, but still replied on an older well-shape definition and needs to be updated.
     '''
 
     @property

@@ -11,6 +11,7 @@ Created on 27.04.2014
 # 5. Tokenize all if-statements using if \('[\w>]+'\)[\s ]*\{([^\{]*?)\}[\s]*else[\s]*\{([^\{]*?)\} into if_######
 # 6. Tokenize all groups using [\w]+([ ]+[\w]+)?\n[\s]*\{[^\{]*\} into group_######
 
+
 import re
 import string
 from lxml import etree
@@ -138,7 +139,7 @@ def _xml_rule_group(needle, s):
 tok_group = Token( 'group', '([\\w]+[ ]?)([\\w]*)\\n[\\s]*\\{([^\\{\\}]+)\\}', _xml_rule_group )
 
         
-class Parser:
+class Momentum:
     
     token = [
              tok_comment,

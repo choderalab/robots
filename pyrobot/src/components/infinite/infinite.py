@@ -43,7 +43,6 @@ class Script():
         for key in kwargs:
             setattr(self, key, kwargs[key])   
             
-            
 # this should be put into a database or XML File at some point
 
     @staticmethod

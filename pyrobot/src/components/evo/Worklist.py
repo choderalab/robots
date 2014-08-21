@@ -9,7 +9,7 @@ from util.Units import V
 
 class Worklist(object):
     '''
-    Worklist generator an object that
+    Worklist generator class to construct a worklist string by using standard commands for EVO worklists
     '''
 
     def __init__(self):

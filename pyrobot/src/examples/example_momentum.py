@@ -7,10 +7,10 @@ Created on 25.04.2014
 if __name__ == '__main__':
     pass
 
-# from momentum.momentum2xml import Parser, PyToMomentum
+# from momentum.momentum2xml import Momentum, PyToMomentum
 
-from components.momentum.momentum import Parser
-import xmlutil as xp
+from components.momentum.momentum import Momentum
+from util.xmlutil import XMLWrap
 #from momentum.templates import evo_run_singleplate, flow_if, flow_iteration_assign
 #import momentum.converter as cv
 import copy
@@ -22,7 +22,7 @@ from lxml import etree, objectify
 # create a psr object fom a Momentum source file, readXML is also possible although this is my own XML specification
 # and is mainly used as an intermediate step to parse into a python object
 
-psr = Parser.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
+psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
 
 # example_tecan change a property inside the python object tree. A next level can be specified using a "/" separated string
 # if the level is a dict than it ust picks the value with the given key, in case of a list of dicts it picks the entry which has
@@ -51,7 +51,7 @@ psr = Parser.readMomentum("components/momentum/templates/process/plAnalysis.mpr"
 
 # extract the plate IDs from the script
 
-wp = xp.XMLPyWrap('momentum')
+wp = XMLWrap('momentum')
 print wp.xml_as_py( psr.asXML() )
 
 plateIDs = [ psr['id'] for psr in psr['process/containers'] ]
@@ -94,11 +94,11 @@ for psr in plateIDs:
 #psr.toMomentumFile("example_momentum_worklist.txt")
 
 # Read a momentum process .mpr file and convert it into xmlutil
-psr = Parser.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
+psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
 xml= psr.asXML()
 xml = etree.tostring(objectify.fromstring(xml), pretty_print = True)
 print xml
 
-psr = Parser.fromXML(xml)
+psr = Momentum.fromXML(xml)
 
 print psr.asMomentum()

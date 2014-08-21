@@ -7,7 +7,9 @@ size96 = [8, 12]
 size384 = [16, 24]
 
 class Well:
-    'A well is a liquid holding site on a plate'   
+    '''
+    A well is a liquid holding site on a plate. It contains specifications about the liquid mixture and its associated position on a plate
+    '''   
     def __init__(self, *initial_data, **kwargs):
         
         self.is_source = False

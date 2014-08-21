@@ -7,7 +7,10 @@ Created on 14.04.2014
 import util.Units as u
 
 class Mixture:
-    'A mixture is a description for a combination of one or more liquids with their respective concentrations'
+    '''
+    A mixture is a description for a combination of one or more liquids with their respective concentrations
+    '''
+
     def __init__(self, content):
         self.contents = {psr : u.C(content[psr]) for psr in content}
         

@@ -7,7 +7,7 @@ Created on 27.07.2014
 import copy
 import lxml
 
-from xmlutil.NSXPathUtil import NSXPathUtil
+from util.xmlutil.NSXPathUtil import NSXPathUtil
 
 class XMLAnalyzer(object):
     def __init__(self):

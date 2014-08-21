@@ -1,5 +1,5 @@
 
-// Generated: Saturday, August 09, 2014 08:33:52 PMsr
+// Generated: Thursday, August 14, 2014 05:43:24 AMsr
 
 profile MSK
 {
@@ -102,7 +102,7 @@ profile MSK
 	// Version history
 	
 	// ******************  Version 1  ******************
-	// User: Admin  Date: Saturday, August 09, 2014 08:33:52 PMsr
+	// User: Admin  Date: Thursday, August 14, 2014 05:43:24 AMsr
 	
 	// Process Definition
 	
@@ -121,6 +121,15 @@ profile MSK
 				BarCodeRegularExpression = '',  WithLidOffset = '-5',  Attributes = '', 
 				StackHeight = '13.13',  Thickness = '1',  SetSize = '1', 
 				SealThickness = '0');
+
+			plate TestPlate
+				(Lid = '(None)',  MoverLiddingGripOffset = '0',  GripOffset = 'Identity', 
+				ContainerTypeNameId = '',  WellNumberingMethod = 'row',  GripForce = '75', 
+				BarCodeFile = '',  WithLidHeight = '16.18',  Thickness = '14.22', 
+				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")',  Height = '14.22',  SealThickness = '0', 
+				BarCodeRegularExpression = '',  WithLidOffset = '-5',  Attributes = '', 
+				StackHeight = '0',  NumberOfWellRows = '8',  SetSize = '1', 
+				NumberOfWellColumns = '12');
 
 		}
 		
@@ -161,10 +170,7 @@ profile MSK
 			Time ThisDay
 				(PromptForValue = 'No',  DefaultValue = '2014-08-05T19:22:19.0281093Z',  Comments = '', 
 				Persist = 'No');
-			Boolean bottom_read
-				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
-				Persist = 'No');
-			String bottomread
+			Boolean bottomread
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
 			String label
@@ -178,13 +184,14 @@ profile MSK
 		
 		// Process steps
 		
-		comment ('set plate-specific variables') ;
+		comment ('project variables') ;
 
-		set Day = '"08/06/14"' ;
+
+		set Day = '"10/08/14"' ;
 
 		set ProjectID = '"PTTX"' ;
 
-		set Descriptor = '"PlateTypeTest 4ti-0223"' ;
+		set Descriptor = '"PlateTypeTest"' ;
 
 		parallel
 		{ 
@@ -320,7 +327,7 @@ profile MSK
 				{
 					set bottomread = 'True' ;
 
-					set label = '"Corning 3655"' ;
+					set label = '"Corning 3655 384 Well"' ;
 
 					set dropstage = 'True' ;
 

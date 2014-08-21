@@ -7,16 +7,39 @@ Created on 14.04.2014
 import util.Parser as ps
 
 class WellSet(list):
-    'A WellSet is a set of wells on one or more plates'
+    '''
+    A WellSet is a set of wells on one or more plates. Effectively this is a python list of Wells
+    '''
     
     def position_list(self):
+        '''
+        Returns a list of positions of all the wells in the wellset
+        '''
         return [ el.position for el in self ]
         
     def well_list(self):
+        '''
+        Returns a list of Well positions in the form [row, col] of all wells in the set
+        '''
         return [ ps.PositionToWell(el.plate.dimensions, el.position) for el in self ]
     
-    def filter(self, s = ":", shift = [0, 0]):
-        parts = str.split(s.replace(' ', ''), ';')
+    def filter(self, query = ":"):
+        '''
+        Filters the WellSet according to a filter scheme and allows shifting of the wells.
+        
+        Parameters
+        ----------
+        
+        query : string
+            Filter string that is of the form `rows:cols` where rows and cols can have ranges indicated by `-` and have multiple definitions
+            separated by `,`. Rows can be given by character or number. Default is `:` which returns all wells. Groups like this are separated
+            by a `;`
+            
+        Notes
+        -----
+        Examples for the filters are `A-E:1-12` or `A,C,E:1-6` or `A-H-2:1-12-2;B-H-2:2-12-2` where the last one creates an alternating grid of wells.
+        '''
+        parts = str.split(query.replace(' ', ''), ';')
                 
         welllist = []
         
@@ -37,7 +60,10 @@ class WellSet(list):
                     if '-' in lpart:
                         # range
                         split = str.split(lpart, '-')
-                        rows.extend( range(int(split[0]), int(split[1]) + 1) )
+                        if len(split) == 2:
+                            rows.extend( range(int(split[0]), int(split[1]) + 1) )
+                        elif len(split) == 3:
+                            rows.extend( range(int(split[0]), int(split[1]) + 1), int(split[2]) )                            
                     else:
                         if len(lpart) > 0:
                             rows.extend( [ int(lpart)] )
@@ -47,7 +73,10 @@ class WellSet(list):
                     if '-' in rpart:
                         # range
                         split = str.split(rpart, '-')
-                        cols.extend( range(int(split[0]), int(split[1]) + 1) )
+                        if len(split) == 2:
+                            cols.extend( range(int(split[0]), int(split[1]) + 1) )
+                        elif len(split) == 3:
+                            cols.extend( range(int(split[0]), int(split[1]) + 1), int(split[2]) )                            
                     else:
                         if len(rpart) > 0:
                             cols.extend( [ int(rpart)] )
@@ -69,11 +98,28 @@ class WellSet(list):
         return WellSet( [ psr for psr in self if ps.PositionToName(psr.position) in wellnamelist ] )
 
     def sort(self):
+        '''
+        Returns a sorted version of the wellset.
+        
+        
+        '''
         return sorted(self, key=lambda x: x.position[1]*100 + x.position[0])
                 
     def mixture(self, mixtures):
-        'liquid sets the mixture types for all wells'
+        '''
+        Sets the mixture types for all wells in the wellset
+        '''
+        
         return WellSet([ el.setMixture(mixtures[el.wellname()]) for el in self ])
         
     def plate(self, plate):
+        '''
+        Sets the associated plate for all wells in the well set to a specific plate
+        
+        Parameters
+        ----------
+        
+        plate : Plate
+            The plate that the well should be associated to
+        '''
         return WellSet([ el.set_plate(plate) for el in self ])

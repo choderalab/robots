@@ -4,7 +4,7 @@ Created on 25.04.2014
 @author: jan-hendrikprinz
 '''
 
-from components.momentum.momentum import Parser
+from components.momentum.momentum import Momentum
 from components.containers.containers import Container
 
 
@@ -25,9 +25,9 @@ if __name__ == '__main__':
     plateOrder = [plate.id_barcode for plate in plateData]    
     plateOrder.sort()
         
-    psr = Parser.readMomentum("PTT Barcode Parser.txt")
+    psr = Momentum.readMomentum("PTT Barcode Momentum.txt")
 
-    psr.add_variable('bottom_read', 'Boolean')
+    psr.add_variable('bottomread', 'Boolean')
     for var in plateTypeData.values()[0]:
         psr.add_variable(var)
     
@@ -41,8 +41,24 @@ if __name__ == '__main__':
             for key in plateOrder ]
     
     steps = psr.steps
-    steps = steps[0:4]
-    steps.append(psr.flow_parallel(commands))
+    
+    print psr.containers
+    print steps
+    
+    print psr['profile/id']
+    print psr.devices
+
+    steps = []
+
+    psr.add_container('TestPlate', Container.from_id('Corning3635'))
+
+    steps.append(psr.flow_comment('project variables'))
+    steps.append(psr.flow_set('Day', '"10/08/14"'))
+    steps.append(psr.flow_set('ProjectID', '"PTTX"'))
+    steps.append(psr.flow_set('Descriptor', '"PlateTypeTest"'))
+    
+    steps.append( psr.flow_parallel(commands) )
+    
     psr.steps = steps
     
-    psr.toMomentumFile('PTT Barcode Parser Full.txt')
+    psr.toMomentumFile('PTT Barcode Momentum Full.txt')

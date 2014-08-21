@@ -1,7 +1,7 @@
 '''
 Created on 09.05.2014
 
-@author: jan-hendrikprinz
+@author: Sonya Hanson
 '''
 
 # This script takes xmlutil data file output from the Tecan Infinite m1000 Pro plate reader 
@@ -25,6 +25,8 @@ Created on 09.05.2014
 #
 ###################
 
+from components.distributor.googledrive import Distributor
+
 import matplotlib.pyplot as plt
 from lxml import etree
 import pandas as pd
@@ -35,7 +37,7 @@ import os
 
 # xml_files = sys.argv[1:]
 
-xml_files = [ 'result.xmlutil' ]
+xml_files = [ 'result.xml' ]
 
 so_many = len(xml_files)
 print "****This script is about to make png files for %s xmlutil files. ****"  % so_many
@@ -105,6 +107,8 @@ for file in xml_files:
         parameters = root.xpath(path)[0]
 
         # Parameters are extracted slightly differently depending on Absorbance or Fluorescence read.
+        
+        title = ''
                 
         if  parameters[0].attrib['Value'] == "12":   
             result = extract(["Mode", "Wavelength", "Part of Plate"])
@@ -112,15 +116,13 @@ for file in xml_files:
 
         else:
             result = extract(["Wavelength Start", "Wavelength End", "Mode"])
-            title = '%s, %s, %s, \n %s, %s' % tuple(result)
+#            title = '%s, %s, %s, \n %s, %s' % tuple(result)
 
         print "****The %sth section has the parameters:****" %i  
         print title
         
         # Extract Reads for this section.
-
         Sections = root.xpath("/*/Section")
-
         welllist = get_wells_from_section(sect)
         
         data.append(
@@ -132,12 +134,11 @@ for file in xml_files:
         )
 
     # Make plot, complete with subfigure for each section. 
-
     fig, axes = plt.subplots(nrows=1,ncols=len(Sections), figsize=(20,4.5))
 
     for i, sect in enumerate(data):
         sect['title'] = 'Hello'
-        sect['dataframe'].plot(title = sect['title'] , ax = axes[i] )
+        sect['dataframe'].plot(title = sect['title'], ax = axes[i])
 
     fig.tight_layout()
     fig.subplots_adjust(top=0.8)

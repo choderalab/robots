@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MeasurementResultData Date="2014-07-30T02:57:27.18288Z">
+    <!--Plate-->
+    <Plate>
+        <ID>
+        </ID>
+        <BC>A12345678W</BC>
+    </Plate>
+    <!--Header-->
+    <Header Application="Thermo.Automation.Devices.Instruments.Tecan.InfiniteHost, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Software_Versions>
+            <Version>
+            </Version>
+        </Software_Versions>
+        <Instrument>
+            <Name>infinite M1000 PRO</Name>
+            <SerialNumber>1311007572</SerialNumber>
+        </Instrument>
+        <Hardware_Versions>
+            <Version>MEX, V 1.20 Safire2 MCR  (V 1.20 Safire2 MCR )</Version>
+            <Version>MEM, V 1.20 Safire2 MCR  (V 1.20 Safire2 MCR )</Version>
+            <Version>FPO, V_1.03_Safire2 FP  (V_1.03_Safire2 FP )</Version>
+            <Version>ABS, V 1.00 MCR Abs 4 Channel (V 1.00 MCR Abs 4 Channel)</Version>
+            <Version>LUM, V_1.04_11/2011_LUMINESCENCE (Nov 02 2011/17.53.34)</Version>
+            <Version>BCR, V_1.00_02/2008_S3FTCAN</Version>
+            <Version>INA, V_1.05_11/2011_S3LCE_ALPHA (Nov  3 2011/09.27.24)</Version>
+            <Version>INB, V_1.05_11/2011_S3LCE_ALPHA (Nov  3 2011/09.27.24)</Version>
+            <Version>TCAN, V_1.00_02/2008_S3FTCAN (Feb 21 2008/17.19.16)</Version>
+        </Hardware_Versions>
+        <Parameters>
+            <Parameter Name="System" Value="TECAN-HP8300" />
+            <Parameter Name="User" Value="Tecan-HP8300\Thermo" />
+            <Parameter Name="Plate" Value="ChoderaLab 96 Flat Bottom None None Only for calibration of 96-well plates [Calibration96.pdfx]" />
+        </Parameters>
+    </Header>
+    <!--Script-->
+    <Script>
+        <TecanMeasurement id="1" class="" xmlns="tecan.at.schema.documents">
+            <CustomAction id="2" description="No comment so far" />
+            <MeasurementManualCycle id="3" number="1" type="Standard">
+                <CyclePlate id="4" file="Calibration96" plateWithCover="False">
+                    <Barcode id="5" readingFrom="ALL" />
+                    <PlateRange id="6" range="A1:A1|E12:E12" auto="false">
+                        <MeasurementAbsorbance id="7" mode="Normal" type="" name="ABS" longname="" description="">
+                            <Well id="8" auto="true">
+                                <MeasurementReading id="9" name="" beamDiameter="800" beamGridType="FilledCircle" beamGridSize="15" beamEdgeDistance="0">
+                                    <ReadingLabel id="10" name="Label1" scanType="ScanFixed" refID="0">
+                                        <ReadingSettings number="25" rate="2500" />
+                                        <ReadingTime integrationTime="0" lagTime="0" readDelay="10000" flash="0" dark="0" excitationTime="0" />
+                                        <ReadingFilter id="0" type="Ex" wavelength="4500" bandwidth="50" attenuation="0" usage="ABS" />
+                                    </ReadingLabel>
+                                </MeasurementReading>
+                            </Well>
+                            <CustomData id="11" />
+                        </MeasurementAbsorbance>
+                    </PlateRange>
+                </CyclePlate>
+            </MeasurementManualCycle>
+            <MeasurementInfo id="0" description="">
+                <ScriptTemplateSettings id="0">
+                    <ScriptTemplateGeneralSettings id="0" Title="" Group="" Info="" Image="" />
+                    <ScriptTemplateDescriptionSettings id="0" Internal="" External="" IsExternal="False" />
+                </ScriptTemplateSettings>
+            </MeasurementInfo>
+        </TecanMeasurement>
+    </Script>
+    <!--Actions-->
+    <Actions />
+    <!--Section-->
+    <Section Name="Label1" Time_Start="2014-07-30T02:57:30.6720796Z" Time_End="2014-07-30T02:58:20.1779111Z">
+        <Warnings />
+        <Errors />
+        <Parameters>
+            <Parameter Name="Mode" Value="Absorbance" />
+            <Parameter Name="Multiple Reads per Well (Circle (filled))" Value="15 x 15" />
+            <Parameter Name="Multiple Reads per Well (Border)" Value="0" Unit="µm" />
+            <Parameter Name="Wavelength" Value="450" Unit="nm" />
+            <Parameter Name="Number of Flashes" Value="25" />
+            <Parameter Name="Settle Time" Value="10" Unit="ms" />
+            <Parameter Name="Part of Plate" Value="A1-A1; E12-E12" />
+        </Parameters>
+        <Data Cycle="1">
+            <Well Pos="A1" Type="Multiple">
+                <Multiple MRW_Position="5;14" LabelId="1">0.2598</Multiple>
+                <Multiple MRW_Position="6;14" LabelId="1">0.1908</Multiple>
+                <Multiple MRW_Position="7;14" LabelId="1">0.1824</Multiple>
+                <Multiple MRW_Position="8;14" LabelId="1">0.2182</Multiple>
+                <Multiple MRW_Position="9;14" LabelId="1">0.3038</Multiple>
+                <Multiple MRW_Position="11;13" LabelId="1">0.3001</Multiple>
+                <Multiple MRW_Position="10;13" LabelId="1">0.1448</Multiple>
+                <Multiple MRW_Position="9;13" LabelId="1">0.0978</Multiple>
+                <Multiple MRW_Position="8;13" LabelId="1">0.0714</Multiple>
+                <Multiple MRW_Position="7;13" LabelId="1">0.0658</Multiple>
+                <Multiple MRW_Position="6;13" LabelId="1">0.0645</Multiple>
+                <Multiple MRW_Position="5;13" LabelId="1">0.0669</Multiple>
+                <Multiple MRW_Position="4;13" LabelId="1">0.1024</Multiple>
+                <Multiple MRW_Position="3;13" LabelId="1">0.177</Multiple>
+                <Multiple MRW_Position="2;12" LabelId="1">0.16</Multiple>
+                <Multiple MRW_Position="3;12" LabelId="1">0.0723</Multiple>
+                <Multiple MRW_Position="4;12" LabelId="1">0.051</Multiple>
+                <Multiple MRW_Position="5;12" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="6;12" LabelId="1">0.0448</Multiple>
+                <Multiple MRW_Position="7;12" LabelId="1">0.0438</Multiple>
+                <Multiple MRW_Position="8;12" LabelId="1">0.0466</Multiple>
+                <Multiple MRW_Position="9;12" LabelId="1">0.0533</Multiple>
+                <Multiple MRW_Position="10;12" LabelId="1">0.0753</Multiple>
+                <Multiple MRW_Position="11;12" LabelId="1">0.1184</Multiple>
+                <Multiple MRW_Position="12;12" LabelId="1">0.272</Multiple>
+                <Multiple MRW_Position="13;11" LabelId="1">0.3359</Multiple>
+                <Multiple MRW_Position="12;11" LabelId="1">0.1178</Multiple>
+                <Multiple MRW_Position="11;11" LabelId="1">0.0817</Multiple>
+                <Multiple MRW_Position="10;11" LabelId="1">0.0453</Multiple>
+                <Multiple MRW_Position="9;11" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="8;11" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="7;11" LabelId="1">0.0454</Multiple>
+                <Multiple MRW_Position="6;11" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="5;11" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="4;11" LabelId="1">0.0455</Multiple>
+                <Multiple MRW_Position="3;11" LabelId="1">0.044</Multiple>
+                <Multiple MRW_Position="2;11" LabelId="1">0.0565</Multiple>
+                <Multiple MRW_Position="1;11" LabelId="1">0.2055</Multiple>
+                <Multiple MRW_Position="1;10" LabelId="1">0.084</Multiple>
+                <Multiple MRW_Position="2;10" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="3;10" LabelId="1">0.0458</Multiple>
+                <Multiple MRW_Position="4;10" LabelId="1">0.0502</Multiple>
+                <Multiple MRW_Position="5;10" LabelId="1">0.0454</Multiple>
+                <Multiple MRW_Position="6;10" LabelId="1">0.0443</Multiple>
+                <Multiple MRW_Position="7;10" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="8;10" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="9;10" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="10;10" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="11;10" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="12;10" LabelId="1">0.0791</Multiple>
+                <Multiple MRW_Position="13;10" LabelId="1">0.1505</Multiple>
+                <Multiple MRW_Position="14;9" LabelId="1">0.4542</Multiple>
+                <Multiple MRW_Position="13;9" LabelId="1">0.1193</Multiple>
+                <Multiple MRW_Position="12;9" LabelId="1">0.0558</Multiple>
+                <Multiple MRW_Position="11;9" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="10;9" LabelId="1">0.0445</Multiple>
+                <Multiple MRW_Position="9;9" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="8;9" LabelId="1">0.0431</Multiple>
+                <Multiple MRW_Position="7;9" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="6;9" LabelId="1">0.0432</Multiple>
+                <Multiple MRW_Position="5;9" LabelId="1">0.0503</Multiple>
+                <Multiple MRW_Position="4;9" LabelId="1">0.0526</Multiple>
+                <Multiple MRW_Position="3;9" LabelId="1">0.0543</Multiple>
+                <Multiple MRW_Position="2;9" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="1;9" LabelId="1">0.0532</Multiple>
+                <Multiple MRW_Position="0;9" LabelId="1">0.1774</Multiple>
+                <Multiple MRW_Position="0;8" LabelId="1">0.1066</Multiple>
+                <Multiple MRW_Position="1;8" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="2;8" LabelId="1">0.0457</Multiple>
+                <Multiple MRW_Position="3;8" LabelId="1">0.052</Multiple>
+                <Multiple MRW_Position="4;8" LabelId="1">0.0514</Multiple>
+                <Multiple MRW_Position="5;8" LabelId="1">0.0528</Multiple>
+                <Multiple MRW_Position="6;8" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="7;8" LabelId="1">0.0417</Multiple>
+                <Multiple MRW_Position="8;8" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="9;8" LabelId="1">0.0435</Multiple>
+                <Multiple MRW_Position="10;8" LabelId="1">0.0435</Multiple>
+                <Multiple MRW_Position="11;8" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="12;8" LabelId="1">0.0459</Multiple>
+                <Multiple MRW_Position="13;8" LabelId="1">0.0865</Multiple>
+                <Multiple MRW_Position="14;8" LabelId="1">0.3432</Multiple>
+                <Multiple MRW_Position="14;7" LabelId="1">0.3333</Multiple>
+                <Multiple MRW_Position="13;7" LabelId="1">0.0843</Multiple>
+                <Multiple MRW_Position="12;7" LabelId="1">0.0476</Multiple>
+                <Multiple MRW_Position="11;7" LabelId="1">0.048</Multiple>
+                <Multiple MRW_Position="10;7" LabelId="1">0.0454</Multiple>
+                <Multiple MRW_Position="9;7" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="8;7" LabelId="1">0.0427</Multiple>
+                <Multiple MRW_Position="7;7" LabelId="1">0.0424</Multiple>
+                <Multiple MRW_Position="6;7" LabelId="1">0.0424</Multiple>
+                <Multiple MRW_Position="5;7" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="4;7" LabelId="1">0.053</Multiple>
+                <Multiple MRW_Position="3;7" LabelId="1">0.0549</Multiple>
+                <Multiple MRW_Position="2;7" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="1;7" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="0;7" LabelId="1">0.0904</Multiple>
+                <Multiple MRW_Position="0;6" LabelId="1">0.1065</Multiple>
+                <Multiple MRW_Position="1;6" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="2;6" LabelId="1">0.0492</Multiple>
+                <Multiple MRW_Position="3;6" LabelId="1">0.0439</Multiple>
+                <Multiple MRW_Position="4;6" LabelId="1">0.0498</Multiple>
+                <Multiple MRW_Position="5;6" LabelId="1">0.044</Multiple>
+                <Multiple MRW_Position="6;6" LabelId="1">0.0431</Multiple>
+                <Multiple MRW_Position="7;6" LabelId="1">0.0427</Multiple>
+                <Multiple MRW_Position="8;6" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="9;6" LabelId="1">0.0472</Multiple>
+                <Multiple MRW_Position="10;6" LabelId="1">0.0513</Multiple>
+                <Multiple MRW_Position="11;6" LabelId="1">0.0479</Multiple>
+                <Multiple MRW_Position="12;6" LabelId="1">0.049</Multiple>
+                <Multiple MRW_Position="13;6" LabelId="1">0.0828</Multiple>
+                <Multiple MRW_Position="14;6" LabelId="1">0.3507</Multiple>
+                <Multiple MRW_Position="14;5" LabelId="1">0.4409</Multiple>
+                <Multiple MRW_Position="13;5" LabelId="1">0.1016</Multiple>
+                <Multiple MRW_Position="12;5" LabelId="1">0.0521</Multiple>
+                <Multiple MRW_Position="11;5" LabelId="1">0.0487</Multiple>
+                <Multiple MRW_Position="10;5" LabelId="1">0.0494</Multiple>
+                <Multiple MRW_Position="9;5" LabelId="1">0.0507</Multiple>
+                <Multiple MRW_Position="8;5" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="7;5" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="6;5" LabelId="1">0.0423</Multiple>
+                <Multiple MRW_Position="5;5" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="4;5" LabelId="1">0.0478</Multiple>
+                <Multiple MRW_Position="3;5" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="2;5" LabelId="1">0.0486</Multiple>
+                <Multiple MRW_Position="1;5" LabelId="1">0.0448</Multiple>
+                <Multiple MRW_Position="0;5" LabelId="1">0.1497</Multiple>
+                <Multiple MRW_Position="1;4" LabelId="1">0.0775</Multiple>
+                <Multiple MRW_Position="2;4" LabelId="1">0.0425</Multiple>
+                <Multiple MRW_Position="3;4" LabelId="1">0.0497</Multiple>
+                <Multiple MRW_Position="4;4" LabelId="1">0.0423</Multiple>
+                <Multiple MRW_Position="5;4" LabelId="1">0.044</Multiple>
+                <Multiple MRW_Position="6;4" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="7;4" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="8;4" LabelId="1">0.0471</Multiple>
+                <Multiple MRW_Position="9;4" LabelId="1">0.0493</Multiple>
+                <Multiple MRW_Position="10;4" LabelId="1">0.0507</Multiple>
+                <Multiple MRW_Position="11;4" LabelId="1">0.0497</Multiple>
+                <Multiple MRW_Position="12;4" LabelId="1">0.0562</Multiple>
+                <Multiple MRW_Position="13;4" LabelId="1">0.1436</Multiple>
+                <Multiple MRW_Position="13;3" LabelId="1">0.3514</Multiple>
+                <Multiple MRW_Position="12;3" LabelId="1">0.101</Multiple>
+                <Multiple MRW_Position="11;3" LabelId="1">0.0498</Multiple>
+                <Multiple MRW_Position="10;3" LabelId="1">0.0531</Multiple>
+                <Multiple MRW_Position="9;3" LabelId="1">0.0487</Multiple>
+                <Multiple MRW_Position="8;3" LabelId="1">0.0433</Multiple>
+                <Multiple MRW_Position="7;3" LabelId="1">0.044</Multiple>
+                <Multiple MRW_Position="6;3" LabelId="1">0.0431</Multiple>
+                <Multiple MRW_Position="5;3" LabelId="1">0.0432</Multiple>
+                <Multiple MRW_Position="4;3" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="3;3" LabelId="1">0.0444</Multiple>
+                <Multiple MRW_Position="2;3" LabelId="1">0.0496</Multiple>
+                <Multiple MRW_Position="1;3" LabelId="1">0.2131</Multiple>
+                <Multiple MRW_Position="2;2" LabelId="1">0.1938</Multiple>
+                <Multiple MRW_Position="3;2" LabelId="1">0.0659</Multiple>
+                <Multiple MRW_Position="4;2" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="5;2" LabelId="1">0.0476</Multiple>
+                <Multiple MRW_Position="6;2" LabelId="1">0.0449</Multiple>
+                <Multiple MRW_Position="7;2" LabelId="1">0.0441</Multiple>
+                <Multiple MRW_Position="8;2" LabelId="1">0.0451</Multiple>
+                <Multiple MRW_Position="9;2" LabelId="1">0.051</Multiple>
+                <Multiple MRW_Position="10;2" LabelId="1">0.0508</Multiple>
+                <Multiple MRW_Position="11;2" LabelId="1">0.0953</Multiple>
+                <Multiple MRW_Position="12;2" LabelId="1">0.2867</Multiple>
+                <Multiple MRW_Position="11;1" LabelId="1">0.3461</Multiple>
+                <Multiple MRW_Position="10;1" LabelId="1">0.1446</Multiple>
+                <Multiple MRW_Position="9;1" LabelId="1">0.0644</Multiple>
+                <Multiple MRW_Position="8;1" LabelId="1">0.0568</Multiple>
+                <Multiple MRW_Position="7;1" LabelId="1">0.0563</Multiple>
+                <Multiple MRW_Position="6;1" LabelId="1">0.0644</Multiple>
+                <Multiple MRW_Position="5;1" LabelId="1">0.0744</Multiple>
+                <Multiple MRW_Position="4;1" LabelId="1">0.1012</Multiple>
+                <Multiple MRW_Position="3;1" LabelId="1">0.2056</Multiple>
+                <Multiple MRW_Position="5;0" LabelId="1">0.332</Multiple>
+                <Multiple MRW_Position="6;0" LabelId="1">0.2374</Multiple>
+                <Multiple MRW_Position="7;0" LabelId="1">0.212</Multiple>
+                <Multiple MRW_Position="8;0" LabelId="1">0.2285</Multiple>
+                <Multiple MRW_Position="9;0" LabelId="1">0.3473</Multiple>
+                <Multiple MRW_Position="Mean" LabelId="1">0.0919</Multiple>
+                <Multiple MRW_Position="StDev" LabelId="1">0.088</Multiple>
+            </Well>
+            <Well Pos="E12" Type="Multiple">
+                <Multiple MRW_Position="5;14" LabelId="1">0.4309</Multiple>
+                <Multiple MRW_Position="6;14" LabelId="1">0.2932</Multiple>
+                <Multiple MRW_Position="7;14" LabelId="1">0.2417</Multiple>
+                <Multiple MRW_Position="8;14" LabelId="1">0.251</Multiple>
+                <Multiple MRW_Position="9;14" LabelId="1">0.319</Multiple>
+                <Multiple MRW_Position="11;13" LabelId="1">0.2317</Multiple>
+                <Multiple MRW_Position="10;13" LabelId="1">0.1319</Multiple>
+                <Multiple MRW_Position="9;13" LabelId="1">0.0924</Multiple>
+                <Multiple MRW_Position="8;13" LabelId="1">0.0724</Multiple>
+                <Multiple MRW_Position="7;13" LabelId="1">0.0678</Multiple>
+                <Multiple MRW_Position="6;13" LabelId="1">0.0684</Multiple>
+                <Multiple MRW_Position="5;13" LabelId="1">0.0847</Multiple>
+                <Multiple MRW_Position="4;13" LabelId="1">0.1611</Multiple>
+                <Multiple MRW_Position="3;13" LabelId="1">0.3424</Multiple>
+                <Multiple MRW_Position="2;12" LabelId="1">0.3653</Multiple>
+                <Multiple MRW_Position="3;12" LabelId="1">0.1254</Multiple>
+                <Multiple MRW_Position="4;12" LabelId="1">0.0616</Multiple>
+                <Multiple MRW_Position="5;12" LabelId="1">0.0474</Multiple>
+                <Multiple MRW_Position="6;12" LabelId="1">0.0431</Multiple>
+                <Multiple MRW_Position="7;12" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="8;12" LabelId="1">0.0454</Multiple>
+                <Multiple MRW_Position="9;12" LabelId="1">0.0504</Multiple>
+                <Multiple MRW_Position="10;12" LabelId="1">0.0723</Multiple>
+                <Multiple MRW_Position="11;12" LabelId="1">0.1152</Multiple>
+                <Multiple MRW_Position="12;12" LabelId="1">0.187</Multiple>
+                <Multiple MRW_Position="13;11" LabelId="1">0.2024</Multiple>
+                <Multiple MRW_Position="12;11" LabelId="1">0.1045</Multiple>
+                <Multiple MRW_Position="11;11" LabelId="1">0.0639</Multiple>
+                <Multiple MRW_Position="10;11" LabelId="1">0.045</Multiple>
+                <Multiple MRW_Position="9;11" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="8;11" LabelId="1">0.0439</Multiple>
+                <Multiple MRW_Position="7;11" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="6;11" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="5;11" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="4;11" LabelId="1">0.0424</Multiple>
+                <Multiple MRW_Position="3;11" LabelId="1">0.0444</Multiple>
+                <Multiple MRW_Position="2;11" LabelId="1">0.1161</Multiple>
+                <Multiple MRW_Position="1;11" LabelId="1">0.4679</Multiple>
+                <Multiple MRW_Position="1;10" LabelId="1">0.1961</Multiple>
+                <Multiple MRW_Position="2;10" LabelId="1">0.0479</Multiple>
+                <Multiple MRW_Position="3;10" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="4;10" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="5;10" LabelId="1">0.043</Multiple>
+                <Multiple MRW_Position="6;10" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="7;10" LabelId="1">0.0436</Multiple>
+                <Multiple MRW_Position="8;10" LabelId="1">0.0446</Multiple>
+                <Multiple MRW_Position="9;10" LabelId="1">0.0436</Multiple>
+                <Multiple MRW_Position="10;10" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="11;10" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="12;10" LabelId="1">0.0574</Multiple>
+                <Multiple MRW_Position="13;10" LabelId="1">0.1102</Multiple>
+                <Multiple MRW_Position="14;9" LabelId="1">0.2085</Multiple>
+                <Multiple MRW_Position="13;9" LabelId="1">0.0892</Multiple>
+                <Multiple MRW_Position="12;9" LabelId="1">0.0463</Multiple>
+                <Multiple MRW_Position="11;9" LabelId="1">0.0426</Multiple>
+                <Multiple MRW_Position="10;9" LabelId="1">0.0439</Multiple>
+                <Multiple MRW_Position="9;9" LabelId="1">0.0449</Multiple>
+                <Multiple MRW_Position="8;9" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="7;9" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="6;9" LabelId="1">0.0417</Multiple>
+                <Multiple MRW_Position="5;9" LabelId="1">0.0413</Multiple>
+                <Multiple MRW_Position="4;9" LabelId="1">0.0418</Multiple>
+                <Multiple MRW_Position="3;9" LabelId="1">0.0403</Multiple>
+                <Multiple MRW_Position="2;9" LabelId="1">0.0414</Multiple>
+                <Multiple MRW_Position="1;9" LabelId="1">0.0953</Multiple>
+                <Multiple MRW_Position="0;9" LabelId="1">0.4468</Multiple>
+                <Multiple MRW_Position="0;8" LabelId="1">0.2941</Multiple>
+                <Multiple MRW_Position="1;8" LabelId="1">0.0662</Multiple>
+                <Multiple MRW_Position="2;8" LabelId="1">0.0409</Multiple>
+                <Multiple MRW_Position="3;8" LabelId="1">0.041</Multiple>
+                <Multiple MRW_Position="4;8" LabelId="1">0.04</Multiple>
+                <Multiple MRW_Position="5;8" LabelId="1">0.0411</Multiple>
+                <Multiple MRW_Position="6;8" LabelId="1">0.0406</Multiple>
+                <Multiple MRW_Position="7;8" LabelId="1">0.0414</Multiple>
+                <Multiple MRW_Position="8;8" LabelId="1">0.0389</Multiple>
+                <Multiple MRW_Position="9;8" LabelId="1">0.042</Multiple>
+                <Multiple MRW_Position="10;8" LabelId="1">0.0397</Multiple>
+                <Multiple MRW_Position="11;8" LabelId="1">0.0397</Multiple>
+                <Multiple MRW_Position="12;8" LabelId="1">0.0389</Multiple>
+                <Multiple MRW_Position="13;8" LabelId="1">0.0608</Multiple>
+                <Multiple MRW_Position="14;8" LabelId="1">0.141</Multiple>
+                <Multiple MRW_Position="14;7" LabelId="1">0.128</Multiple>
+                <Multiple MRW_Position="13;7" LabelId="1">0.0621</Multiple>
+                <Multiple MRW_Position="12;7" LabelId="1">0.0448</Multiple>
+                <Multiple MRW_Position="11;7" LabelId="1">0.0427</Multiple>
+                <Multiple MRW_Position="10;7" LabelId="1">0.0433</Multiple>
+                <Multiple MRW_Position="9;7" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="8;7" LabelId="1">0.041</Multiple>
+                <Multiple MRW_Position="7;7" LabelId="1">0.0417</Multiple>
+                <Multiple MRW_Position="6;7" LabelId="1">0.0413</Multiple>
+                <Multiple MRW_Position="5;7" LabelId="1">0.0402</Multiple>
+                <Multiple MRW_Position="4;7" LabelId="1">0.0402</Multiple>
+                <Multiple MRW_Position="3;7" LabelId="1">0.0391</Multiple>
+                <Multiple MRW_Position="2;7" LabelId="1">0.0392</Multiple>
+                <Multiple MRW_Position="1;7" LabelId="1">0.05</Multiple>
+                <Multiple MRW_Position="0;7" LabelId="1">0.2404</Multiple>
+                <Multiple MRW_Position="0;6" LabelId="1">0.2741</Multiple>
+                <Multiple MRW_Position="1;6" LabelId="1">0.0638</Multiple>
+                <Multiple MRW_Position="2;6" LabelId="1">0.0485</Multiple>
+                <Multiple MRW_Position="3;6" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="4;6" LabelId="1">0.0419</Multiple>
+                <Multiple MRW_Position="5;6" LabelId="1">0.0421</Multiple>
+                <Multiple MRW_Position="6;6" LabelId="1">0.0422</Multiple>
+                <Multiple MRW_Position="7;6" LabelId="1">0.0423</Multiple>
+                <Multiple MRW_Position="8;6" LabelId="1">0.0439</Multiple>
+                <Multiple MRW_Position="9;6" LabelId="1">0.0425</Multiple>
+                <Multiple MRW_Position="10;6" LabelId="1">0.0436</Multiple>
+                <Multiple MRW_Position="11;6" LabelId="1">0.0424</Multiple>
+                <Multiple MRW_Position="12;6" LabelId="1">0.0408</Multiple>
+                <Multiple MRW_Position="13;6" LabelId="1">0.0567</Multiple>
+                <Multiple MRW_Position="14;6" LabelId="1">0.1245</Multiple>
+                <Multiple MRW_Position="14;5" LabelId="1">0.1581</Multiple>
+                <Multiple MRW_Position="13;5" LabelId="1">0.0629</Multiple>
+                <Multiple MRW_Position="12;5" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="11;5" LabelId="1">0.0417</Multiple>
+                <Multiple MRW_Position="10;5" LabelId="1">0.0414</Multiple>
+                <Multiple MRW_Position="9;5" LabelId="1">0.0421</Multiple>
+                <Multiple MRW_Position="8;5" LabelId="1">0.0413</Multiple>
+                <Multiple MRW_Position="7;5" LabelId="1">0.0422</Multiple>
+                <Multiple MRW_Position="6;5" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="5;5" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="4;5" LabelId="1">0.0429</Multiple>
+                <Multiple MRW_Position="3;5" LabelId="1">0.049</Multiple>
+                <Multiple MRW_Position="2;5" LabelId="1">0.0423</Multiple>
+                <Multiple MRW_Position="1;5" LabelId="1">0.0822</Multiple>
+                <Multiple MRW_Position="0;5" LabelId="1">0.3677</Multiple>
+                <Multiple MRW_Position="1;4" LabelId="1">0.169</Multiple>
+                <Multiple MRW_Position="2;4" LabelId="1">0.0515</Multiple>
+                <Multiple MRW_Position="3;4" LabelId="1">0.0437</Multiple>
+                <Multiple MRW_Position="4;4" LabelId="1">0.0425</Multiple>
+                <Multiple MRW_Position="5;4" LabelId="1">0.0413</Multiple>
+                <Multiple MRW_Position="6;4" LabelId="1">0.042</Multiple>
+                <Multiple MRW_Position="7;4" LabelId="1">0.0408</Multiple>
+                <Multiple MRW_Position="8;4" LabelId="1">0.041</Multiple>
+                <Multiple MRW_Position="9;4" LabelId="1">0.0412</Multiple>
+                <Multiple MRW_Position="10;4" LabelId="1">0.0422</Multiple>
+                <Multiple MRW_Position="11;4" LabelId="1">0.0419</Multiple>
+                <Multiple MRW_Position="12;4" LabelId="1">0.0432</Multiple>
+                <Multiple MRW_Position="13;4" LabelId="1">0.0795</Multiple>
+                <Multiple MRW_Position="13;3" LabelId="1">0.1376</Multiple>
+                <Multiple MRW_Position="12;3" LabelId="1">0.0593</Multiple>
+                <Multiple MRW_Position="11;3" LabelId="1">0.0433</Multiple>
+                <Multiple MRW_Position="10;3" LabelId="1">0.0421</Multiple>
+                <Multiple MRW_Position="9;3" LabelId="1">0.0408</Multiple>
+                <Multiple MRW_Position="8;3" LabelId="1">0.0406</Multiple>
+                <Multiple MRW_Position="7;3" LabelId="1">0.041</Multiple>
+                <Multiple MRW_Position="6;3" LabelId="1">0.0433</Multiple>
+                <Multiple MRW_Position="5;3" LabelId="1">0.0428</Multiple>
+                <Multiple MRW_Position="4;3" LabelId="1">0.0442</Multiple>
+                <Multiple MRW_Position="3;3" LabelId="1">0.0445</Multiple>
+                <Multiple MRW_Position="2;3" LabelId="1">0.0694</Multiple>
+                <Multiple MRW_Position="1;3" LabelId="1">0.3536</Multiple>
+                <Multiple MRW_Position="2;2" LabelId="1">0.2855</Multiple>
+                <Multiple MRW_Position="3;2" LabelId="1">0.0704</Multiple>
+                <Multiple MRW_Position="4;2" LabelId="1">0.044</Multiple>
+                <Multiple MRW_Position="5;2" LabelId="1">0.0457</Multiple>
+                <Multiple MRW_Position="6;2" LabelId="1">0.0419</Multiple>
+                <Multiple MRW_Position="7;2" LabelId="1">0.0415</Multiple>
+                <Multiple MRW_Position="8;2" LabelId="1">0.0413</Multiple>
+                <Multiple MRW_Position="9;2" LabelId="1">0.042</Multiple>
+                <Multiple MRW_Position="10;2" LabelId="1">0.0412</Multiple>
+                <Multiple MRW_Position="11;2" LabelId="1">0.0573</Multiple>
+                <Multiple MRW_Position="12;2" LabelId="1">0.1146</Multiple>
+                <Multiple MRW_Position="11;1" LabelId="1">0.1441</Multiple>
+                <Multiple MRW_Position="10;1" LabelId="1">0.0652</Multiple>
+                <Multiple MRW_Position="9;1" LabelId="1">0.0474</Multiple>
+                <Multiple MRW_Position="8;1" LabelId="1">0.0438</Multiple>
+                <Multiple MRW_Position="7;1" LabelId="1">0.0434</Multiple>
+                <Multiple MRW_Position="6;1" LabelId="1">0.0425</Multiple>
+                <Multiple MRW_Position="5;1" LabelId="1">0.0488</Multiple>
+                <Multiple MRW_Position="4;1" LabelId="1">0.0874</Multiple>
+                <Multiple MRW_Position="3;1" LabelId="1">0.2236</Multiple>
+                <Multiple MRW_Position="5;0" LabelId="1">0.2453</Multiple>
+                <Multiple MRW_Position="6;0" LabelId="1">0.1466</Multiple>
+                <Multiple MRW_Position="7;0" LabelId="1">0.115</Multiple>
+                <Multiple MRW_Position="8;0" LabelId="1">0.1201</Multiple>
+                <Multiple MRW_Position="9;0" LabelId="1">0.1659</Multiple>
+                <Multiple MRW_Position="Mean" LabelId="1">0.0877</Multiple>
+                <Multiple MRW_Position="StDev" LabelId="1">0.088</Multiple>
+            </Well>
+        </Data>
+    </Section>
+</MeasurementResultData>
