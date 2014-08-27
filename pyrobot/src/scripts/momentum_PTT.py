@@ -37,7 +37,7 @@ if __name__ == '__main__':
     ### BARCODE PRINTING
     ###
 
-    # Read template from momentum 
+    # Read template from momentum
     psr = Momentum.readMomentum("PTT Barcode Label.txt")
 
     plateTypeData = {plate.id_barcode : { 
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     psr.steps = steps
     
     # write the current momentum script to new file
-    psr.toMomentumFile('PTT Barcode Momentum Full.txt')
+    psr.toMomentumFile('PTT Barcode Label Full.txt')
     
     
     ###
@@ -134,7 +134,7 @@ if __name__ == '__main__':
     steps.append(psr.flow_set('Day', '"21/08/14"'))
     steps.append(psr.flow_set('ProjectID', '"PTTX"'))
     steps.append(psr.flow_set('Descriptor', '"PlateTypeTest"'))
-
+    
     # Add a set of parallel if statements that set plate specific variables according to the platetype in the barcode    
     steps.append(psr.flow_parallel(command_set) )
     steps.extend(rest)

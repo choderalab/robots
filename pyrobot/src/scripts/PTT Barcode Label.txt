@@ -228,13 +228,13 @@ profile MSK
 		set PlateType = '"A"' ;
 		
 		set dropstage = 'True' ;
+
+		comment ('compute dependent variables') ;
 		
 		set FullDescriptor = 'Day + " " + Descriptor' ;
 		
 		set BC = 'PlateType + ProjectID +  EncodeBase26(PlateCount, 5, \'A\')' ;
-		
-		comment ('compute dependent variables') ;
-		
+				
 		set BCEast = 'BC+"E"' ;
 		
 		set BCWest = 'BC+"W"' ;

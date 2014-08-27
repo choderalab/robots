@@ -77,7 +77,7 @@ class Container(ContainerFactory, WellUtils):
         self.stacking_below = True
         self.stacking_plate_height = 0.0
         self.well_size = 'full'
-        self.well_coating = 'none) (free'
+        self.well_coating = 'none'
         self.well_shape = 'round'
         self.well_bottom = ''
         self.well_profile = 'flat'
@@ -219,6 +219,7 @@ class Container(ContainerFactory, WellUtils):
     @staticmethod
     def from_name(name):
         return Container._from('general_name', "'" + name + "'")
+    
         
 if __name__ == '__main__':
     c = Container(well_size_x = 2.0, well_shape='round', well_bottom_shape='bubble', well_depth = -3)
@@ -235,7 +236,7 @@ if __name__ == '__main__':
     xv = np.arange(0,c.well_depth,0.01)
     yv = [ c.well_volume_at_depth(x) for x in xv]
     
-    c._construct()
+#    c._construct()
     
 #    print c.gen_str
 #    print c.gen_str_prop

@@ -1,5 +1,5 @@
 
-// Generated: Thursday, August 14, 2014 05:43:24 AMsr
+// Generated: Thursday, August 21, 2014 08:42:58 PMsr
 
 profile MSK
 {
@@ -102,7 +102,7 @@ profile MSK
 	// Version history
 	
 	// ******************  Version 1  ******************
-	// User: Admin  Date: Thursday, August 14, 2014 05:43:24 AMsr
+	// User: Admin  Date: Thursday, August 21, 2014 08:42:58 PMsr
 	
 	// Process Definition
 	
@@ -121,15 +121,6 @@ profile MSK
 				BarCodeRegularExpression = '',  WithLidOffset = '-5',  Attributes = '', 
 				StackHeight = '13.13',  Thickness = '1',  SetSize = '1', 
 				SealThickness = '0');
-
-			plate TestPlate
-				(Lid = '(None)',  MoverLiddingGripOffset = '0',  GripOffset = 'Identity', 
-				ContainerTypeNameId = '',  WellNumberingMethod = 'row',  GripForce = '75', 
-				BarCodeFile = '',  WithLidHeight = '16.18',  Thickness = '14.22', 
-				BarCodeAutoExpression = '"NC" + Format(Now, "yyMMddHHmmss") + "." + Format(WallClock, "fff")',  Height = '14.22',  SealThickness = '0', 
-				BarCodeRegularExpression = '',  WithLidOffset = '-5',  Attributes = '', 
-				StackHeight = '0',  NumberOfWellRows = '8',  SetSize = '1', 
-				NumberOfWellColumns = '12');
 
 		}
 		
@@ -170,13 +161,16 @@ profile MSK
 			Time ThisDay
 				(PromptForValue = 'No',  DefaultValue = '2014-08-05T19:22:19.0281093Z',  Comments = '', 
 				Persist = 'No');
-			Boolean bottomread
+			Boolean Bottomread
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
-			String label
+			String Label
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
-			String size
+			String Dropstage
+				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
+				Persist = 'No');
+			String Size
 				(PromptForValue = 'No',  DefaultValue = '',  Comments = '', 
 				Persist = 'No');
 			
@@ -184,10 +178,17 @@ profile MSK
 		
 		// Process steps
 		
+		comment ('set plate-specific variables') ;
+
+
+		set Day = '"08/06/14"' ;
+
+		set ProjectID = '"PTTX"' ;
+
 		comment ('project variables') ;
 
 
-		set Day = '"10/08/14"' ;
+		set Day = '"21/08/14"' ;
 
 		set ProjectID = '"PTTX"' ;
 
@@ -199,13 +200,13 @@ profile MSK
 			{
 				if ('PlateType = "A"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"4titude 0223 96 Well"' ;
 
-					set label = '"4titude 0223 96 Well"' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'True' ;
+					set Dropstage = 'True' ;
 
-					set size = '"96"' ;
+					set Size = '"96"' ;
 
 
 				} 
@@ -220,13 +221,13 @@ profile MSK
 			{
 				if ('PlateType = "B"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"Corning 3651"' ;
 
-					set label = '"Corning 3651"' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'False' ;
+					set Dropstage = 'False' ;
 
-					set size = '"96"' ;
+					set Size = '"96"' ;
 
 
 				} 
@@ -241,13 +242,13 @@ profile MSK
 			{
 				if ('PlateType = "C"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"Corning 3679 96 Well UV Clear"' ;
 
-					set label = '"Corning 3679 96 Well UV Clear"' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'False' ;
+					set Dropstage = 'False' ;
 
-					set size = '"96"' ;
+					set Size = '"96"' ;
 
 
 				} 
@@ -262,13 +263,13 @@ profile MSK
 			{
 				if ('PlateType = "D"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"Corning 3635 96 Well UV Clear"' ;
 
-					set label = '"Corning 3635 96 Well UV Clear"' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'False' ;
+					set Dropstage = 'False' ;
 
-					set size = '"96"' ;
+					set Size = '"96"' ;
 
 
 				} 
@@ -283,13 +284,13 @@ profile MSK
 			{
 				if ('PlateType = "E"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"4titude 0203 384 Well "' ;
 
-					set label = '"4titude 0203 384 Well "' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'False' ;
+					set Dropstage = 'False' ;
 
-					set size = '"384"' ;
+					set Size = '"384"' ;
 
 
 				} 
@@ -304,13 +305,13 @@ profile MSK
 			{
 				if ('PlateType = "F"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"Corning 3711 384 Well "' ;
 
-					set label = '"Corning 3711 384 Well "' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'True' ;
+					set Dropstage = 'True' ;
 
-					set size = '"384"' ;
+					set Size = '"384"' ;
 
 
 				} 
@@ -325,13 +326,13 @@ profile MSK
 			{
 				if ('PlateType = "G"')
 				{
-					set bottomread = 'True' ;
+					set Label = '"Corning 3655 384 Well"' ;
 
-					set label = '"Corning 3655 384 Well"' ;
+					set Bottomread = 'True' ;
 
-					set dropstage = 'True' ;
+					set Dropstage = 'True' ;
 
-					set size = '"384"' ;
+					set Size = '"384"' ;
 
 
 				} 

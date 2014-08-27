@@ -7,9 +7,9 @@ Created on 27.07.2014
 from lxml import etree
 from lxml import objectify
 
-from xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
-from xmlutil.XMLBind import XMLBind 
-from xmlutil.XMLFactory import XMLFactory
+from util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
+from util.xmlutil.XMLBind import XMLBind 
+from util.xmlutil.XMLFactory import XMLFactory
 
 import components.momentum.converter as cv
 

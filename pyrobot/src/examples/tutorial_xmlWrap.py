@@ -9,7 +9,7 @@ Created on 27.04.2014
 
 @author: JH Prinz
 '''
-import xmlutil as xp
+import util.xmlutil as xp
 from lxml import etree
 
 s = ''
