@@ -12,10 +12,12 @@ import numpy as np
 from components.containers.containerfactory import ContainerFactory
 from components.containers.wellsutils import WellUtils
 
+import sqlite3
 from simplemysql import SimpleMysql 
 
 class Container(ContainerFactory, WellUtils):
     
+    _dbtype = 'sqlite'
     _db = None
     _xml = None
 
@@ -28,6 +30,7 @@ class Container(ContainerFactory, WellUtils):
             passwd="plate",
             keep_alive=True # try and reconnect timedout mysql connections?
         )
+        Container._dbtype = 'mysql'
         
     @staticmethod
     def connect_xml(filename = None):
@@ -39,6 +42,13 @@ class Container(ContainerFactory, WellUtils):
             s = myfile.read()   
 
         Container._xml = s
+        
+    @staticmethod
+    def connect_sqlite():
+        Container._db = sqlite3.connect('imports/plates.sqlite')
+        Container._db.row_factory = sqlite3.Row
+        
+        pass
             
     def __init__(self, *initial_data, **kwargs):
         
@@ -176,18 +186,35 @@ class Container(ContainerFactory, WellUtils):
         
     @staticmethod
     def _from(identifier, value):
-        this = Container()
-        
-        variables = [v for v in vars(this) if v[0] != '_']
-        plate = Container._db.getOne("plates", variables, [identifier + "=" + str(value)])
-        
-        if plate is not None:
-            for v in variables:
-                setattr(this, v, getattr(plate, v) )
-        else:
-            print 'Not found'
+        if Container._dbtype == 'mysql':
+            this = Container()
             
-        return this
+            variables = [v for v in vars(this) if v[0] != '_']
+            plate = Container._db.getOne("plates", variables, [identifier + "=" + str(value)])
+            
+            if plate is not None:
+                for v in variables:
+                    setattr(this, v, getattr(plate, v) )
+            else:
+                print 'Not found'
+                
+            return this
+        elif Container._dbtype == 'sqlite':
+            cur = Container._db.cursor()
+            this = Container()
+            variables = [v for v in vars(this) if v[0] != '_']
+            
+            cur.execute("select * from plates where " + identifier + "=" + value)
+            row = cur.fetchone()
+            
+            if row is not None:
+                data = dict(zip(row.keys(), row))
+                for v in variables:
+                    setattr(this, v, data[v] )
+            else:
+                print 'Not found'
+            
+            return this             
 
     def store(self, fields = None):
         if fields is None:
@@ -220,6 +247,16 @@ class Container(ContainerFactory, WellUtils):
     def from_name(name):
         return Container._from('general_name', "'" + name + "'")
     
+    @staticmethod
+    def from_evo_name(name):
+        return Container._from('id_evo', "'" + name + "'")
+    
+    def as_evo_plate(self):
+        return {
+            'racktype' : self.id_evo,
+            'dimensions' : [int(self.plate_columns), int(self.plate_rows)],
+            'maximum_volume' : str(self.well_volume_working_max) + 'ul'                
+            }
         
 if __name__ == '__main__':
     c = Container(well_size_x = 2.0, well_shape='round', well_bottom_shape='bubble', well_depth = -3)
@@ -246,3 +283,7 @@ if __name__ == '__main__':
 #    print c._gen_html_query('')
 #    print c._gen_mysql_createtable('plates')
 
+    c = Container.connect_sqlite()
+#    print Container._from('id','1').__dict__.keys()
+
+    print Container.from_evo_name('4titude 0223').__dict__.keys()

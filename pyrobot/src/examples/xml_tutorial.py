@@ -17,14 +17,13 @@ import copy
 
 # Read a Tecan Infinite Result XML file
 
-root = objectify.fromstring(etree.tostring(objectify.parse('infinite_temp.xmlutil')))
+root = objectify.fromstring(etree.tostring(objectify.parse('infinite_temp.xml')))
 
 o = XMLBind(root, namespaces = {'ns' : 'tecan.at.schema.documents'}, addns = True)
 
 for key, value in o.inspect(unique = True, nodes= True).iteritems():
     print key, ":", value
     
-
 o.bind('type', '//ReadingFilter/@type')
 
 print o.type
@@ -35,8 +34,6 @@ o.bind('type', '//ReadingFilter/@type')
 run = o.run
 
 print run
-
-
 
 add = run[0:1] + copy.deepcopy( run )
 o.run = add
@@ -106,7 +103,7 @@ print result
 
 # Walker Test without namespace
 
-root = objectify.fromstring(etree.tostring(objectify.parse('gen.xmlutil')))
+root = objectify.fromstring(etree.tostring(objectify.parse('gen.xml')))
 
 wc = XMLWalker(root)
 xp = "//Well?pos=@Pos/Scan?wave=@WL&val=text()"
@@ -125,7 +122,7 @@ with open ('plAnalysis.mpr', "r") as myfile:
     
 xml = cv.momentum_to_xml(mom_mpr)
 
-print xml
+#print xml
 
 root = objectify.fromstring(xml)
 
@@ -157,9 +154,9 @@ print [step.tag for step in process_steps]
 process_steps = root.xpath("//process//set")
 print [step.tag for step in process_steps]
 
-root = objectify.fromstring(etree.tostring(objectify.parse('DMSO Concentration Test 2014-07-30 1940.DATA.xmlutil')))
+root = objectify.fromstring(etree.tostring(objectify.parse('DMSO Concentration Test 2014-07-30 1940.DATA.xml')))
 
-print etree.tostring(root, pretty_print = True)
+#print etree.tostring(root, pretty_print = True)
 
 wk = XMLWalker(root)
 
@@ -167,9 +164,11 @@ dispenses = wk.walk(XPathAnalyzer('//Well?row=@R&col=@C/Fluid?index=@Index&total
 
 #print dispenses
 
-heads = wk.walk(XPathAnalyzer('//DispenseHead?type=@Type&cassette=@Cassette&head=@Head&fluid=@Fluid/LoadVolume?volume=text()'))
-heads = wk.walk(XPathAnalyzer("//DispenseHead?head=@Head&fluid=@Fluid&total='LoadVolume/text()'&dispense='DispenseVolume/text()'"))
-
-print etree.tostring(root.Fluids, pretty_print = True)
-
+heads = wk.walk(XPathAnalyzer('// DispenseHead ? type = @Type & cassette : int = @Cassette & head : int = @Head & fluid : int = @Fluid / LoadVolume ? volume : float = text()'))
 print heads
+
+heads = wk.walk(XPathAnalyzer("//DispenseHead?head:int=@Head&fluid:int=@Fluid&total:float='LoadVolume/text()'&dispense:float='DispenseVolume/text()'"))
+print heads
+
+#print etree.tostring(root.Fluids, pretty_print = True)
+

@@ -5,7 +5,6 @@ Created on 27.07.2014
 '''
 
 import copy
-import lxml
 
 from util.xmlutil.NSXPathUtil import NSXPathUtil
 
@@ -87,6 +86,7 @@ class XPathAnalyzer(XMLAnalyzer, NSXPathUtil):
         self.namespace = namespaces.values()[0]
         self.ns = namespaces.keys()[0]
         self.addns = addns
+        self.non_existent = None
 
         super(XPathAnalyzer, self).__init__()        
                 
@@ -107,10 +107,11 @@ class XPathAnalyzer(XMLAnalyzer, NSXPathUtil):
                     ret = {}
                     for key, psr in self.vars.iteritems():
                         res = tree.xpath(psr)
+#                        print len(res)
                         if len(res) > 0:                        
-                            ret[key] = res[0]
+                            ret[key] = self._parse_type(res[0], self.type_fnc[key])
                         else:
-                            ret[key] = ""
+                            ret[key] = self.non_existent
                             
                     return ret
                 else:
@@ -118,9 +119,9 @@ class XPathAnalyzer(XMLAnalyzer, NSXPathUtil):
                     for key, psr in self.vars.iteritems():
                         res = tree.xpath(psr, namespaces = { self.ns : self.namespace })
                         if len(res) > 0:                        
-                            ret[key] = res[0]
+                            ret[key] = self._parse_type(res[0], self.type_fnc[key])
                         else:
-                            ret[key] = ""
+                            ret[key] = self.non_existent
                             
                     return ret                    
             else:

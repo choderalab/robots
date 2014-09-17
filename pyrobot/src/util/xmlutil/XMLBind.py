@@ -8,7 +8,7 @@ from lxml import etree
 from lxml import objectify
 
 import re
-from xmlutil.NSXPathUtil import NSXPathUtil
+from util.xmlutil.NSXPathUtil import NSXPathUtil
 
 class XMLBind(NSXPathUtil):    
     """Class to create bindings between instance properties and associated objectified xmlutil nodes/attributes.

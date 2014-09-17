@@ -8,7 +8,7 @@ from lxml import objectify
 
 import copy
 
-from xmlutil.XMLBind import XMLBind
+from util.xmlutil.XMLBind import XMLBind
 
 class XMLFactory(object):
     def __init__(self):

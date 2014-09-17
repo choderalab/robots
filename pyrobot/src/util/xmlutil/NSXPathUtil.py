@@ -36,7 +36,11 @@ class NSXPathUtil(object):
             s = prog.sub(key , s, count=1)
             cc += 1
             
-        return s                        
+        return s                   
+    
+    def _stripwhitespace(self, s):
+        pattern = re.compile(r'\s+')
+        return re.sub(pattern, '', s)        
     
     def _node_add_ns(self, n):
         if self.namespace is not '' and n!= '':  
@@ -91,14 +95,33 @@ class NSXPathUtil(object):
                 return etree.XPath(xpath)
             else:
                 return etree.XPath(xpath, namespaces = {self.ns : self.namespace})
+            
+    def _parse_type(self, val, typ = None):
+        if typ is not None:
+            if typ == 'str':
+                return str(val)
+            elif typ == 'int':
+                return int(val)
+            elif typ == 'float':
+                return float(val)
+            elif typ == 'bool':
+                return bool(val)
+            else:
+                return val
+        else:
+            return val
+            
+            
         
     def _init_xpath_search(self):
         self.tokenlist = []
         self.xp = self._tokenize(self.xp)
+        self.xp = self._stripwhitespace(self.xp)
         parts = self.xp.split('/')
         var_parts = {}
         current_xpath = ''
         var_funcs = {}
+        var_types = {}
         
         for part in parts[1:]:
             sides = part.split('?')
@@ -110,11 +133,17 @@ class NSXPathUtil(object):
                 sides[1] = self._untokenize(sides[1])
                 for var in sides[1].split('&'):
                     spl = var.split('=')
-                    var_name = spl[0]
+                    varsplit = spl[0].split(':')                    
+                    var_name = varsplit[0]
+                    if len(varsplit) > 1:
+                        var_type = varsplit[1]
+                    else:
+                        var_type = None
                     node = (sides[0].split('['))[0]
                     spl[1] = string.replace(spl[1], "'", "", )
                     assign = current_xpath + '/' + node + '/' + spl[1]
                     var_parts[var_name] = assign
+                    var_types[var_name] = var_type
                     var_funcs[var_name] = etree.XPath(assign)
         
             current_xpath += '/' + self._untokenize(sides[0]) 
@@ -123,3 +152,4 @@ class NSXPathUtil(object):
         self.vars = var_parts
         self.var_fnc = var_funcs
         self.filter_fnc = etree.XPath(self.xpath)
+        self.type_fnc = var_types
