@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <SWVersion>2.3.0</SWVersion>
+  <FileVersion>1</FileVersion>
+  <Protocol>C:\Users\Thermo\Desktop\HP D300\Protocols\DMSO Concentration Test.hpdd</Protocol>
+  <Simulated>True</Simulated>
+  <StartTime>2014-07-30T19:39:50.966-04:00</StartTime>
+  <EndTime>2014-07-30T19:40:00.192-04:00</EndTime>
+  <DispenseOrder>LastPriority</DispenseOrder>
+  <Fluids>
+    <Fluid Index="0">
+      <Name>Bosutinib</Name>
+      <ClassID>0</ClassID>
+      <Concentration>10</Concentration>
+      <ConcentrationUnit>mM</ConcentrationUnit>
+    </Fluid>
+    <Fluid Index="1">
+      <Name>DMSO normalization</Name>
+      <ClassID>0</ClassID>
+      <IsNormalization>True</IsNormalization>
+    </Fluid>
+  </Fluids>
+  <Plates>
+    <Plate Index="0">
+      <Type>Default96</Type>
+      <DLLName>96 Default</DLLName>
+      <Name />
+      <ID />
+      <Rows>8</Rows>
+      <Cols>12</Cols>
+      <AssayVolume>100000</AssayVolume>
+      <DMSOLimit>0.01</DMSOLimit>
+      <DontShake>False</DontShake>
+      <DontDispense>False</DontDispense>
+    </Plate>
+    <Plate Index="1">
+      <Type>Default96</Type>
+      <DLLName>96 Default</DLLName>
+      <Name />
+      <ID />
+      <Rows>8</Rows>
+      <Cols>12</Cols>
+      <AssayVolume>50000</AssayVolume>
+      <DMSOLimit>0.01</DMSOLimit>
+      <DontShake>False</DontShake>
+      <DontDispense>False</DontDispense>
+    </Plate>
+  </Plates>
+  <Cassettes>
+    <Cassette Index="0">
+      <Type>T8</Type>
+      <ID />
+    </Cassette>
+    <Cassette Index="1">
+      <Type>T8</Type>
+      <ID />
+    </Cassette>
+  </Cassettes>
+  <DispenseHeads>
+    <DispenseHead Type="T8" Cassette="0" Head="0" Fluid="0">
+      <LoadVolume>4015.81108073958</LoadVolume>
+      <DispenseVolume>3234.64</DispenseVolume>
+    </DispenseHead>
+    <DispenseHead Type="T8" Cassette="0" Head="1" Fluid="1">
+      <LoadVolume>19902.7926128403</LoadVolume>
+      <DispenseVolume>17044.8</DispenseVolume>
+    </DispenseHead>
+  </DispenseHeads>
+  <Dispensed VolumeUnit="nL">
+    <Plate Index="0">
+      <Well R="0" C="0">
+        <Fluid Index="0" TotalVolume="200">
+          <Detail Time="2014-07-30T19:39:55.291-04:00" Cassette="0" Head="0" Volume="200" />
+        </Fluid>
+      </Well>
+      <Well R="0" C="1">
+        <Fluid Index="0" TotalVolume="126">
+          <Detail Time="2014-07-30T19:39:55.293-04:00" Cassette="0" Head="0" Volume="126" />
+        </Fluid>
+        <Fluid Index="1" TotalVolume="74">
+          <Detail Time="2014-07-30T19:39:55.905-04:00" Cassette="0" Head="1" Volume="74" />
+        </Fluid>
+      </Well>
+    </Plate>
+    <Plate Index="1">
+    </Plate>
+  </Dispensed>
+</Report>

@@ -23,7 +23,7 @@
 # Add documentation !!!!!!!!!!!!!!!!!!!!!!
 # Add dispense schemes to compute estimates of accuracies
 # Add detailed output for plate definition in some kind of XML format containing amounts and errors
-# Add Advances WL commands to Worklist
+# Add Advances WL commands to D300Worklist
 # Think about use of Units, maybe switch to other units package
 # Clean up parsing stuff in util.Momentum
 # Clean up WellSet, Well using util.Place
@@ -31,7 +31,7 @@
 import copy
 
 from components.momentum.momentum import Momentum
-from components.evo import Plate, Worklist, Source, Mixture, Scheduler, V
+from components.evo import Plate, D300Worklist, Source, Mixture, Scheduler, V
 
 import util.xmlutil as xp
 
@@ -202,7 +202,7 @@ for (id, plate) in plate_test_types.iteritems():
     sc.apply_rule(task_rules)
 
     # Build worklist generator
-    wl = Worklist()
+    wl = D300Worklist()
 
     # Write scheduled tasks to worklist
     sc.write_to_worklist(wl)

@@ -7,9 +7,9 @@ Created on 14.04.2014
 
 from util.Units import V
 
-class Worklist(object):
+class D300Worklist(object):
     '''
-    Worklist generator class to construct a worklist string by using standard commands for EVO worklists
+    D300Worklist generator class to construct a worklist string by using standard commands for EVO worklists
     '''
 
     def __init__(self):

@@ -51,10 +51,6 @@
       <Type>T8</Type>
       <ID />
     </Cassette>
-    <Cassette Index="1">
-      <Type>T8</Type>
-      <ID />
-    </Cassette>
   </Cassettes>
   <DispenseHeads>
     <DispenseHead Type="T8" Cassette="0" Head="0" Fluid="0">

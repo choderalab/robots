@@ -91,7 +91,7 @@ class Container(ContainerFactory, WellUtils):
         self.well_shape = 'round'
         self.well_bottom = ''
         self.well_profile = 'flat'
-        self.well_profile_anlge = '30.0'
+        self.well_profile_angle = '30.0'
         self.well_diameter_bottom_x = 0.0
         self.well_diameter_bottom_y = 0.0
         self.well_diameter_top_x = 0.0
@@ -286,4 +286,10 @@ if __name__ == '__main__':
     c = Container.connect_sqlite()
 #    print Container._from('id','1').__dict__.keys()
 
-    print Container.from_evo_name('4titude 0223').__dict__.keys()
+    data = Container.from_evo_name('4titude 0223').__dict__
+    
+    keys = sorted(data.keys())
+
+    for key in keys:
+        print key, ':', data[key]
+    

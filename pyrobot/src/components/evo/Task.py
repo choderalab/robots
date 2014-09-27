@@ -22,7 +22,7 @@ class Task(object):
             for key in dictionary:
                 setattr(self, key, dictionary[key])
         for key in kwargs:
-            setattr(self, key, kwargs[key])        
+            setattr(self, key, kwargs[key])
     
 class Scheduler(object):
     
