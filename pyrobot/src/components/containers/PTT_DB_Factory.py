@@ -12,7 +12,7 @@ import string, glob, re
 from lxml import etree
 from lxml import objectify
 
-from xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
+from util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
 
 if __name__ == '__main__':
     
