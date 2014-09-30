@@ -1,7 +1,7 @@
 """
 Created on 27.09.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 

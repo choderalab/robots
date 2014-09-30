@@ -1,13 +1,13 @@
 """
 Created on 08.05.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 '''
 Created on 07.05.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 '''
 
 # ###############################################################################

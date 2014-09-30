@@ -1,7 +1,7 @@
 """
 Created on 14.08.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 from pydrive.auth import GoogleAuth

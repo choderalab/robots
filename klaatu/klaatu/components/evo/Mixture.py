@@ -1,7 +1,7 @@
 """
 Created on 14.04.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 import klaatu.util.evo.Units as u

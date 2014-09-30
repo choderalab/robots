@@ -1,7 +1,7 @@
 """
 Created on 04.08.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 import re

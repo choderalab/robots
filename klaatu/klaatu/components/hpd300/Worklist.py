@@ -1,13 +1,13 @@
 """
 Created on 26.09.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 from lxml import etree, objectify
 
 from klaatu.util.xmlutil.XMLFactory import XMLFactory
-from klaatu.util.xmlutil.XMLInspect import XMLInspector
+# from klaatu.util.xmlutil.XMLInspect import XMLInspector
 
 
 class D300Worklist(object):
@@ -90,7 +90,7 @@ result = wl.all(
         ]
 
     )
-               for no in range(0, 2)
+    for no in range(0, 2)
     ]
 )
 

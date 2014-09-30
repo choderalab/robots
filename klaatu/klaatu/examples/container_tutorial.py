@@ -1,7 +1,7 @@
 """
 Created on 01.08.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 from klaatu.components.containers.containers import Container

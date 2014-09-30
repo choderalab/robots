@@ -1,18 +1,17 @@
 """
 Created on 25.04.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 if __name__ == '__main__':
     pass
 
 from klaatu.components.momentum.momentum import Momentum
-from klaatu.util.xmlutil.XMLWrap import XMLWrap
 import copy
 
 from lxml import etree, objectify
-    
+
 # print cv.xml_to_python(cv.momentum_to_xml(source))
 
 # create a psr object fom a Momentum source file, readXML is also possible although this is my own XML specification
@@ -38,7 +37,7 @@ psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mp
 # the functions flow_if and evo_run_singleplate, etc. are just factories for specific python objects that correspond to the description of a
 # particular command for momentum
 
-#psr['process/steps'].insert(0, 
+# psr['process/steps'].insert(0,
 #                               flow_if('Iteration>4',
 #                                       evo_run_singleplate('script.msc', 'MyPlate', 'left(1)', 'left(2)'),
 #                                       evo_run_singleplate('script.msc', 'OtherPlate', 'right(1)', 'right(1)')
@@ -47,10 +46,7 @@ psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mp
 
 # extract the plate IDs from the script
 
-wp = XMLWrap('momentum')
-print wp.xml_as_py( psr.asXML() )
-
-plateIDs = [ psr['id'] for psr in psr['process/containers'] ]
+plateIDs = [psr['id'] for psr in psr['process/containers']]
 
 # print plateIDs
 
@@ -65,20 +61,19 @@ psr['process/steps'] = []
 # loop over plates
 
 for psr in plateIDs:
-    
     # copy the first container description the the first step in the template
     cont = temp[0]['containers'][0]
-    
+
     # replace the id in the container to make it use another plateID
     cont['id'] = psr
-    
+
     # replace the list of containers by a list that contains only the first element (could be more)    
-    temp[0]['containers'] = [cont] 
-    
+    temp[0]['containers'] = [cont]
+
     # make a deep copy of the three step template and add it to the momentum script. Deepcopy is necessary, otherwise the changes in the template
     # would be present in all templates. This might be a desired feature in another case but here it is not 
     psr['process/steps'].extend(copy.deepcopy(temp))
-    
+
 
 
 # create an if cascade that assignes different strings to the varible 'PlateType' in iterations 1 to 8 like Muniz explained
@@ -91,8 +86,8 @@ for psr in plateIDs:
 
 # Read a momentum process .mpr file and convert it into xmlutil
 psr = Momentum.readMomentum("components/momentum/templates/process/plAnalysis.mpr")
-xml= psr.asXML()
-xml = etree.tostring(objectify.fromstring(xml), pretty_print = True)
+xml = psr.asXML()
+xml = etree.tostring(objectify.fromstring(xml), pretty_print=True)
 print xml
 
 psr = Momentum.fromXML(xml)

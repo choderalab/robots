@@ -1,7 +1,7 @@
 """
 Created on 05.05.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 
 Constructs a set of tokens to be used to interprete ThermoFisher momentum processes and experiments
 """

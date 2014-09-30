@@ -13,7 +13,7 @@
 ###############################################################################
 
 
-from klaatu.components.evo import Plate, D300Worklist, Source, Mixture, Scheduler, V
+from klaatu.components.evo import Plate, Worklist, Source, Mixture, Scheduler
 
 ################################################################################
 ##  SOURCE PLATE DEFINITIONS
@@ -161,7 +161,7 @@ task_rules = [
 sc.apply_rule(task_rules)
 
 # Build worklist generator
-wl = D300Worklist()
+wl = Worklist()
 
 # Write scheduled tasks to worklist
 sc.write_to_worklist(wl)

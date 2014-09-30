@@ -1,11 +1,13 @@
 """
 Created on 25.04.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
 from klaatu.components.containers.containers import Container
-import string, glob, re
+import string
+import glob
+import re
 
 from lxml import etree
 from lxml import objectify
@@ -101,7 +103,7 @@ if __name__ == '__main__':
 
     for filename in infiles:
         s = etree.tostring(objectify.parse(filename), pretty_print=True)
-        #        s = string.replace(s, '\\', '/')
+        # s = string.replace(s, '\\', '/')
         #s = unicodedata.normalize("NFKD", s.encode('utf8'))
         s = s.encode('ascii', 'ignore').encode('latin-1')
 

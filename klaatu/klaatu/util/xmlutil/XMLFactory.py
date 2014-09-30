@@ -15,6 +15,7 @@ from lxml import etree
 
 class XMLFactory(object):
     def __init__(self):
+        self.binder = None
         pass
 
     def as_dict(self):

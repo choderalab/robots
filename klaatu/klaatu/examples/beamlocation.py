@@ -16,7 +16,7 @@ Created on 09.05.2014
 
 # Usage: python xml2png.py *.xmlutil
 
-###################
+# ##################
 # To Do
 #
 # Set fixed Y axis.
@@ -24,7 +24,7 @@ Created on 09.05.2014
 # Define x and y axes.
 # Figure out @Name='Mode' thing.
 #
-###################
+# ##################
 
 #from klaatu.components.distributor.googledrive import Distributor
 from klaatu.util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
@@ -42,8 +42,7 @@ import sys
 
 root = objectify.fromstring(etree.tostring(objectify.parse('E_PTT_BeamLocation_A12345678W_20140729_225738.xml')))
 
-
-print etree.tostring(root, pretty_print = True)
+print etree.tostring(root, pretty_print=True)
 
 # root.xpath('//Section/Data/Well/Multiple')
 # root.xpath('//Section[@Name='Label1']/Data/Well/Multiple')
@@ -61,13 +60,12 @@ for d in data:
     p = d['pos'].split(';')
     if len(p) > 1:
         if d['well'] not in beams:
-            beams[d['well']] = np.ones([15,15]) * (-0.1)
-            
+            beams[d['well']] = np.ones([15, 15]) * (-0.1)
+
         beams[d['well']][int(p[0]), int(p[1])] = float(d['value'])
 
 grayscale = " .:-=+*#%@"
 gsl = len(grayscale)
-
 
 for well in beams:
     welldata = beams[well]
@@ -75,14 +73,13 @@ for well in beams:
     ma = np.amax(welldata)
     mi = np.amin(welldata)
 
-
     print
     print "Well", well
     print
 
     for y in range(15):
         for x in range(15):
-            val = welldata[y,x]
+            val = welldata[y, x]
             c = int(gsl * (val - mi) / (ma - mi + 0.000001))
             sys.stdout.write(grayscale[c])
         print ""
@@ -91,9 +88,10 @@ for b in beams:
     np.savetxt(b + ".csv", beams[b], delimiter=",")
 
 exit()
-    
+
 import matplotlib as ml
-ml.use('MacOSX') 
+
+ml.use('MacOSX')
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(6, 3.2))

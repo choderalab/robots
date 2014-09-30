@@ -5,7 +5,7 @@ Created on 27.04.2014
 """
 
 import converter as cv
-import components.momentum.momentum_templates as sc
+import klaatu.components.momentum.momentum_templates as sc
 
 
 class SimpleGetItem:

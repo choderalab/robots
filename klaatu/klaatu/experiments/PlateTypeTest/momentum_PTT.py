@@ -1,11 +1,11 @@
 """
 Created on 25.04.2014
 
-@author: jan-hendrikprinz
+@author: Jan-Hendrik Prinz
 """
 
-from components.momentum.momentum import Momentum
-from components.containers.containers import Container
+from klaatu.components.momentum.momentum import Momentum
+from klaatu.components.containers.containers import Container
 
 if __name__ == '__main__':
 
