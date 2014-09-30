@@ -1,20 +1,20 @@
-'''
+"""
 Created on 14.04.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
 import re
 
-from Well import Well
-from WellSet import WellSet
-from Mixture import Mixture
-from util.Units import C
-import util.Parser as ps
+from klaatu.components.evo.Well import Well
+from klaatu.components.evo.WellSet import WellSet
+from klaatu.components.evo.Mixture import Mixture
+from klaatu.util.evo.Units import C
+import klaatu.util.evo.WellParser as ps
 
 #  The Plate contains the information necessary to bind to the EvoSoftware and refer to the objects on the deck of the robot.
 class Plate:
-    'A plate is a movable location that can contain wells'
+    """A plate is a movable location that can contain wells"""
 
     ALLOWED_RACK_TYPES = ['Corning 3651', '96 Well Microplate', 'Corning 3679', '384 Well Plate', '384 Well Plate', '5x3 Vial Holder' ]    
     REQUIREDMEMBERS = ['racktype', 'label', 'dimensions']
@@ -74,8 +74,8 @@ class Plate:
         
     def replaceWell(self, well, pos=None):
         if pos is None:
-            pos = well._p;
-            
+            pos = well._p
+
         pos = ps._interprete_well(pos)
             
         well.plate = self
@@ -92,7 +92,7 @@ class Plate:
     def __eq__(self, other):
         # Two wells are considered the same, if the plate is the same and the _p
         if isinstance(other, self.__class__):
-            return (self.label == other.label)
+            return self.label == other.label
         else:
             return False
             
@@ -103,7 +103,7 @@ class Plate:
         if racktype is None:
             racktype = self.racktype
         
-        if (racktype != ''):
+        if racktype != '':
             temp = [ psr for psr in self.PLATE_TEMPLATES if psr['racktype'] == racktype][0]
             self.dimensions = temp['dimensions']
             self.maximum_volume = temp['maximum_volume']

@@ -1,8 +1,8 @@
-'''
+"""
 Created on 27.07.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
 from lxml import etree
 
@@ -12,9 +12,9 @@ import re
 # TODO: Clean up
 
 class NSXPathUtil(object):
-    '''Mixin that provides methods to simplify xpath handling with namespaces
+    """Mixin that provides methods to simplify xpath handling with namespaces
 
-    '''
+    """
 
     def _untokenize (self, s):
         for psr in reversed(self.tokenlist):
@@ -29,7 +29,7 @@ class NSXPathUtil(object):
         prog = re.compile(needle)
    
         cc = 0
-        while (prog.search(s) is not None and cc < 10000):   
+        while prog.search(s) is not None and cc < 10000:
             found = prog.search(s).group(0)
             key = name + str(cc)
             self.tokenlist.append( (key, found) )
@@ -38,7 +38,8 @@ class NSXPathUtil(object):
             
         return s                   
     
-    def _stripwhitespace(self, s):
+    @staticmethod
+    def _stripwhitespace(s):
         pattern = re.compile(r'\s+')
         return re.sub(pattern, '', s)        
     
@@ -70,8 +71,8 @@ class NSXPathUtil(object):
             return xp
         
     def _xp_fnc(self, xpath):
-        '''Construct an XPath object with or without namespace
-        '''
+        """Construct an XPath object with or without namespace
+        """
         if self.namespace is '':
             return etree.XPath(xpath)
         else:
@@ -85,8 +86,8 @@ class NSXPathUtil(object):
     
 
     def fnc(self, xpath):
-        '''Construct an XPath object with or without namespace
-        '''
+        """Construct an XPath object with or without namespace
+        """
         def wrap(xpath):
             
             xpath = self._

@@ -4,11 +4,10 @@ import openpyxl  # Excel spreadsheet I/O (for Auto iTC-200)
 from openpyxl import Workbook
 from distutils.version import StrictVersion  # For version testing
 from datetime import datetime
-from labware import PipettingLocation
+from klaatu.components.itc.labware import PipettingLocation
 
 
 class ITCProtocol(object):
-
     def __init__(self, name, sample_prep_method, itc_method, analysis_method):
         """
         Parameters
@@ -33,7 +32,6 @@ HeatOfMixingProtocol = ITCProtocol
 
 
 class ITCExperiment(object):
-
     def __init__(
             self,
             name,
@@ -91,21 +89,21 @@ class ITCExperiment(object):
             self.cell_concentration = cell_concentration
 
         # If dilution is required, make sure buffer source is specified.
-        if (self.syringe_dilution_factor is not None):
-            if (buffer_source is None):
+        if self.syringe_dilution_factor is not None:
+            if buffer_source is None:
                 raise Exception(
                     "buffer must be specified if either syringe or cell concentrations are specified")
-            if (self.syringe_dilution_factor > 1.0):
+            if self.syringe_dilution_factor > 1.0:
                 raise Exception(
                     "Requested syringe concentration (%s) is greater than syringe source concentration (%s)." %
                     (str(syringe_concentration), str(
                         syringe_source.concentration)))
 
-        if (self.cell_dilution_factor is not None):
-            if (buffer_source is None):
+        if self.cell_dilution_factor is not None:
+            if buffer_source is None:
                 raise Exception(
                     "buffer must be specified if either syringe or cell concentrations are specified")
-            if (self.cell_dilution_factor > 1.0):
+            if self.cell_dilution_factor > 1.0:
                 raise Exception(
                     "Requested cell concentration (%s) is greater than cell source concentration (%s)." %
                     (str(cell_concentration), str(
@@ -113,7 +111,6 @@ class ITCExperiment(object):
 
 
 class ITCHeuristicExperiment(ITCExperiment):
-
     def heuristic_syringe(self, Ka, m, v, V0, approx=False):
         """
         Optimize syringe concentration using heuristic equation.
@@ -137,17 +134,17 @@ class ITCHeuristicExperiment(ITCExperiment):
         # c = [M]_0 * Ka
         c = self.cell_concentration * Ka
 
-        #R_m = 6.4/c^0.2 + 13/c
+        # R_m = 6.4/c^0.2 + 13/c
         rm = 6.4 / numpy.power(c, 0.2) + 13 / c
 
         if not approx:
             # Use exact equation [X]_s = R_m * [M]_0 (1- exp(-mv/V0))^-1
             self.syringe_concentration = rm * self.cell_concentration * \
-                numpy.power(1 - (numpy.exp(-1 * m * v / V0)), -1)
+                                         numpy.power(1 - (numpy.exp(-1 * m * v / V0)), -1)
         else:
             # Use approximate equation [X]_s = R_m * [M]0 V/(m*v)
             self.syringe_concentration = rm * \
-                self.cell_concentration * V0 / (m * v)
+                                         self.cell_concentration * V0 / (m * v)
 
         # compute the dilution factors
         self.syringe_dilution_factor = numpy.float(
@@ -218,7 +215,6 @@ class ITCHeuristicExperiment(ITCExperiment):
 
 
 class HeatOfMixingExperiment(object):
-
     def __init__(self, name, cell_mixture, syringe_mixture, protocol):
         """
         Parameters
@@ -239,7 +235,6 @@ class HeatOfMixingExperiment(object):
 
 
 class ITCExperimentSet(object):
-
     def __init__(self, name):
         """
         Parameters
@@ -282,7 +277,8 @@ class ITCExperimentSet(object):
         """
         self.experiments.append(experiment)
 
-    def _wellIndexToName(self, index):
+    @staticmethod
+    def _wellIndexToName(index):
         """
         Return the 96-well name (e.g. 'A6', 'B7') corresponding to Tecan well index.
 
@@ -418,7 +414,7 @@ class ITCExperimentSet(object):
             cell_volume = 400.0  # microliters
             transfer_volume = cell_volume
 
-            if (experiment.cell_dilution_factor is not None):
+            if experiment.cell_dilution_factor is not None:
                 # Compute buffer volume needed.
                 buffer_volume = cell_volume * (
                     1.0 - experiment.cell_dilution_factor)
@@ -498,7 +494,7 @@ class ITCExperimentSet(object):
             syringe_volume = 120.0  # microliters
             transfer_volume = cell_volume
 
-            if (experiment.syringe_dilution_factor is not None):
+            if experiment.syringe_dilution_factor is not None:
                 # Compute buffer volume needed.
                 buffer_volume = syringe_volume * (
                     1.0 - experiment.syringe_dilution_factor)
@@ -719,7 +715,6 @@ class ITCExperimentSet(object):
 
 
 class HeatOfMixingExperimentSet(ITCExperimentSet):
-
     """
     Set up experiments to calculate the heat of mixing for a mixture.
 
@@ -742,9 +737,9 @@ class HeatOfMixingExperimentSet(ITCExperimentSet):
     def populate_worklist(
             self,
             cell_volume=400.0 *
-            units.microliters,
+                        units.microliters,
             syringe_volume=120.0 *
-            units.microliters):
+                           units.microliters):
         """
         Build the worklist for heat of mixing experiments
 
@@ -873,7 +868,6 @@ class HeatOfMixingExperimentSet(ITCExperimentSet):
             raise Exception("Please generate a Tecan Worklist first!")
 
         for (experiment_number, experiment) in enumerate(self.experiments):
-
             itcdata = HeatOfMixingExperimentSet.ITCData()
             # Create datafile name.
             now = datetime.now()

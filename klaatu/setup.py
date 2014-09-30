@@ -9,6 +9,7 @@ import klaatu
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+
 def read(*filenames, **kwargs):
     encoding = kwargs.get('encoding', 'utf-8')
     sep = kwargs.get('sep', '\n')
@@ -22,6 +23,7 @@ def read(*filenames, **kwargs):
 
 long_description = 'ADD LONG DESCRIPTION'
 
+
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
@@ -30,8 +32,10 @@ class PyTest(TestCommand):
 
     def run_tests(self):
         import pytest
+
         errcode = pytest.main(self.test_args)
         sys.exit(errcode)
+
 
 setup(
     name='klaatu',
@@ -41,7 +45,7 @@ setup(
     author='John D. Chodera, Sonya Hanson, Jan-Hendrik Prinz, Bas Rustenberg',
     tests_require=['pytest'],
     install_requires=[
-                    ],
+    ],
     cmdclass={'test': PyTest},
     author_email='jan.prinz@choderalab.org',
     description='Collection of python libraries to control various parts of the robot',
@@ -50,7 +54,7 @@ setup(
     include_package_data=True,
     platforms='any',
     test_suite='klaatu.test.test_klaatu',
-    classifiers = [
+    classifiers=[
         'Programming Language :: Python',
         'Development Status :: 4 - Beta',
         'Natural Language :: English',
@@ -59,7 +63,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        ],
+    ],
     extras_require={
         'testing': ['pytest'],
     }

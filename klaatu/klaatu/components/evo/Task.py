@@ -1,17 +1,19 @@
-'''
+"""
 Created on 15.04.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
-from util.Units import V
-import util.Parser as ps
 import re
 
+from klaatu.util.evo.Units import V
+import klaatu.util.evo.WellParser as ps
+
+
 class Task(object):
-    '''
+    """
     classdocs
-    '''
+    """
 
 
     def __init__(self, *initial_data, **kwargs):
@@ -71,7 +73,7 @@ class Scheduler(object):
     
         for rule in task_rules:
             free_heads = ps._heads_to_list(ps._interprete_heads(rule['head']))
-            head_choice = 0;
+            head_choice = 0
             for task in self.tasks:
             
                 if re.match(rule['source'], task.source.label):

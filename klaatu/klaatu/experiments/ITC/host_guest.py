@@ -2,9 +2,9 @@
 Script for generation of binary mixture ITC titrations.
 """
 from simtk.unit import *
-from itctools.procedures import ITCProtocol, ITCExperimentSet, ITCExperiment, ITCHeuristicExperiment
-from itctools.materials import Solvent, Compound, SimpleSolution
-from itctools.labware import Labware, PipettingLocation
+from klaatu.components.itc.procedures import ITCProtocol, ITCExperimentSet, ITCExperiment, ITCHeuristicExperiment
+from klaatu.components.itc.materials import Solvent, Compound, SimpleSolution
+from klaatu.components.itc.labware import Labware, PipettingLocation
 
 # Define solvents.
 # TODO command line specification of density and name

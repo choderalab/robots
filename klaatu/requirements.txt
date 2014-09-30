@@ -1,0 +1,10 @@
+simplemysql
+pandas
+matplotlib
+sphinx_rtd_theme
+numpy
+lxml
+jinja2
+openpyxl
+pytest
+pydrive

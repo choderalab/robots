@@ -1,16 +1,17 @@
-'''
+"""
 Created on 09.05.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
 '''
 Created on 27.04.2014
 
 @author: JH Prinz
 '''
-import util.xmlutil as xp
+
 from lxml import etree
+import klaatu.util.xmlutil as xp
 
 s = ''
     
@@ -53,8 +54,6 @@ print data[0]
 # print len(data)
 
 #print oo.keys()
-
-data = oo.get('Section:abs scan/Data/Well*/Scan:480/text', strip=True)
 
 data = oo.get('Section:abs scan/Data/Well*/Scan:480/text', strip=True)
 

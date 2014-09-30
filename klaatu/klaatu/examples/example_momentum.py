@@ -1,18 +1,14 @@
-'''
+"""
 Created on 25.04.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
 if __name__ == '__main__':
     pass
 
-# from momentum.momentum2xml import Momentum, PyToMomentum
-
-from components.momentum.momentum import Momentum
-from util.xmlutil import XMLWrap
-#from momentum.templates import evo_run_singleplate, flow_if, flow_iteration_assign
-#import momentum.converter as cv
+from klaatu.components.momentum.momentum import Momentum
+from klaatu.util.xmlutil.XMLWrap import XMLWrap
 import copy
 
 from lxml import etree, objectify

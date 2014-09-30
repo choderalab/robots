@@ -1,22 +1,22 @@
-'''
+"""
 Created on 27.09.2014
 
 @author: jan-hendrikprinz
-'''
-from util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
+"""
+from klaatu.util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
 from lxml import etree, objectify
 
 
 class PlateRead(object):
-    '''
+    """
     classdocs
-    '''
+    """
 
 
     def __init__(self, part):
-        '''
+        """
         Constructs a Parser object for a specific read type in an infinite result .xml
-        '''
+        """
 
         self.xml = objectify.fromstring(etree.tostring(part))
 
@@ -32,7 +32,7 @@ class PlateRead(object):
     
     @property
     def pandas(self):
-        return
+        return None
 
 class AbsorbanceMultiRead(PlateRead):
 
@@ -43,9 +43,6 @@ class AbsorbanceMultiRead(PlateRead):
     
     def __init__(self, xml):
         super(AbsorbanceMultiRead, self).__init__(xml)
-        
-        
-        self.well1_fnc
 
         xp = "//Section/Data?run:int=@Cycle/Well?well=@Pos/Multiple?location:well1=@MRW_Position&value=text()"
         
@@ -60,15 +57,15 @@ class AbsorbanceMultiRead(PlateRead):
     
 
 class Infinite(object):
-    '''
+    """
     classdocs
-    '''
+    """
 
 
     def __init__(self, xml):
-        '''
+        """
         Constructs a Parser object for Infinite Result .xml
-        '''
+        """
         
         self.xml = objectify.fromstring(etree.tostring(xml))
         

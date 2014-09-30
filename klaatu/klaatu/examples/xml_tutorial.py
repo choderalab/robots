@@ -1,17 +1,17 @@
-'''
+"""
 Created on 27.07.2014
 
 @author: Jan-Hendrik Prinz
-'''
+"""
 
 from lxml import etree
 from lxml import objectify
 
-from util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
-from util.xmlutil.XMLBind import XMLBind 
-from util.xmlutil.XMLFactory import XMLFactory
+from klaatu.util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
+from klaatu.util.xmlutil.XMLBind import XMLBind
+from klaatu.util.xmlutil.XMLFactory import XMLFactory
 
-import components.momentum.converter as cv
+import klaatu.components.momentum.converter as cv
 
 import copy
 
@@ -19,11 +19,11 @@ import copy
 
 root = objectify.fromstring(etree.tostring(objectify.parse('infinite_temp.xml')))
 
-o = XMLBind(root, namespaces = {'ns' : 'tecan.at.schema.documents'}, addns = True)
+o = XMLBind(root, namespaces={'ns': 'tecan.at.schema.documents'}, addns=True)
 
-for key, value in o.inspect(unique = True, nodes= True).iteritems():
+for key, value in o.inspect(unique=True, nodes=True).iteritems():
     print key, ":", value
-    
+
 o.bind('type', '//ReadingFilter/@type')
 
 print o.type
@@ -35,36 +35,34 @@ run = o.run
 
 print run
 
-add = run[0:1] + copy.deepcopy( run )
+add = run[0:1] + copy.deepcopy(run)
 o.run = add
 
 # Alternative form - a little longer
-#o['type'] = 'manual'
+# o['type'] = 'manual'
 o.type = 'man'
 
 print o.type
-print etree.tostring(o.xobj , pretty_print = True)
+print etree.tostring(o.xobj, pretty_print=True)
 
 fac = XMLFactory()
 
-template = etree.tostring(root.TecanMeasurement.MeasurementManualCycle.CyclePlate.PlateRange.MeasurementAbsorbance)
-template = etree.tostring(root.xpath('//ns:MeasurementFluoInt', namespaces = {'ns' : 'tecan.at.schema.documents'})[0])
+#template = etree.tostring(root.TecanMeasurement.MeasurementManualCycle.CyclePlate.PlateRange.MeasurementAbsorbance)
+template = etree.tostring(root.xpath('//ns:MeasurementFluoInt', namespaces={'ns': 'tecan.at.schema.documents'})[0])
 
 absorbance_measurement = fac.create_from_string(
-    template, 
-            {
-                'diameter' : '//MeasurementReading/@beamDiameter',
-                'wavelength' : '//ReadingFilter[2]/@wavelength'
-              },
-    namespaces = {'ns' : 'tecan.at.schema.documents'})
+    template,
+    {
+        'diameter': '//MeasurementReading/@beamDiameter',
+        'wavelength': '//ReadingFilter[2]/@wavelength'
+    },
+    namespaces={'ns': 'tecan.at.schema.documents'})
 
-
-xobj2 = absorbance_measurement(diameter = 20, wavelength = 3800)
+xobj2 = absorbance_measurement(diameter=20, wavelength=3800)
 print xobj2
-print etree.tostring(xobj2, pretty_print = True)
+print etree.tostring(xobj2, pretty_print=True)
 
-    
-tst = root.xpath('//ns:MeasurementFluoInt[1]//ns:ReadingFilter[2]/@type', namespaces = {'ns' : 'tecan.at.schema.documents'})
+tst = root.xpath('//ns:MeasurementFluoInt[1]//ns:ReadingFilter[2]/@type', namespaces={'ns': 'tecan.at.schema.documents'})
 print tst[0]
 
 # bind_id will bind all matching elements and allow to to increasing number starting with the value set.
@@ -86,9 +84,9 @@ print o.id
 
 # print etree.tostring(o.xobj , pretty_print = True)
 
-o2 = XMLBind(objectify.fromstring(template), namespaces = {'ns' : 'tecan.at.schema.documents'} )
+o2 = XMLBind(objectify.fromstring(template), namespaces={'ns': 'tecan.at.schema.documents'})
 
-for key, value in o2.inspect(unique = True).iteritems():
+for key, value in o2.inspect(unique=True).iteritems():
     print key, ":", value
 
 # Walker Test with namespace
@@ -96,7 +94,7 @@ for key, value in o2.inspect(unique = True).iteritems():
 wc = XMLWalker(root)
 xp = "//ReadingFilter?type=@type"
 
-result = wc.walk(XPathAnalyzer(xp, namespaces = {'ns' : 'tecan.at.schema.documents'} ))
+result = wc.walk(XPathAnalyzer(xp, namespaces={'ns': 'tecan.at.schema.documents'}))
 
 print len(result)
 print result
@@ -117,9 +115,9 @@ print result[0]
 
 mom_mpr = ''
 
-with open ('plAnalysis.mpr', "r") as myfile:
+with open('plAnalysis.mpr', "r") as myfile:
     mom_mpr = myfile.read()
-    
+
 xml = cv.momentum_to_xml(mom_mpr)
 
 #print xml

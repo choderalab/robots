@@ -24,7 +24,7 @@ sys.path.append(os.path.abspath('_themes'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+# needs_sphinx = '1.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -49,7 +49,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+# source_encoding = 'utf-8-sig'
 
 # The master toctree document.
 master_doc = 'index'
@@ -114,10 +114,12 @@ html_theme = 'default'
 
 # on_rtd is whether we are on readthedocs.org
 import os
+
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 if not on_rtd:  # only import and set the theme if we're building docs locally
     import sphinx_rtd_theme
+
     html_theme = 'sphinx_rtd_theme'
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
@@ -203,22 +205,22 @@ htmlhelp_basename = 'klaatudoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    #'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'klaatu.tex', u'klaatu Documentation',
-   u'John D. Chodera, Sonya Hanson, Bas Rustenberg, Jan-Hendrik Prinz', 'manual'),
+    ('index', 'klaatu.tex', u'klaatu Documentation',
+     u'John D. Chodera, Sonya Hanson, Bas Rustenberg, Jan-Hendrik Prinz', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -261,9 +263,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'klaatu', u'klaatu Documentation',
-   u'John D. Chodera, Sonya Hanson, Bas Rustenberg, Jan-Hendrik Prinz', 'klaatu', 'One line description of project.',
-   'Miscellaneous'),
+    ('index', 'klaatu', u'klaatu Documentation',
+     u'John D. Chodera, Sonya Hanson, Bas Rustenberg, Jan-Hendrik Prinz', 'klaatu', 'One line description of project.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

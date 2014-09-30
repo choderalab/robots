@@ -1,10 +1,11 @@
-'''
+"""
 Created on 27.09.2014
 
 @author: jan-hendrikprinz
-'''
-from util.xmlutil.NSXPathUtil import NSXPathUtil
+"""
+from klaatu.util.xmlutil.NSXPathUtil import NSXPathUtil
 import re
+
 
 class XMLInspector(NSXPathUtil):
     """
@@ -25,8 +26,7 @@ class XMLInspector(NSXPathUtil):
     """
 
 
-
-    def __init__(self, unique = True, simplify = True, nodes = False, attributes = True, texts = True, children = False, enter_lists = False, namespaces = {'ns' : ''}, addns = True):
+    def __init__(self, unique=True, simplify=True, nodes=False, attributes=True, texts=True, children=False, enter_lists=False, namespaces={'ns': ''}, addns=True):
 
         self.unique = unique
         self.simplify = simplify
@@ -34,11 +34,11 @@ class XMLInspector(NSXPathUtil):
         self.attributes = attributes
         self.texts = texts
         self.children = children
-        self.enter_lists = enter_lists 
+        self.enter_lists = enter_lists
 
         self.namespace = namespaces.values()[0]
         self.ns = namespaces.keys()[0]
-                
+
         self.addns = addns
 
     @staticmethod
@@ -53,7 +53,7 @@ class XMLInspector(NSXPathUtil):
             return True
         except ValueError:
             return False
-        
+
     @staticmethod
     def _isint(value):
         try:
@@ -73,9 +73,9 @@ class XMLInspector(NSXPathUtil):
                 if tag != n.tag:
                     return False
             return True
-                
-        
-    def xpaths(self, xml):        
+
+
+    def xpaths(self, xml):
         """Returns only the xpaths to all xml nodes and attributes specified. Convinience function.
                 
         See also
@@ -83,18 +83,17 @@ class XMLInspector(NSXPathUtil):
         inspect
         
         """
-        
-        
+
         ins = self.inspect(self.unique, self.simplify, self.nodes, self.attributes)
-        
-        return ins.keys()        
-        
+
+        return ins.keys()
+
 
     def _get_nodes(self, node, result, path_src):
         if self.nodes:
             full = path_src
             if full not in result:
-                result[full] = {'class':'attribute', 'var':self._tounderscore(node.tag), 'type':'object'}
+                result[full] = {'class': 'attribute', 'var': self._tounderscore(node.tag), 'type': 'object'}
 
 
     def _get_children(self, node, result, path_src):
@@ -102,7 +101,7 @@ class XMLInspector(NSXPathUtil):
             if self._has_child_list(node):
                 full = path_src
                 if full not in result:
-                    result[full] = {'class':'children', 'var':self._tounderscore(node.tag), 'type':'list'}
+                    result[full] = {'class': 'children', 'var': self._tounderscore(node.tag), 'type': 'list'}
 
 
     def _get_texts(self, node, result, path_src):
@@ -110,7 +109,7 @@ class XMLInspector(NSXPathUtil):
             if node.text is not None:
                 full = path_src + '/text()'
                 if full not in result:
-                    result[full] = {'class':'text', 'var':self._tounderscore(node.tag), 'type':'str'}
+                    result[full] = {'class': 'text', 'var': self._tounderscore(node.tag), 'type': 'str'}
 
 
     def _get_attributes(self, node, result, path_src):
@@ -131,15 +130,15 @@ class XMLInspector(NSXPathUtil):
                     ty = 'bool'
                     valc = bool(val[0].upper() + val[1:].lower())
                 if full not in result:
-                    result[full] = {'class':'attribute', 'var':self._tounderscore(att), 'type':ty, 'values':[valc]}
+                    result[full] = {'class': 'attribute', 'var': self._tounderscore(att), 'type': ty, 'values': [valc]}
                 else:
                     result[full]['values'].append(valc)
 
 
     def _get_unique_path(self, node, path):
         if self.unique:
-            path = [] #            print node, node.tag
-    #            print 'Children', len(node.getchildren())
+            path = []  # print node, node.tag
+            # print 'Children', len(node.getchildren())
             ancestors = [anc for anc in node.iterancestors()]
             ancestors = [node] + ancestors
             for anc in ancestors:
@@ -148,7 +147,7 @@ class XMLInspector(NSXPathUtil):
                     mat = [i for i in range(len(anc)) if anc[i] is anc][0]
                     t += '[' + str(mat + 1) + ']'
                 path.append(t)
-        
+
         else:
             path = [anc.tag for anc in node.iterancestors()]
             path = [node.tag] + path
@@ -157,8 +156,8 @@ class XMLInspector(NSXPathUtil):
 
     def _get_namespace_path(self, path):
         if self.namespace is not '':
-        # the namespace stuff is a little cumbersome
-        # this takes care of it
+            # the namespace stuff is a little cumbersome
+            # this takes care of it
             if self.addns:
                 path = [psr.split('}')[1] for psr in path]
             else:
@@ -182,7 +181,7 @@ class XMLInspector(NSXPathUtil):
                     path_src += path[nn]
                     if nn < len(path) - 1:
                         path_src += '/'
-        
+
         else:
             path = [psr for psr in reversed(path)]
             path_src = '/'.join(path[0:])
@@ -190,33 +189,32 @@ class XMLInspector(NSXPathUtil):
         return path_src
 
     def node(self, node):
-        path_list = []                        
+        path_list = []
 
         path_list = self._get_unique_path(node, path_list)
         path_list = self._get_namespace_path(path_list)
-                
+
         path = self._get_path(path_list)
 
         result = {}
 
         self._get_nodes(node, result, path)
-        self._get_children(node, result, path)                        
+        self._get_children(node, result, path)
         self._get_texts(node, result, path)
         self._get_attributes(node, result, path)
-                    
+
         return result
 
     def __call__(self, xml):
         self._full = self.node(xml)
         self._recurse(xml)
-        
+
         return self._full
-    
+
     def bindings(self, xml):
-        return {details['var'] : path  for path, details in self(xml).iteritems( )}
-    
-    def _recurse(self, xml):        
+        return {details['var']: path for path, details in self(xml).iteritems()}
+
+    def _recurse(self, xml):
         if self.enter_lists or not XMLInspector._has_child_list(xml):
             for node in xml.iterchildren():
                 self._full.update(self.node(node))
-    

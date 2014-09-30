@@ -2,10 +2,10 @@
 Script for generation of mixture ITC titrations.
 """
 from simtk.unit import *
-from itctools.procedures import HeatOfMixingProtocol, HeatOfMixingExperimentSet, HeatOfMixingExperiment
-from itctools.materials import Compound, Solvent, SimpleSolution, PureLiquid, SimpleMixture
-from itctools.labware import Labware, PipettingLocation
-from itctools.itctools import permutation_with_replacement as perm
+from klaatu.components.itc.procedures import HeatOfMixingProtocol, HeatOfMixingExperimentSet, HeatOfMixingExperiment
+from klaatu.components.itc.materials import Compound, Solvent, SimpleSolution, PureLiquid, SimpleMixture
+from klaatu.components.itc.labware import Labware, PipettingLocation
+from klaatu.components.itc.itctools import permutation_with_replacement as perm
 #import itertools
 
 

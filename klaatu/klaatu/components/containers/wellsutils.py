@@ -1,20 +1,20 @@
-'''
+"""
 Created on 04.08.2014
 
 @author: jan-hendrikprinz
-'''
+"""
 
 import math
 
 class WellUtils(object):
-    '''
+    """
     Mixin that allows a `Container` to compute lots of useful properties for wells
-    
+
     Note
     ----
-    
+
     The computation of well volumes, surfaces works, but still replied on an older well-shape definition and needs to be updated.
-    '''
+    """
 
     @property
     def well_volume_total (self):
@@ -29,7 +29,7 @@ class WellUtils(object):
     @staticmethod
     def _roundvolume(r, h, d):
         a = WellUtils._rounddepth(r, h, d)
-        return h * math.pi / 6.0  (3* a*a + h*h)
+        return h * math.pi / 6.0 * (3* a*a + h*h)
     
     def well_volume_at_depth(self, depth):
         
@@ -80,12 +80,12 @@ class WellUtils(object):
         return well_volume_total
 
     def well_depth_safe(self, limit_radius = 1.5):
-        '''returns the save pipetting limit within the limit region
-        
+        """returns the save pipetting limit within the limit region
+
         NOTES
         -----
         The size of the dispense head is not taken into account and needs to be present in the limit. Default is a 2mm dispense head diameter plut 1 mm error all divided by two. So a radius if 1.5mm
-        '''
+        """
 
         return self.well_depth - self._head_iradius(limit_radius)
 
@@ -161,12 +161,12 @@ class WellUtils(object):
             if self.well_bottom_shape == 'ushape':
                 # half sphere
                 sec = 1.0
-                height = (-((3.0 * Q)/2) + w*w*w * sec*sec*sec + 1.0 / 2.0 * math.sqrt(3) * math.sqrt(Q (3.0 * Q - 4.0 * w*w*w * sec*sec*sec)))** (1 / 3.0)
+                height = (-((3.0 * Q)/2) + w*w*w * sec*sec*sec + 1.0 / 2.0 * math.sqrt(3) * math.sqrt(Q * (3.0 * Q - 4.0 * w*w*w * sec*sec*sec)))** (1 / 3.0)
             
             if self.well_bottom_shape == 'round':
                 # half a half sphere ending at 45 degrees
                 sec = math.sqrt(2.0)
-                height = (-((3.0 * Q)/2) + w*w*w * sec*sec*sec + 1.0 / 2.0 * math.sqrt(3) * math.sqrt(Q (3.0 * Q - 4.0 * w*w*w * sec*sec*sec)))** (1 / 3.0)
+                height = (-((3.0 * Q)/2) + w*w*w * sec*sec*sec + 1.0 / 2.0 * math.sqrt(3) * math.sqrt(Q * (3.0 * Q - 4.0 * w*w*w * sec*sec*sec)))** (1 / 3.0)
         else:
             height = (Q - HV) / r / r
                 

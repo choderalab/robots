@@ -1,4 +1,4 @@
-#==============================================================================
+# ==============================================================================
 # GLOBAL IMPORTS
 #==============================================================================
 
@@ -10,7 +10,6 @@ import simtk.unit as units
 
 
 class Solvent(object):
-
     """
     A Solvent object represents a liquid that may be pipetted, and in which compounds may be dissolved.
 
@@ -40,13 +39,13 @@ class Solvent(object):
         self.name = name
         self.density = density
 
+
 #==============================================================================
 # COMPOUND
 #==============================================================================
 
 
 class Compound(object):
-
     """
     A Compound object represents a compound that can be dissolved in a solvent.
 
@@ -85,7 +84,6 @@ class Compound(object):
 
 
 class PureLiquid(Compound):
-
     """A PureLiquid describes a pure liquid that can be part of a mixture of liquids."""
 
     def __init__(self, name, density, molecular_weight, purity=1.0):
@@ -107,13 +105,13 @@ class PureLiquid(Compound):
             purity=purity)
         self.density = density
 
+
 #==============================================================================
 # SOLUTION
 #==============================================================================
 
 
 class SimpleSolution(Solvent):
-
     """
     A SimpleSolution object represents a solution containing one compound and one solvent.
 
@@ -186,7 +184,6 @@ class SimpleSolution(Solvent):
 #==============================================================================
 
 class SimpleMixture(Solvent):
-
     """
     A SimpleMixture object represents a solution containing a mixture of various solvents.
 
@@ -281,4 +278,5 @@ class SimpleMixture(Solvent):
 
 if __name__ == '__main__':
     import doctest
+
     doctest.testmod()

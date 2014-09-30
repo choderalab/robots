@@ -1,9 +1,9 @@
-'''
+"""
 Created on 09.05.2014
 
 @author: Sonya Hanson
 @author: Jan-Hendrik Prinz
-'''
+"""
 
 # This script takes xmlutil data file output from the Tecan Infinite m1000 Pro plate reader 
 # and makes quick and dirty images of the raw data.
@@ -26,8 +26,8 @@ Created on 09.05.2014
 #
 ###################
 
-#from components.distributor.googledrive import Distributor
-from util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
+#from klaatu.components.distributor.googledrive import Distributor
+from klaatu.util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
 from lxml import objectify, etree
 import numpy as np
 import sys
@@ -40,7 +40,7 @@ import sys
 
 #root = objectify.parse('filename.xml')
 
-root = objectify.fromstring(etree.tostring(objectify.parse('filename.xml')))
+root = objectify.fromstring(etree.tostring(objectify.parse('E_PTT_BeamLocation_A12345678W_20140729_225738.xml')))
 
 
 print etree.tostring(root, pretty_print = True)
