@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sqlitestudio.pl/export/xml" xmlns:tns="http://sqlitestudio.pl/export/xml">
+
+	<element name="results" type="tns:ResultsType"></element>
+
+	<element name="table" type="tns:TableType"></element>
+
+	<element name="database" type="tns:DatabaseType"></element>
+
+	<complexType name="ResultsType">
+		<sequence>
+			<element name="columns" type="tns:ColumnsType"></element>
+			<element name="rows" type="tns:RowsType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TableType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="columns" type="tns:ColumnsType"></element>
+			<element name="rows" type="tns:RowsType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="DatabaseType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="tables" type="tns:TablesType"></element>
+			<element name="indexes" type="tns:IndexesType"></element>
+			<element name="triggers" type="tns:TriggersType"></element>
+			<element name="views" type="tns:ViewsType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ColumnsType">
+		<sequence>
+			<element name="column" type="tns:ColumnType"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="RowsType">
+		<sequence>
+			<element name="row" type="tns:RowType" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ColumnType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="table" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="primaryKey" type="boolean" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="autoIncrement" type="boolean" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="notNull" type="boolean" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="defaultValue" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ValueType">
+		<sequence>
+			<element name="value" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+		<attribute name="column" type="string"/>
+		<attribute name="table" type="string"/>
+		<attribute name="null" type="boolean"/>
+	</complexType>
+
+	<complexType name="TablesType">
+		<sequence>
+			<element name="table" type="tns:TableType" maxOccurs="unbounded" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="IndexesType">
+		<sequence>
+			<element name="index" type="tns:IndexType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TriggersType">
+		<sequence>
+			<element name="trigger" type="tns:TriggerType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ViewsType">
+		<sequence>
+			<element name="view" type="tns:ViewType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="IndexType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="table" type="string"></element>
+			<element name="unique" type="boolean"></element>
+			<element name="columns" type="tns:IndexColumnType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TriggerType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="when">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="AFTER"></enumeration>
+						<enumeration value="BEFORE"></enumeration>
+						<enumeration value="INSTEAD OF"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="action" type="string"></element>
+			<element name="table" type="string"></element>
+			<element name="condition" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="code" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ViewType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="code" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="IndexColumnType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="collate" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="sort" maxOccurs="1" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="ASC"></enumeration>
+						<enumeration value="DESC"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="RowType">
+		<sequence>
+			<element name="value" type="tns:ValueType" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+</schema>
