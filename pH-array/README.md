@@ -14,8 +14,8 @@ Output of Python script:
 ```
 BUFFER CONSUMPTION
 
-citric acid:        9798.466 uL ['0.1M Citric Acid' in '100 mL Trough']
-sodium phosphate:  38201.534 uL ['0.1M Sodium Phosphate' in '100 mL Trough']
+citric acid:        9798.466 uL ['0.1M Citric Acid' in 'Trough 100ml']
+sodium phosphate:  38201.534 uL ['0.1M Sodium Phosphate' in 'Trough 100ml']
 
 WASTE PROFILE
 
