@@ -54,7 +54,7 @@ def dispense(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water 
 def washtips():
     return 'W;\r\n' # queue wash tips
 
-buffer_volume = 1500.0 # buffer mixture volume (uL)
+buffer_volume = 1200.0 # buffer mixture volume (uL)
 nstages = 2 # break up pipetting into stages to not exceed pipette max transfer volume
 max_volume = 1000.0 # maximum pipette transfer volume (uL)
 
