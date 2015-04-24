@@ -25,7 +25,7 @@ for line in lines:
 
     # Adjust for 0.1M sodium phosphate.
     entry['sodium phosphate'] *= 2
-    total = entry['citric acid'] + entry['sodium phosphate'] 
+    total = entry['citric acid'] + entry['sodium phosphate']
     entry['citric acid'] /= total
     entry['sodium phosphate'] /= total
 
@@ -33,21 +33,21 @@ for line in lines:
     conditions.append(entry)
 
 def aspirate(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
-    if (volume > 1000.0):
-        raise Exception("Aspirate volume > 1000 uL (asked for %.3f uL)" % volume)
+    if (volume < 3.00) or (volume > 1000.0):
+        raise Exception("Aspirate volume outside of 3-1000 uL (asked for %.3f uL)" % volume)
     return 'A;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
 
 def dispense(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water free dispense'):
-    if (volume > 1000.0):
+    if (volume < 3.00) or (volume > 1000.0):
         raise Exception("Dispense volume > 1000 uL (asked for %.3f uL)" % volume)
     return 'D;%s;;%s;%d;;%f;%s;;%d\r\n' % (RackLabel, RackType, position, volume, LiquidClass, tipmask)
 
 def washtips():
     return 'W;\r\n' # queue wash tips
 
-assay_volume = 80.0 # assay volume (uL)
+assay_volume = 100.0 # assay volume (uL)
 buffer_volume = assay_volume
-assay_RackType = '4ti-0264' # black 384-well plate with clear bottom
+assay_RackType = '4ti-0203' # black 384-well plate with clear bottom
 
 volume_consumed = dict()
 volume_consumed['citric acid'] = 0.0
