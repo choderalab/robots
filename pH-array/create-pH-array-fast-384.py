@@ -87,7 +87,9 @@ class TransferQueue(object):
 
     def write(self):
         self._flush()
-        return self.worklist
+        worklist = self.worklist
+        self.worklist = ""
+        return worklist
 
 citric_acid_queue = TransferQueue('0.1M Citric Acid', 'Trough 100ml', 1, 1)
 sodium_phosphate_queue = TransferQueue('0.1M Sodium Phosphate', 'Trough 100ml', 2, 2)
@@ -101,7 +103,8 @@ for row_index in range(nrows):
     print "Row %d :" % row_index
     for (condition_index, condition) in enumerate(conditions):
         # destination well of assay plate
-        destination_position = nrows * condition_index + row_index + 1
+        col_index = condition_index
+        destination_position = nrows * col_index + row_index + 1
         if (destination_position > nrows*ncols):
             raise Exception("destination position out of range (%d)" % destination_position)
 
@@ -109,16 +112,18 @@ for row_index in range(nrows):
 
         # citric acid
         volume = condition['citric acid']*buffer_volume
-        volume_consumed['citric acid'] += 2*volume
+        volume_consumed['citric acid'] += volume
         citric_acid_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
 
         # sodium phosphate
         volume = condition['sodium phosphate']*buffer_volume
-        volume_consumed['sodium phosphate'] += 2*volume + 1
+        volume_consumed['sodium phosphate'] += volume
         sodium_phosphate_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
 
-    worklist += citric_acid_queue.write()
-    worklist += sodium_phosphate_queue.write()
+# Write to worklist.
+worklist += citric_acid_queue.write()
+worklist += "B;\r\n" # ensure all citric acid pipetting is performed before sodium phosphate pipetting begins
+worklist += sodium_phosphate_queue.write()
 
 # Write worklist.
 worklist_filename = 'ph-worklist-fast-384.gwl'
