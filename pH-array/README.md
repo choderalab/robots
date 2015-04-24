@@ -70,3 +70,19 @@ See `citric-phosphate-bindingassay.txt` for plate layout:
 6.2 33.90 66.10
 6.2 33.90 66.10
 ```
+
+## pH dependent compound fluorescence in 384-well plate
+
+* `create-pH-array-fast-384.py` - create a 384-well format plate where each column is a different pH (increasing pH from left to right)
+* `citric-phosphate-24.txt` - recipe for pH array at 24 pH values from 3.0 to 7.6
+* `ph-worklist-fast-384.gwl` - worklist for 384-well format experiment
+
+I've set up a new experiment format for just measuring the fluorescence of compounds in buffer at different pH.
+
+I've picked a 384-well format where each row is a different compound at a single concentration (or DMSO control), and each column is a different pH (from 3.0 to 7.6 going left to right).  This should allow us to quickly measure the pH-dependent emission spectra for up to 7 compounds at varying pH (and absorbance spectra if we use a UV-transparent 384-well plate).  The D300 can be used to dispense compounds, and either could be done manually or via automation.
+
+Assay volume is 100 uL, because smaller volumes would result in pipetting < 3 uL (which the LiHa2 doesn't support).
+
+We use the source 100 mL troughs in the same configuration as the pH-dependent binding assay, and the EVO script is called something like
+
+JDC_WIP_pH_Assay_384well
