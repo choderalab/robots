@@ -92,7 +92,8 @@ class TransferQueue(object):
 citric_acid_queue = TransferQueue('0.1M Citric Acid', 'Trough 100ml', 1, 1)
 sodium_phosphate_queue = TransferQueue('0.1M Sodium Phosphate', 'Trough 100ml', 2, 2)
 
-nrows = 16 # number of rows to generate
+nrows = 16 # number of rows in plate
+ncols = 24 # number of columns in plate
 
 # Build worklist.
 worklist = ""
@@ -100,8 +101,8 @@ for row_index in range(nrows):
     print "Row %d :" % row_index
     for (condition_index, condition) in enumerate(conditions):
         # destination well of assay plate
-        destination_position = 12 * condition_index + row_index + 1
-        if (destination_position > 384):
+        destination_position = nrows * condition_index + row_index + 1
+        if (destination_position > nrows*ncols):
             raise Exception("destination position out of range (%d)" % destination_position)
 
         print "  well %3d : pH : %8.1f" % (destination_position, condition['pH'])
