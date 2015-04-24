@@ -45,7 +45,7 @@ def dispense(RackLabel, RackType, position, volume, tipmask, LiquidClass='Water 
 def washtips():
     return 'W;\r\n' # queue wash tips
 
-assay_volume = 50.0 # assay volume (uL)
+assay_volume = 80.0 # assay volume (uL)
 buffer_volume = assay_volume
 assay_RackType = '4ti-0264' # black 384-well plate with clear bottom
 
@@ -110,13 +110,11 @@ for row_index in range(nrows):
         volume = condition['citric acid']*buffer_volume
         volume_consumed['citric acid'] += 2*volume
         citric_acid_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
-        citric_acid_queue.transfer('Assay Plate', assay_RackType, 96 - destination_position + 1, volume)
 
         # sodium phosphate
         volume = condition['sodium phosphate']*buffer_volume
         volume_consumed['sodium phosphate'] += 2*volume + 1
         sodium_phosphate_queue.transfer('Assay Plate', assay_RackType, destination_position, volume)
-        sodium_phosphate_queue.transfer('Assay Plate', assay_RackType, 96 - destination_position + 1, volume)
 
     worklist += citric_acid_queue.write()
     worklist += sodium_phosphate_queue.write()
