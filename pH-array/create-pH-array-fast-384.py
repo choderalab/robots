@@ -120,7 +120,7 @@ for row_index in range(nrows):
     worklist += sodium_phosphate_queue.write()
 
 # Write worklist.
-worklist_filename = 'ph-worklist.gwl'
+worklist_filename = 'ph-worklist-fast-384.gwl'
 outfile = open(worklist_filename, 'w')
 outfile.write(worklist)
 outfile.close()
