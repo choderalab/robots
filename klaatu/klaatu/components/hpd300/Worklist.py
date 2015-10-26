@@ -41,7 +41,7 @@ class D300Worklist(object):
     def __init__(self):
         fac = XMLFactory
 
-        template = objectify.parse('template.DATA.part')
+        template = objectify.parse('template.DATA.xml')
         self.all = fac.from_xml(template)
 
         # Get template XML factories for fluid, plate, cassette and fluid dispenses, etc.
@@ -95,3 +95,27 @@ result = wl.all(
 )
 
 print etree.tostring(result, pretty_print=True)
+
+from PIL import Image
+im = Image.open("Christmas-Tree.png")
+pix = im.load()
+for y in range(im.size[0]):
+    for x in range(im.size[1]):
+        r = pix[y,x][0]
+        g = pix[y,x][1]
+        a = pix[y,x][3]
+
+        c =  (255.0 - r) * a / 255.0 / 255.0
+        volume = 1.0;
+
+        vr = - c / (c - 1) * volume
+
+        print vr,
+
+#        print r * a / 255,
+
+        # Red actually removes green and blue
+        # Green removes red and blue
+
+
+    print ""

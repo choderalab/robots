@@ -6,12 +6,10 @@ Created on 27.09.2014
 from klaatu.util.xmlutil.XMLWalk import XMLWalker, XPathAnalyzer
 from lxml import etree, objectify
 
-
 class PlateRead(object):
     """
     classdocs
     """
-
 
     def __init__(self, part):
         """
